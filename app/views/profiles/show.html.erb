@@ -1,0 +1,10 @@
+<% title "My Profile" %>
+<p>Username: <%=h @user.username %></p>
+<p><%= link_to "Find Friends", users_path %></p>
+
+<h2>Your Friends</h2>
+<ul>
+  <% for user in @user.friends %>
+  <li><%= h user.username %></li>
+  <% end %>
+</ul>

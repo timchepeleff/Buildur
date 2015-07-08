@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   def index
     @products = Product.all
+    @user = User.last.repos_url
   end
 
   # GET /products/1

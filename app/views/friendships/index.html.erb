@@ -1,0 +1,30 @@
+Current user: <%= @user.email %>
+
+<% @users.each do |user| %>
+  <div class="user">
+    <p>
+      <strong><%=h user.email %></strong>
+      <%= link_to "Add Friend", user_friendships_path(:friend_id => user), method: :post %>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
+
+<h2>Friends</h2>
+<ul>
+  <% @user.friendships.each do |friendship| %>
+    <li>
+      <%= friendship.friend %>
+      <%= button_to "remove", user_friendship_path(id: friendship), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Find Friends", users_path %></p>
+
+<h2>Friended by Users</h2>
+<ul>
+  <%  @user.inverse_friends.each do |user| %>
+    <li><%=h user.email %></li>
+  <% end %>
+</ul>
