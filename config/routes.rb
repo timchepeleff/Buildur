@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   end
 
   resources :products
-  root 'products#index'
+
+  resources :profiles
+
+  root 'profiles#index'
 end

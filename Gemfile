@@ -11,7 +11,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv-rails'
-
+gem 'httparty'
 
 group :development, :test do
   gem 'pry-rails'
@@ -27,3 +27,10 @@ gem 'kaminari', '~> 0.16.1'
 gem 'devise'
 gem 'foundation-rails'
 gem 'rails_12factor', group: :production
+
+gem 'rspec-rails', group: [:development, :test]
+gem 'capybara', group: [:development, :test]
+gem 'launchy', group: [:development, :test]
+gem 'factory_girl', group: [:development, :test]
+gem 'valid_attribute', group: [:development, :test]
+gem 'shoulda-matchers', group: [:development, :test], require: false
