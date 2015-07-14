@@ -6,5 +6,11 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :username, :string
     add_column :users, :name, :string
     add_column :users, :repos_url, :string
+    add_column :users, :token, :string
+    add_column :users, :github_id, :string
+    change_column_null :users, :email, true
+
+    remove_index :users, name: :index_users_on_email
+    add_index "users", ["email"], name: "index_users_on_email", using: :btree
   end
 end

@@ -1,5 +1,7 @@
-Welcome to your Profile <%= @user.name >
-<% binding.pry %>
+<div class="large-6 columns index-links">
+  <%= link_to "Your Profile", profile_path(current_user)%>
+</div>
 
-<%= image_tag(@user.avatar_url) %>
-
+<div class="large-6 columns index-links">
+  <%= link_to "Find Friends", profile_path(@random_user)%>
+</div>

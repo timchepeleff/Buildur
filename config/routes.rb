@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     resources :friendships
   end
 
-  resources :products
-
   resources :profiles
 
   root 'profiles#index'

@@ -1,7 +1,17 @@
 // Foundation by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source
+$accent-lightorange: #EECAA1;
+$accent-dorange: #E1A594;
+$accent-blue: #A5B8C9;
+//colors
+$color_steel_gray_approx: #232333;
+$color_hunter_green_approx: #161616;
+$white: white;
 
+//fonts
+$font_0: Raleway;
+$font_1: sans-serif;
 //
 
 // Table of Contents
@@ -447,7 +457,7 @@ $include-html-global-classes: $include-html-classes;
 // We use these to control button border and hover styles.
 // $button-border-width: 0px;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+$button-bg-color: $white;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -458,7 +468,7 @@ $include-html-global-classes: $include-html-classes;
 // $alert-button-border-color: $alert-button-bg-hover;
 
 // We use this to set the default radius used throughout the core.
-// $button-radius: $global-radius;
+$button-radius: 5px;
 // $button-round: $global-rounded;
 
 // We use this to set default opacity and cursor for disabled buttons.
@@ -1364,11 +1374,11 @@ $include-html-global-classes: $include-html-classes;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: transparent;
+$topbar-bg: transparent;
 
 // Height and margin
-// $topbar-height: rem-calc(45);
+$topbar-height: rem-calc(80);
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
@@ -1376,18 +1386,18 @@ $include-html-global-classes: $include-html-classes;
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: $oil;
-// $topbar-dropdown-link-color: $white;
-// $topbar-dropdown-link-bg: $oil;
-// $topbar-dropdown-link-bg-hover: $oil;
+$topbar-dropdown-bg: transparent;
+$topbar-dropdown-link-color: $white;
+$topbar-dropdown-link-bg: transparent;
+// $topbar-dropdown-link-bg-hover: $white;
 // $topbar-dropdown-link-weight: $font-weight-normal;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: $white;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: $white;
-// $topbar-link-color-hover: $white;
+$topbar-link-color: $accent-blue;
+$topbar-link-color-hover: $accent-blue;
 // $topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;
 // $topbar-link-weight: $font-weight-normal;

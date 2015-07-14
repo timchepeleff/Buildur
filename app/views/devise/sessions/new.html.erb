@@ -1,8 +1,6 @@
-<div class="login-wrapper">
-  <div class='container'>
-    <div class='logo_holder'>
+
       <div class='logo_holder__rotate'>
-        <!-- <img src="img/T-C-logo.png" alt="logo" height="200" width="200"> -->
+        <%= image_tag 'tinde-logo.png', size:"800" %>
       </div>
       <div class='logo_holder__text'>
         <h2>Login To Get Started</h2>
@@ -21,20 +19,18 @@
         </div>
 
         <% if devise_mapping.rememberable? -%>
-        <div class="field">
+        <div class="remember-me-field">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
         <% end -%>
 
         <div class="actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit "Log in", class:"button" %>
         </div>
         <% end %>
 
         <%= render "devise/shared/links" %>
       </nav>
-    </div>
-  </div>
-</div>
+
 

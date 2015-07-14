@@ -1,10 +1,45 @@
-<% title "My Profile" %>
-<p>Username: <%=h @user.username %></p>
-<p><%= link_to "Find Friends", users_path %></p>
+<div class="large-12 columns user-portfolio-name">
+  <h1><%= @user.name %></h1>
+  <hr>
+</div>
 
-<h2>Your Friends</h2>
-<ul>
-  <% for user in @user.friends %>
-  <li><%= h user.username %></li>
-  <% end %>
-</ul>
+<div class="large-6 columns profile-pic">
+  <%= image_tag(@user.avatar_url) %>
+</div>
+
+<div class="large-6 columns">
+  <h1>Most Used Languages</h1>
+  <ul>
+    <% @top_languages.each do |language, n| %>
+    <ol><%= language %> <%= n %></ol>
+    <% end %>
+  </ul>
+</div>
+
+<div class="large-12 columns">
+        <% unless current_user == @user %>
+          <%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(:friend_id => @user, user_id: current_user), method: :post %>
+          <strong><%=h @user.name %></strong>
+        <div class="clear"></div>
+        <% end%>
+      </p>
+
+
+  <h2>Friends</h2>
+  <ul>
+    <% @user.friendships.each do |friendship| %>
+      <li>
+        <%= friendship.friend.name %>
+        <%= button_to "remove", user_friendship_path(id: friendship, user_id: current_user ), method: :delete, class:"button tiny radius" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <h2>Friended by Users</h2>
+  <ul>
+    <%  @user.inverse_friends.each do |user| %>
+      <ol><%=h user.name %></ol>
+    <% end %>
+  </ul>
+</div>
+

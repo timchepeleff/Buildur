@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-        binding.pry
         user.provider = auth.provider
         user.uid = auth.uid
         user.email = auth.info.email
@@ -20,6 +19,7 @@ class User < ActiveRecord::Base
         user.name = auth.info.name
         user.repos_url = auth.extra.raw_info.repos_url
         user.password = Devise.friendly_token[0,20]
+        user.token = auth.credentials.token
       end
   end
   has_many :friendships

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tims Breakable Toy</title>
+  <title>Tim's Breakable Toy</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -9,16 +9,41 @@
 <body>
 
   <% if current_user %>
-  <div class="row">
-    <div class="10-large columns">
-      <%= yield %>
+
+    <div class="row site-container">
+      <div class="12-large columns">
+        <nav class="top-bar" data-topbar>
+          <ul class="title-area">
+            <li class="name">
+                <%= link_to image_tag('tinde-logo.png', size:"300"), root_path %>
+            </li>
+          </ul>
+
+          <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li class="has-dropdown">
+                <a href="#">Right Button Dropdown</a>
+                <ul class="dropdown">
+                  <li><a href="#">First link in dropdown</a></li>
+                </ul>
+              </li>
+            </ul>
+
+          </section>
+        </nav>
+        <%= yield %>
+      </div>
     </div>
-  </div>
   <%else %>
-     <%= yield %>
+    <div class="login-wrapper">
+      <div class='container'>
+        <div class='logo_holder'>
+         <%= yield %>
+       </div>
+     </div>
+   </div>
   <%end%>
-
-
 </body>
 </html>
 
