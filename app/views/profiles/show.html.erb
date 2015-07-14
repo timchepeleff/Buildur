@@ -18,7 +18,7 @@
 
 <div class="large-12 columns">
         <% unless current_user == @user %>
-          <%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(:friend_id => @user, user_id: current_user), method: :post %>
+          <%= link_to image_tag("add-friend.png", size:"35"), profile_path(current_user) %>
           <strong><%=h @user.name %></strong>
         <div class="clear"></div>
         <% end%>

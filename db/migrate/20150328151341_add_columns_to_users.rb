@@ -12,5 +12,6 @@ class AddColumnsToUsers < ActiveRecord::Migration
 
     remove_index :users, name: :index_users_on_email
     add_index "users", ["email"], name: "index_users_on_email", using: :btree
+    add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 end
