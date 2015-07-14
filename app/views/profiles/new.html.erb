@@ -1,23 +1,18 @@
 <div class='profile-form panel'>
   <%= form_for @profile do |f| %>
     <div>
-      <%= f.label :skill %>
+      <%= f.label :skill, "Skills (separate by commas, limit of 3)" %>
       <%= f.text_field :skill %>
     </div>
 
     <div>
-      <%= f.label :techinterests %>
+      <%= f.label :techinterests, "Technical Interest" %>
       <%= f.text_field :techinterests %>
     </div>
 
     <div>
-      <%= f.label :job %>
+      <%= f.label :job, 'Job Title (if you are looking for a job put "Looking for Work)"' %>
       <%= f.text_field :job %>
-    </div>
-
-    <div>
-      <%= f.label :about %>
-      <%= f.text_field :about %>
     </div>
 
     <div>
@@ -50,11 +45,17 @@
       <%= f.url_field :website %>
     </div>
 
+    <% if current_user.email == "" %>
      <div>
       <%= f.label :email %>
       <%= f.email_field :email %>
     </div>
+    <% end %>
+    <div class="profile-field-about">
+      <%= f.label :about %>
+      <%= f.text_field :about %>
+    </div>
 
-    <%= f.submit 'Add Profile', class:"button radius" %>
+    <%= f.submit 'Create Profile', class:"button radius" %>
   <% end %>
 </div>

@@ -15,10 +15,8 @@ $font_1: sans-serif;
 
 body {
   font-family: $font_0, $font_1;
-  height: 100vh;
   background: $color_steel_gray_approx;
   background: radial-gradient(ellipse at center, $color_steel_gray_approx 0, $color_hunter_green_approx 100%);
-  overflow: hidden;
   color: white;
  a{
   color:white;
@@ -274,9 +272,7 @@ label:hover {
 }
 
 .name img {
-
     margin-left:20px;
-
 }
 
 .index-links {
@@ -288,4 +284,29 @@ label:hover {
     font-size: 3em;
     color: $accent-blue;
   }
+}
+
+.profile-form {
+  margin-top: 100px;
+}
+
+.profile-field-about {
+  input {
+    height: 150px;
+  }
+}
+
+.website-example-img {
+
+}
+
+.reveal-modal {
+  h4{
+    color: black;
+  }
+}
+
+.chart-container {
+  padding: 0;
+  margin: 0;
 }

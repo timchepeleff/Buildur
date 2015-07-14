@@ -8,21 +8,21 @@
 </div>
 
 <div class="large-6 columns">
-  <h1>Most Used Languages</h1>
-  <ul>
-    <% @top_languages.each do |language, n| %>
-    <ol><%= language %> <%= n %></ol>
-    <% end %>
-  </ul>
+
+ <h1>Experience Chart</h1>
+  <div class="chart-container">
+    <%= pie_chart @top_languages, library: { legend: { enabled: true }, exporting: { enabled: false },backgroundColor: "transparent", height: "400px", width: "300px", colors: ["#2c3e50", "#2980b9", "#e74c3c", "#c0392b"] }  %>
+  </div>
 </div>
 
-<div class="large-12 columns">
-        <% unless current_user == @user %>
-          <%= link_to image_tag("add-friend.png", size:"35"), profile_path(current_user) %>
-          <strong><%=h @user.name %></strong>
-        <div class="clear"></div>
-        <% end%>
-      </p>
+<div class="large-6 columns">
+
+<% unless current_user == @user %>
+    <%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: params[:id], user_id: params[:id]), method: :post %>
+    <strong><%=h @user.name %></strong>
+    <div class="clear"></div>
+  <% end%>
+  </p>
 
 
   <h2>Friends</h2>
@@ -41,5 +41,28 @@
       <ol><%=h user.name %></ol>
     <% end %>
   </ul>
+
+  </div>
+  <div class="large-6 columns">
+  <h1>Examples</h1>
+
+  <% if @profile.example_url2 != "" && @profile.example_url2_img != "" %>
+  <a href="#" data-reveal-id="firstModal" class="radius button">Website Example</a><br>
+  <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <h4>Click image to visit website</h4>
+    <%= link_to image_tag(@profile.example_url2_img+".png"), @profile.example_url2 %>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+  <% end %>
+
+  <% if @profile.example_url2 != "" && @profile.example_url2_img != "" %>
+  <a href="#" data-reveal-id="secondModal" class="radius button">Website Example</a>
+  <div id="secondModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <h4>Click image to visit website</h4>
+    <%= link_to image_tag(@profile.example_url1_img+".png"), @profile.example_url1 %>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+  <% end %>
 </div>
+
 

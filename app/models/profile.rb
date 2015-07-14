@@ -11,5 +11,5 @@ class Profile < ActiveRecord::Base
     admin? || owner?(object)
   end
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 end

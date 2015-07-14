@@ -49,7 +49,9 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:example_url1,
+      :example_url1_img,
       :example_url2,
+      :example_url2_img,
       :techinterests,
       :location,
       :skill,

@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
         user.token = auth.credentials.token
       end
   end
+
   has_many :friendships
   has_many :friends, through: :friendships
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
