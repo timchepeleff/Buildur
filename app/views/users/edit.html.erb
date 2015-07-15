@@ -1,5 +1,5 @@
 <div class='profile-form panel'>
-  <%= form_for @profile do |f| %>
+  <%= form_for @user do |f| %>
     <div>
       <%= f.label :skill, "Skills (separate by commas, limit of 3)" %>
       <%= f.text_field :skill %>
@@ -45,7 +45,7 @@
       <%= f.url_field :website %>
     </div>
 
-    <% if current_user.email == "" %>
+    <% if @user.email == "" || @user.email.nil? %>
      <div>
       <%= f.label :email %>
       <%= f.email_field :email %>

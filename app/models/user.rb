@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :friendships
+  has_many :friends, through: :friendships
+  has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :inverse_friends, through: :inverse_friendships, source: :user
+  has_many :projects, through: :project_users
+  has_many :project_users
+  has_one :profile
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   # Include default devise modules. Others available are:
@@ -23,11 +29,43 @@ class User < ActiveRecord::Base
       end
   end
 
-  has_many :friendships
-  has_many :friends, through: :friendships
-  has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
-  has_many :inverse_friends, through: :inverse_friendships, source: :user
-  has_many :projects, through: :project_users
-  has_many :project_users
-  has_one :profile
+  def admin?
+    role == "admin"
+  end
+
+  def owner?(object)
+    id == object.user_id
+  end
+
+  def admin_or_owner?(object)
+    admin? || owner?(object)
+  end
+
+  def profile_edited?
+    binding.pry
+    if email == "" || email.nil?
+      return false
+    elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil? || example_url2_img.nil? || techinterests.nil? ||
+       location.nil? || skill
+       return false
+     end
+     true
+  end
+
+  def top_languages
+    repos = HTTParty.get(repos_url + "?client_id=#{ENV["GITHUB_CLIENT_ID"]}&client_secret=#{ENV["GITHUB_CLIENT_SECRET"]}&per_page=100")
+    language_frequency(repos)
+  end
+
+
+  def language_frequency(repos)
+    frequencies = Hash.new(0)
+    repos.each do |hash|
+      if hash["language"]
+        frequencies[hash["language"]] += 1
+      end
+    end
+    frequencies
+  end
+
 end

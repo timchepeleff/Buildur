@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Tim's Breakable Toy</title>
-    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= javascript_include_tag "path/to/highcharts.js", "chartkick" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
@@ -21,9 +21,10 @@
             </ul>
             <section class="top-bar-section">
               <!-- Right Nav Section -->
-              <% if current_user.profile %>
+              <% if current_user %>
                 <ul class="right">
-                  <li><%= link_to image_tag(current_user.avatar_url, size:"60"), profile_path(current_user) %></li>
+                  <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+                  <li><%= link_to image_tag(current_user.avatar_url, size:"60"), user_path(current_user) %></li>
                 </ul>
               <%end%>
             </section>

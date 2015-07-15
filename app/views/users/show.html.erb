@@ -7,12 +7,10 @@
   <%= image_tag(@user.avatar_url) %>
 </div>
 
-<div class="large-6 columns">
+<div class="large-6 columns panel">
 
  <h1>Experience Chart</h1>
-  <div class="chart-container">
-    <%= pie_chart @top_languages, library: { legend: { enabled: true }, exporting: { enabled: false },backgroundColor: "transparent", height: "400px", width: "300px", colors: ["#2c3e50", "#2980b9", "#e74c3c", "#c0392b"] }  %>
-  </div>
+    <%= pie_chart @user.top_languages  %>
 </div>
 
 <div class="large-6 columns">
@@ -46,20 +44,20 @@
   <div class="large-6 columns">
   <h1>Examples</h1>
 
-  <% if @profile.example_url2 != "" && @profile.example_url2_img != "" %>
+  <% if @user.example_url2 != "" && @user.example_url2_img != "" %>
   <a href="#" data-reveal-id="firstModal" class="radius button">Website Example</a><br>
   <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
     <h4>Click image to visit website</h4>
-    <%= link_to image_tag(@profile.example_url2_img+".png"), @profile.example_url2 %>
+    <%= link_to image_tag(@user.example_url2_img+".png"), @user.example_url2 %>
     <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   </div>
   <% end %>
 
-  <% if @profile.example_url2 != "" && @profile.example_url2_img != "" %>
+  <% if @user.example_url2 != "" && @user.example_url2_img != "" %>
   <a href="#" data-reveal-id="secondModal" class="radius button">Website Example</a>
   <div id="secondModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
     <h4>Click image to visit website</h4>
-    <%= link_to image_tag(@profile.example_url1_img+".png"), @profile.example_url1 %>
+    <%= link_to image_tag(@user.example_url1_img+".png"), @user.example_url1 %>
     <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   </div>
   <% end %>
