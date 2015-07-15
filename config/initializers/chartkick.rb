@@ -1,7 +1,7 @@
 Chartkick.options = { library:
     { legend:
         { enabled: true },
-        colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+        colors: ["#1D6D93", "#E94E25", "#E9B325", "#7EBBD9", "#E0462A", "#FF8A6B", "#eeaaee",
       "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
        chart: {
       backgroundColor: "transparent",

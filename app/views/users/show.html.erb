@@ -6,12 +6,34 @@
 
 <div class="large-6 columns profile-pic">
   <%= image_tag(@user.avatar_url) %>
+  <p><%= @user.job if @user.job %>|<span class="spacer">|</span><%= @user.location if @user.location %></p>
 </div>
 
-<div class="large-6 columns ">
+<div class="large-6 columns exp-chart">
+  <h3>Experience</h3>
+ <%= pie_chart @user.top_languages  %>
 
- <h1>Experience Chart</h1>
-    <%= pie_chart @user.top_languages  %>
+</div>
+
+<div class="large-12 columns about panel">
+  <div class="large-6 columns">
+  <h3>About</h3>
+  <hr>
+  <% if @user.about %>
+    <p><%= @user.about %></p>
+  <% else %>
+    <p>-</p>
+  <% end %>
+  </div>
+  <div class="large-6 columns">
+  <h3>Technical Interests</h3>
+  <hr>
+  <% if @user.techinterests %>
+    <p><%= @user.techinterests %></p>
+  <% else %>
+    <p>-</p>
+  <% end %>
+  </div>
 </div>
 
 <div class="large-6 columns">
@@ -25,10 +47,10 @@
   <h2>Friends</h2>
   <ul>
     <% @user.friendships.each do |friendship| %>
-      <li>
-        <%= friendship.friend.name %>
+      <ol>
+        <%= link_to image_tag(friendship.friend.avatar_url, size: "40"), user_path(friendship.friend)  %>
         <%= button_to "remove", user_friendship_path(id: friendship, user_id: current_user ), method: :delete, class:"button tiny radius" %>
-      </li>
+      </ol>
     <% end %>
   </ul>
 
@@ -62,4 +84,5 @@
   <% end %>
 </div>
 </div>
+<hr>
 

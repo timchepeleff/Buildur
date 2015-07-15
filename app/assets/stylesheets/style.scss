@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 @import url(http://fonts.googleapis.com/css?family=Raleway:200);
 
-$accent-lorange: #EECAA1;
+$accent-orange: #FFC075;
 $accent-dorange: #E1A594;
 $accent-blue: #A5B8C9;
 //colors
@@ -74,7 +74,6 @@ body {
     color: $blue;
     opacity: 0.8;
     letter-spacing: 1px;
-    color: $accent-blue;
   }
   em{
     font-size: 15px;
@@ -321,3 +320,12 @@ label:hover {
 .spacer {
   padding-left: 5px;
 }
+
+.github-login {
+  a {
+    font-size: 20px !important;
+    opacity: 1.0 !important;
+  }
+}
+
+

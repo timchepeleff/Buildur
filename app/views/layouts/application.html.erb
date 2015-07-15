@@ -29,7 +29,8 @@
                     <%= text_field_tag(:query, nil, placeholder: "Search...")%>
                     <%= submit_tag("Search", :style => "display: none;", :id => "hiddensubmit") %></li>
                   <% end %>
-                  <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+                  <li><%= link_to image_tag("edit_user.png", size:"30"), edit_user_path(current_user) %></li>
+                  <li><%= link_to image_tag("sign_out.png", size:"30"), destroy_user_session_path, method: :delete %></li>
                   <li><%= link_to image_tag(current_user.avatar_url, size:"60"), user_path(current_user) %></li>
                 </ul>
               <%end%>
