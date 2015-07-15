@@ -29,6 +29,14 @@ class User < ActiveRecord::Base
       end
   end
 
+  def self.search(search)
+    if search
+      where(["skill @@ ?", search.downcase ])
+    else
+      all
+    end
+  end
+
   def admin?
     role == "admin"
   end
@@ -42,18 +50,17 @@ class User < ActiveRecord::Base
   end
 
   def profile_edited?
-    binding.pry
     if email == "" || email.nil?
       return false
     elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil? || example_url2_img.nil? || techinterests.nil? ||
-       location.nil? || skill
+       location.nil? || skill.nil?
        return false
      end
      true
   end
 
   def top_languages
-    repos = HTTParty.get(repos_url + "?client_id=#{ENV["GITHUB_CLIENT_ID"]}&client_secret=#{ENV["GITHUB_CLIENT_SECRET"]}&per_page=100")
+    repos = HTTParty.get(repos_url + "?client_id=#{ENV["GITHUB_CLIENT_ID"]}&client_secret=#{ENV["GITHUB_CLIENT_SECRET"]}&per_page=200")
     language_frequency(repos)
   end
 

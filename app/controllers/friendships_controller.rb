@@ -9,10 +9,10 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.find_or_create_by(friend_id: params[:friend_id], user_id: current_user.id )
     if @friendship.save!
       flash[:notice] = "Added friend."
-      redirect_to profile_path(params[:user_id])
+      redirect_to user_path(params[:user_id])
     else
       flash[:notice] = "Unable to add friend."
-      render profile_path(current_user)
+      render user_path(current_user)
     end
   end
 

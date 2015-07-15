@@ -4,13 +4,7 @@ Chartkick.options = { library:
         colors: ["#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
       "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
        chart: {
-      backgroundColor: {
-         linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
-         stops: [
-            [0, '#21212F'],
-            [1, '#1B1B21']
-         ]
-      },
+      backgroundColor: "transparent",
       style: {
          fontFamily: "'Unica One', sans-serif"
       },
@@ -18,14 +12,14 @@ Chartkick.options = { library:
    },
    title: {
       style: {
-         color: '#E0E0E3',
+         color: '#0088CC',
          textTransform: 'uppercase',
          fontSize: '20px'
       }
    },
    subtitle: {
       style: {
-         color: '#E0E0E3',
+         color: '#0088CC',
          textTransform: 'uppercase'
       }
    },
@@ -72,7 +66,7 @@ Chartkick.options = { library:
    plotOptions: {
       series: {
          dataLabels: {
-            color: '#B0B0B3'
+            color: '#0088CC'
          },
          marker: {
             lineColor: '#333'
@@ -106,7 +100,7 @@ Chartkick.options = { library:
    },
    labels: {
       style: {
-         color: '#707073'
+         color: '#0088CC'
       }
    },
 

@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   def index
-    binding.pry
     if current_user.profile_edited?
       @user_count = User.all.count
       @random_user = User.find(rand(@user_count)+1)
+      @user_search = User.search(params[:query])
+                           .order(name: :asc)
+                           .page(params[:page])
+                           .per(1)
     else
       redirect_to edit_user_path(current_user)
     end
@@ -42,6 +45,10 @@ class UsersController < ApplicationController
       flash[:notice] = "I'm sorry Dave, I can't do that."
     end
     redirect_to workspaces_path
+  end
+
+  def browse
+    @users = User.all
   end
 
 

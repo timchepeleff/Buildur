@@ -1,13 +1,14 @@
+<div class="show-container">
 <div class="large-12 columns user-portfolio-name">
-  <h1><%= @user.name %></h1>
-  <hr>
+  <h1><%= @user.name %><span class="spacer"></span><%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: params[:id], user_id: params[:id]), method: :post unless current_user == @user %></h1>
+
 </div>
 
 <div class="large-6 columns profile-pic">
   <%= image_tag(@user.avatar_url) %>
 </div>
 
-<div class="large-6 columns panel">
+<div class="large-6 columns ">
 
  <h1>Experience Chart</h1>
     <%= pie_chart @user.top_languages  %>
@@ -15,11 +16,9 @@
 
 <div class="large-6 columns">
 
-<% unless current_user == @user %>
-    <%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: params[:id], user_id: params[:id]), method: :post %>
-    <strong><%=h @user.name %></strong>
+
     <div class="clear"></div>
-  <% end%>
+
   </p>
 
 
@@ -40,11 +39,11 @@
     <% end %>
   </ul>
 
-  </div>
+</div>
   <div class="large-6 columns">
   <h1>Examples</h1>
 
-  <% if @user.example_url2 != "" && @user.example_url2_img != "" %>
+  <% if @user.example_url2 != nil && @user.example_url2_img != nil %>
   <a href="#" data-reveal-id="firstModal" class="radius button">Website Example</a><br>
   <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
     <h4>Click image to visit website</h4>
@@ -53,7 +52,7 @@
   </div>
   <% end %>
 
-  <% if @user.example_url2 != "" && @user.example_url2_img != "" %>
+  <% if @user.example_url2 != nil && @user.example_url2_img != nil  %>
   <a href="#" data-reveal-id="secondModal" class="radius button">Website Example</a>
   <div id="secondModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
     <h4>Click image to visit website</h4>
@@ -62,5 +61,5 @@
   </div>
   <% end %>
 </div>
-
+</div>
 

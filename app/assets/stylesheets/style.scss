@@ -7,7 +7,7 @@ $accent-blue: #A5B8C9;
 //colors
 $color_steel_gray_approx: #232333;
 $color_hunter_green_approx: #161616;
-$white: white;
+$blue: #0088CC;
 
 //fonts
 $font_0: Raleway;
@@ -15,22 +15,22 @@ $font_1: sans-serif;
 
 body {
   font-family: $font_0, $font_1;
-  background: $color_steel_gray_approx;
-  background: radial-gradient(ellipse at center, $color_steel_gray_approx 0, $color_hunter_green_approx 100%);
-  color: white;
+  background: #FAFAFA;
+  // background: radial-gradient(ellipse at center, $color_steel_gray_approx 0, $color_hunter_green_approx 100%);
+  color: $blue;
  a{
-  color:white;
+  color:$blue;
   font-family: $font_0;
  }
 
  h1, h2, h3, h4, h5, h6{
-  color:white;
+  color:$blue;
   opacity: 0.8;
   font-family: $font_0;
  }
 
  p{
-  color:white;
+  color:$blue;
   opacity: 0.8;
   font-family: $font_0;
  }
@@ -46,7 +46,7 @@ body {
   h2 {
     font-size: 35px;
     font-weight: 300;
-    color: $white;
+    color: $blue;
     margin-bottom: 30px;
     opacity: 0.7;
     letter-spacing: 1px;
@@ -55,7 +55,7 @@ body {
   h3 {
     font-size: 30px;
     font-weight: 300;
-    color: $white;
+    color: $blue;
     opacity: 0.7;
     letter-spacing: 1px;
     padding: 0;
@@ -64,15 +64,14 @@ body {
   label {
     font-size: 30px;
     font-weight: 300;
-    color: $white;
+    color: $blue;
     opacity: 0.9;
     letter-spacing: 1px;
-    color: $accent-blue;
   }
   a{
     font-size: 15px;
     font-weight: 300;
-    color: $white;
+    color: $blue;
     opacity: 0.8;
     letter-spacing: 1px;
     color: $accent-blue;
@@ -80,7 +79,7 @@ body {
   em{
     font-size: 15px;
     font-weight: 300;
-    color: $white;
+    color: $blue;
     opacity: 0.8;
     letter-spacing: 1px;
   }
@@ -92,7 +91,7 @@ body {
     opacity: 0;
     margin-top: 60px;
     a {
-      color: $white;
+      color: $blue;
       text-decoration: none;
       font-weight: 300;
       margin: 5px;
@@ -239,7 +238,14 @@ label:hover {
 
 .user-portfolio-name {
   text-align: center;
-  text-decoration: underline;
+  background-color: #F3F3F3;
+  margin-top: 20px;
+  margin-bottom: 35px;
+
+  img {
+    float: left;
+    padding-top: 10px;
+  }
 }
 
 .remember-me-field {
@@ -311,10 +317,6 @@ label:hover {
   margin: 0;
 }
 
-#chart-1{
-  color:blue;
-  background-color: blue;
-  rect {
-    color:blue;
-  }
+.spacer {
+  padding-left: 5px;
 }

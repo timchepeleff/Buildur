@@ -1,8 +1,8 @@
 <div class='profile-form panel'>
   <%= form_for @user do |f| %>
     <div>
-      <%= f.label :skill, "Skills (separate by commas, limit of 3)" %>
-      <%= f.text_field :skill %>
+      <%= f.label :skill, "Skills (separate by spaces, limit of 3)" %>
+      <%= f.text_field :skill, value: @user.top_languages.keys %>
     </div>
 
     <div>
@@ -56,6 +56,6 @@
       <%= f.text_field :about %>
     </div>
 
-    <%= f.submit 'Create Profile', class:"button radius" %>
+    <%= f.submit 'Update Profile', class:"button radius" %>
   <% end %>
 </div>

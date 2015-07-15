@@ -1,7 +1,14 @@
-<div class="large-6 columns index-links">
-  <%= link_to "Your Profile", user_path(current_user)%>
-</div>
 
-<div class="large-6 columns index-links">
-  <%= link_to "Find Friends", user_path(@random_user)%>
+<div class="show users">
+    <% @user_search.each do |user| %>
+
+    <% unless user == current_user %>
+      <ol>
+      <h1><%= link_to user.name, user_path(user) %></h1>
+          <%= image_tag(user.avatar_url) %>
+
+      </ol>
+      <% end %>
+
+  <% end %>
 </div>
