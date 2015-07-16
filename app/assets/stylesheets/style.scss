@@ -372,6 +372,7 @@ label:hover {
 
 .site-container {
   margin-bottom: 50px;
+
 }
 
 #avatar-footer-left {
@@ -391,5 +392,39 @@ label:hover {
     margin-right: 350px;
     padding-top: 8px;
   }
+}
+
+.side-nav {
+  background-color: $color_steel_gray_approx;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 5em;
+  font-family: 'Raleway', sans-serif;
+  padding-top: 300px;
+
+
+  li {
+
+  }
+
+  .active {
+
+    background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    right bottom,
+    color-stop(0.02, $accent-blue),
+    color-stop(0.02, $accent-orange)
+    ) !important;
+    background-image: -o-linear-gradient(right, $accent-blue 2%, $accent-orange 2%) !important;
+    background-image: -moz-linear-gradient(right, $accent-blue 2%, $accent-orange 2%) !important;
+    background-image: -webkit-linear-gradient(right, $accent-blue 2%, $accent-orange 2%) !important;
+    background-image: -ms-linear-gradient(right, $accent-blue 2%, $accent-orange 2%) !important;
+    background-image: linear-gradient(to right, $accent-blue 2%, $accent-orange 2%) !important;
+    color: $accent-orange !important;
+  }
+
 }
 
