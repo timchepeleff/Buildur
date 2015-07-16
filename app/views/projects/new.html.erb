@@ -1,0 +1,19 @@
+<%= form_for @project do |f| %>
+    <div>
+      <%= f.label :skills_needed, "Skills Needed (separate by spaces, limit of 3)" %>
+      <%= f.text_area :skills_needed, placeholder: current_user.top_languages.keys %>
+    </div>
+
+    <div>
+      <%= f.label :name, "Project Idea" %>
+      <%= f.text_area :name %>
+    </div>
+
+    <div>
+      <%= f.label :description, 'Describe your Project idea here.' %>
+      <%= f.text_area :description %>
+    </div>
+
+    <%= f.submit 'Create Idea', class:"button radius" %>
+  <% end %>
+</div>

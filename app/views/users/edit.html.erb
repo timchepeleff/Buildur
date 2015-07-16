@@ -1,25 +1,24 @@
-
 <div class='profile-form panel'>
 <h1>Your Profile<h1>
   <%= form_for @user do |f| %>
     <div>
       <%= f.label :skill, "Skills (separate by spaces, limit of 3)" %>
-      <%= f.text_field :skill, value: @user.top_languages.keys %>
+      <%= f.text_area :skill, value: @user.top_languages.keys %>
     </div>
 
     <div>
       <%= f.label :techinterests, "Technical Interest" %>
-      <%= f.text_field :techinterests %>
+      <%= f.text_area :techinterests %>
     </div>
 
     <div>
       <%= f.label :job, 'Job Title (if you are looking for a job put "Looking for Work)"' %>
-      <%= f.text_field :job %>
+      <%= f.text_area :job %>
     </div>
 
     <div>
       <%= f.label :location %>
-      <%= f.text_field :location %>
+      <%= f.text_area :location %>
     </div>
 
     <div>
@@ -55,7 +54,7 @@
     <% end %>
     <div class="profile-field-about">
       <%= f.label :about %>
-      <%= f.text_field :about %>
+      <%= f.text_area :about %>
     </div>
 
     <%= f.submit 'Update Profile', class:"button radius" %>

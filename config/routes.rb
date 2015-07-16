@@ -5,5 +5,11 @@ Rails.application.routes.draw do
     resources :friendships
   end
 
-  root 'users#index'
+  resources :projects do
+    resources :project_users
+  end
+
+  post "project/:id/add" => "projects#add", as: :project_add
+
+  root "users#index"
 end

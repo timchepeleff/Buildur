@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     if current_user.profile_edited?
       @user_count = User.all.count
       @random_user = User.find(rand(@user_count)+1)
+      @projects = Project.all
       @user_search = User.search(params[:query])
                            .order(name: :asc)
                            .page(params[:page])
@@ -32,11 +33,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = current_user
-    @profile = Profile.new
-  end
-
   def destroy
     @workspace = Workspace.find(params[:id])
     if @workspace.destroy
@@ -46,11 +42,6 @@ class UsersController < ApplicationController
     end
     redirect_to workspaces_path
   end
-
-  def browse
-    @users = User.all
-  end
-
 
   private
 

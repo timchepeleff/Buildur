@@ -25,15 +25,6 @@ ActiveRecord::Schema.define(version: 20150714145010) do
 
   add_index "friendships", ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true, using: :btree
 
-  create_table "ideas", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.string   "skills_needed"
-    t.integer  "n_of_users"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.string   "example_url1"
     t.string   "example_url1_img"
@@ -51,11 +42,20 @@ ActiveRecord::Schema.define(version: 20150714145010) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "projects_users", force: :cascade do |t|
+  create_table "project_users", force: :cascade do |t|
     t.integer  "project_id", null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "skills_needed"
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
