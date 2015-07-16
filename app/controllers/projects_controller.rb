@@ -32,6 +32,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def add
+    binding.pry
+     @project = Project.find(params[:id])
+
+     flash[:notice] = 'Event was saved.'
+   end
+
   private
 
   def project_params

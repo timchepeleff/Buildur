@@ -23,7 +23,7 @@
   <% end %>
   </div>
 </div>
-
+<%= link_to "Join Project", project_add_path(@project), method: :post %>
 
 <%= link_to image_tag(@project.user.avatar_url, size:"60"), edit_project_path(@project) %>
 <%= link_to "Edit Project", edit_project_path(@project) if @project.user == current_user %>

@@ -25,6 +25,7 @@
               <% if current_user %>
                 <ul class="right">
                   <li>
+
                   <%= form_tag(users_path, method:"get") do %>
                     <%= text_field_tag(:query, nil, placeholder: "Search...")%>
                     <%= submit_tag("Search", :style => "display: none;", :id => "hiddensubmit") %></li>
