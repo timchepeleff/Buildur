@@ -24,7 +24,12 @@
   </div>
 </div>
 <%= link_to "Join Project", project_add_path(@project), method: :post %>
-
+<% if @project.project_users %>
+  <h1>Members</h1>
+  <% @project.project_users.each do |project_user| %>
+    <%= link_to image_tag(project_user.user.avatar_url), user_path(project_user.user) %>
+  <% end %>
+  <% end -%>
 <%= link_to image_tag(@project.user.avatar_url, size:"60"), edit_project_path(@project) %>
 <%= link_to "Edit Project", edit_project_path(@project) if @project.user == current_user %>
 </div>

@@ -33,8 +33,14 @@ class ProjectsController < ApplicationController
   end
 
   def add
-    binding.pry
-     @project = Project.find(params[:id])
+    @project = Project.find(params[:id])
+    @project.project_users.build(user: current_user, project: @project)
+     if @project.save
+      redirect_to @project
+     else
+      render 'show'
+     end
+
 
      flash[:notice] = 'Event was saved.'
    end
