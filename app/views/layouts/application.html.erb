@@ -29,18 +29,30 @@
                     <%= text_field_tag(:query, nil, placeholder: "Search...")%>
                     <%= submit_tag("Search", :style => "display: none;", :id => "hiddensubmit") %></li>
                   <% end %>
-                  <li><%= link_to image_tag("edit_user.png", size:"30"), edit_user_path(current_user) %></li>
-                  <li><%= link_to image_tag("sign_out.png", size:"30"), destroy_user_session_path, method: :delete %></li>
-                  <li><%= link_to image_tag(current_user.avatar_url, size:"60"), user_path(current_user) %></li>
                 </ul>
               <%end%>
             </section>
           </nav>
 
           <%= yield %>
-
         </div>
       </div>
+
+      <footer>
+        <div id="footer">
+          <% if current_user %>
+                <div class="6-small small-offset-2 columns">
+                  <ul>
+                  <li id="avatar-footer-left"><%= link_to image_tag(current_user.avatar_url, size:"50"), user_path(current_user) %></li>
+                  <li id="avatar-footer-left-edit"><%= link_to image_tag("edit_user.png", size:"37"), edit_user_path(current_user) %></li>
+                  <li id="avatar-footer-right"><%= link_to image_tag("sign_out.png", size:"37"), destroy_user_session_path, method: :delete %></li>
+                </ul>
+                </div>
+
+
+              <%end%>
+        </div>
+      </footer>
     <%else %>
       <div class="login-wrapper">
         <div class='container'>

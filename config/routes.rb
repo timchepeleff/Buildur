@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :friendships
   end
 
+  resources :projects
+
   root 'users#index'
 end

@@ -1,4 +1,3 @@
-
 <div class='profile-form panel'>
 <h1>Your Profile<h1>
   <%= form_for @user do |f| %>
@@ -55,7 +54,7 @@
     <% end %>
     <div class="profile-field-about">
       <%= f.label :about %>
-      <%= f.text_field :about %>
+      <%= f.text_area :about %>
     </div>
 
     <%= f.submit 'Update Profile', class:"button radius" %>
