@@ -1,89 +1,89 @@
 <div class="show-container">
-<div class="large-12 columns user-portfolio-name">
-  <h1><%= @user.name %><span class="spacer"></span><%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: params[:id], user_id: params[:id]), method: :post unless current_user == @user %></h1>
+  <div class="large-12 columns user-portfolio-name">
+    <h1><%= @user.name %><span class="spacer"></span><%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: params[:id], user_id: params[:id]), method: :post unless current_user == @user %></h1>
 
-</div>
+  </div>
 
-<div class="large-6 columns profile-pic">
-  <%= image_tag(@user.avatar_url) %>
-  <p><%= @user.job if @user.job %>|<span class="spacer">|</span><%= @user.location if @user.location %></p>
-</div>
+  <div class="large-6 columns profile-pic">
+    <%= image_tag(@user.avatar_url) %>
+    <p><%= @user.job if @user.job %>|<span class="spacer">|</span><%= @user.location if @user.location %></p>
+  </div>
 
-<div class="large-6 columns exp-chart">
-  <h3>Experience</h3>
- <%= pie_chart @user.top_languages  %>
+  <div class="large-6 columns exp-chart">
+    <h3>Experience</h3>
+    <%= pie_chart @user.top_languages  %>
 
-</div>
+  </div>
 
-<div class="large-12 columns about panel">
+  <div class="large-12 columns about panel">
+    <div class="large-6 columns">
+      <h3>About</h3>
+      <hr>
+      <% if @user.about %>
+        <p><%= @user.about %></p>
+      <% else %>
+        <p>-</p>
+      <% end %>
+    </div>
+    <div class="large-6 columns">
+      <h3>Technical Interests</h3>
+      <hr>
+      <% if @user.techinterests %>
+        <p><%= @user.techinterests %></p>
+      <% else %>
+        <p>-</p>
+      <% end %>
+
+      <h3>Website Examples</h3>
+      </hr>
+      <% if @user.example_url2 != nil && @user.example_url2_img != nil %>
+        <a href="#" data-reveal-id="firstModal" class="radius button">Website Example</a><br>
+        <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+          <h4>Click image to visit website</h4>
+          <%= link_to image_tag(@user.example_url2_img+".png"), @user.example_url2 %>
+          <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+        </div>
+      <% end %>
+
+      <% if @user.example_url2 != nil && @user.example_url2_img != nil  %>
+        <a href="#" data-reveal-id="secondModal" class="radius button">Website Example</a>
+        <div id="secondModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+          <h4>Click image to visit website</h4>
+          <%= link_to image_tag(@user.example_url1_img+".png"), @user.example_url1 %>
+          <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="large-6 columns">
-  <h3>About</h3>
-  <hr>
-  <% if @user.about %>
-    <p><%= @user.about %></p>
-  <% else %>
-    <p>-</p>
-  <% end %>
-  </div>
-  <div class="large-6 columns">
-  <h3>Technical Interests</h3>
-  <hr>
-  <% if @user.techinterests %>
-    <p><%= @user.techinterests %></p>
-  <% else %>
-    <p>-</p>
-  <% end %>
-
-    <h3>Website Examples</h3>
-    </hr>
-   <% if @user.example_url2 != nil && @user.example_url2_img != nil %>
-  <a href="#" data-reveal-id="firstModal" class="radius button">Website Example</a><br>
-  <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-    <h4>Click image to visit website</h4>
-    <%= link_to image_tag(@user.example_url2_img+".png"), @user.example_url2 %>
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  </div>
-  <% end %>
-
-  <% if @user.example_url2 != nil && @user.example_url2_img != nil  %>
-  <a href="#" data-reveal-id="secondModal" class="radius button">Website Example</a>
-  <div id="secondModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-    <h4>Click image to visit website</h4>
-    <%= link_to image_tag(@user.example_url1_img+".png"), @user.example_url1 %>
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  </div>
-  <% end %>
-  </div>
-</div>
-
-<div class="large-6 columns">
 
 
     <div class="clear"></div>
 
-  </p>
+    </p>
 
 
-  <h2>Friends</h2>
-  <ul>
-    <% @user.friendships.each do |friendship| %>
-      <ol>
-        <%= link_to image_tag(friendship.friend.avatar_url, size: "40"), user_path(friendship.friend)  %>
-        <%= button_to "remove", user_friendship_path(id: friendship, user_id: current_user ), method: :delete, class:"button tiny radius" %>
-      </ol>
-    <% end %>
-  </ul>
+    <h2>Friends</h2>
+    <ul>
+      <% @user.friendships.each do |friendship| %>
+        <ol>
+          <%= link_to image_tag(friendship.friend.avatar_url, size: "40"), user_path(friendship.friend)  %>
+          <%= button_to "remove", user_friendship_path(id: friendship, user_id: current_user ), method: :delete, class:"button tiny radius" %>
+        </ol>
+      <% end %>
+    </ul>
 
-  <h2>Friended by Users</h2>
-  <ul>
-    <%  @user.inverse_friends.each do |user| %>
-      <ol><%=h user.name %></ol>
-    <% end %>
-  </ul>
+    <h2>Friended by Users</h2>
+    <ul>
+      <%  @user.inverse_friends.each do |user| %>
+        <ol><%=h user.name %></ol>
+      <% end %>
+    </ul>
 
-</div>
+  </div>
   <div class="large-6 columns">
-  <h1>Examples</h1>
+    <h1>Examples</h1>
 
   </div>
 </div>

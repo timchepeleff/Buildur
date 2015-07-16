@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :project_users
   end
 
-  post 'project/:id/add' => 'projects#add', as: :project_add
+  post "project/:id/add" => "projects#add", as: :project_add
 
-  root 'users#index'
+  root "users#index"
 end

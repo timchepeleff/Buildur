@@ -1,35 +1,35 @@
 <div class="show-container">
-<div class="large-12 columns project-header">
-  <h1><%= @project.name %></h1>
-</div>
+  <div class="large-12 columns project-header">
+    <h1><%= @project.name %></h1>
+  </div>
 
-<div class="large-12 columns about panel">
-  <div class="large-6 columns">
-  <h3>Skills Needed</h3>
-  <hr>
-  <% if @project.skills_needed %>
-    <p><%= @project.skills_needed %></p>
-  <% else %>
-    <p>-</p>
-  <% end %>
+  <div class="large-12 columns about panel">
+    <div class="large-6 columns">
+      <h3>Skills Needed</h3>
+      <hr>
+      <% if @project.skills_needed %>
+        <p><%= @project.skills_needed %></p>
+      <% else %>
+        <p>-</p>
+      <% end %>
+    </div>
+    <div class="large-6 columns">
+      <h3>Description</h3>
+      <hr>
+      <% if @project.description %>
+        <p><%= @project.description %></p>
+      <% else %>
+        <p>-</p>
+      <% end %>
+    </div>
   </div>
-  <div class="large-6 columns">
-  <h3>Description</h3>
-  <hr>
-  <% if @project.description %>
-    <p><%= @project.description %></p>
-  <% else %>
-    <p>-</p>
-  <% end %>
-  </div>
-</div>
-<%= link_to "Join Project", project_add_path(@project), method: :post %>
-<% if @project.project_users %>
-  <h1>Members</h1>
-  <% @project.project_users.each do |project_user| %>
-    <%= link_to image_tag(project_user.user.avatar_url), user_path(project_user.user) %>
-  <% end %>
+  <%= link_to "Join Project", project_add_path(@project), method: :post %>
+  <% if @project.project_users %>
+    <h1>Members</h1>
+    <% @project.project_users.each do |project_user| %>
+      <%= link_to image_tag(project_user.user.avatar_url), user_path(project_user.user) %>
+    <% end %>
   <% end -%>
-<%= link_to image_tag(@project.user.avatar_url, size:"60"), edit_project_path(@project) %>
-<%= link_to "Edit Project", edit_project_path(@project) if @project.user == current_user %>
+  <%= link_to image_tag(@project.user.avatar_url, size:"60"), edit_project_path(@project) %>
+  <%= link_to "Edit Project", edit_project_path(@project) if @project.user == current_user %>
 </div>

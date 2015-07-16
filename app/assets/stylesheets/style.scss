@@ -18,22 +18,22 @@ body {
   background: #FAFAFA;
   // background: radial-gradient(ellipse at center, $color_steel_gray_approx 0, $color_hunter_green_approx 100%);
   color: $blue;
- a{
-  color:$blue;
-  font-family: $font_0;
- }
+  a{
+    color:$blue;
+    font-family: $font_0;
+  }
 
- h1, h2, h3, h4, h5, h6{
-  color:$blue;
-  opacity: 0.8;
-  font-family: $font_0;
- }
+  h1, h2, h3, h4, h5, h6{
+    color:$blue;
+    opacity: 0.8;
+    font-family: $font_0;
+  }
 
- p{
-  color:$blue;
-  opacity: 0.8;
-  font-family: $font_0;
- }
+  p{
+    color:$blue;
+    opacity: 0.8;
+    font-family: $font_0;
+  }
 }
 
 .login-wrapper {
@@ -249,11 +249,11 @@ label:hover {
 }
 
 .project-header {
-  text-align: center;
   background-color: #F3F3F3;
-  margin-top: 20px;
-  margin-bottom: 35px;
   border-radius: 5px;
+  margin-bottom: 35px;
+  margin-top: 20px;
+  text-align: center;
 
   h1 {
     padding-right: 15px;
@@ -265,8 +265,8 @@ label:hover {
 
   p {
     float: left;
-    padding-top: 20px;
     font-size: 20px;
+    padding-top: 20px;
   }
 }
 
@@ -285,22 +285,22 @@ label:hover {
 }
 
 @media only screen and (max-width: 40em) {
-    .title-area {
+  .title-area {
 
-    }
-    .name {
+  }
+  .name {
 
-    }
+  }
 
-    .name img {
-            height:35px;
-            margin-top:5px;
-            margin-left:5px;
-    }
+  .name img {
+    height:35px;
+    margin-top:5px;
+    margin-left:5px;
+  }
 }
 
 .name img {
-    margin-left:20px;
+  margin-left:20px;
 }
 
 .index-links {
@@ -351,17 +351,18 @@ label:hover {
 }
 
 #footer {
-position: fixed;
-background-color: #F3F3F3;
-bottom: 0;
-margin-top: 40px;
-width: 100%;
-border-top: 1px solid #D8D8D8;
-height: 50px; /* choose any height */
+  position: fixed;
+  background-color: #F3F3F3;
+  bottom: 0;
+  margin-top: 40px;
+  width: 100%;
+  border-top: 1px solid #D8D8D8;
+  height: 50px; /* choose any height */
+
   li {
-    list-style: none;
     display: inline;
-    padding: 0 27px 0 27px;
+    list-style: none;
+    padding: 0 27px;
   }
 
   a:hover {
@@ -374,21 +375,21 @@ height: 50px; /* choose any height */
 }
 
 #avatar-footer-left {
-    a {
-      float: left;
-    }
+  a {
+    float: left;
+  }
 }
 #avatar-footer-left-edit {
-    a {
-      float: left;
-      padding: 8px 27px 0 27px;
-    }
+  a {
+    float: left;
+    padding: 8px 27px 0;
+  }
 }
 #avatar-footer-right {
-    a {
-      float: right;
-      padding-top: 8px;
-      margin-right: 350px;
-    }
+  a {
+    float: right;
+    margin-right: 350px;
+    padding-top: 8px;
+  }
 }
 

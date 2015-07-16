@@ -35,15 +35,13 @@ class ProjectsController < ApplicationController
   def add
     @project = Project.find(params[:id])
     @project.project_users.build(user: current_user, project: @project)
-     if @project.save
+
+    if @project.save
       redirect_to @project
-     else
+    else
       render 'show'
-     end
-
-
-     flash[:notice] = 'Event was saved.'
-   end
+    end
+  end
 
   private
 
