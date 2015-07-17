@@ -8,6 +8,13 @@
                    { include_blank: false },
                    { class: 'chosen-select' }
     %>
+
+    <%= f.label :preference, "What are you looking for?" %>
+    <%= f.select :preference,
+      Preference.all.map { |p| [p.name, p.id] },
+                   { include_blank: false },
+                   { class: 'chosen-select' }
+    %>
     <div>
       <%= f.label :techinterests, "Technical Interest" %>
       <%= f.text_area :techinterests %>

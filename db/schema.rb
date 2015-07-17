@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717021328) do
+ActiveRecord::Schema.define(version: 20150717023315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20150717021328) do
   end
 
   add_index "friendships", ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true, using: :btree
+
+  create_table "preferences", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "example_url1"
@@ -52,12 +59,14 @@ ActiveRecord::Schema.define(version: 20150717021328) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "skill_id"
+    t.integer  "preference_id"
   end
 
+  add_index "projects", ["preference_id"], name: "index_projects_on_preference_id", using: :btree
   add_index "projects", ["skill_id"], name: "index_projects_on_skill_id", using: :btree
 
   create_table "skills", force: :cascade do |t|
@@ -98,9 +107,11 @@ ActiveRecord::Schema.define(version: 20150717021328) do
     t.string   "job"
     t.string   "about"
     t.integer  "skill_id"
+    t.integer  "preference_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["preference_id"], name: "index_users_on_preference_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["skill_id"], name: "index_users_on_skill_id", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree

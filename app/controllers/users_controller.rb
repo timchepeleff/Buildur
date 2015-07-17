@@ -21,7 +21,8 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(user_params)
     @user.skill = Skill.find(params["user"]["skill"])
-
+    @user.preference = Preference.find(params["user"]["preference"])
+    binding.pry
     if @user.save
       redirect_to user_path(current_user)
     else
