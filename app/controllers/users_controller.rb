@@ -20,7 +20,8 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-
+    @user.skill = Skill.find(params["user"]["skill"])
+    @user.preference = Preference.find(params["user"]["preference"])
     if @user.save
       redirect_to user_path(current_user)
     else
@@ -52,7 +53,6 @@ class UsersController < ApplicationController
       :example_url2_img,
       :techinterests,
       :location,
-      :skill,
       :email,
       :website,
       :job,
