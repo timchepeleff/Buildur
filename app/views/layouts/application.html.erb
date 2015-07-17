@@ -38,30 +38,15 @@
 
 
         <ul class="side-nav">
-          <li class="side-link"><%= link_to image_tag(current_user.avatar_url, size:"50"), user_path(current_user) %></li>
-          <li class="side-link"><%= link_to image_tag("edit_user.png", size:"37"), edit_user_path(current_user) %></li>
-          <li class="side-link"><%= link_to image_tag("sign_out.png", size:"37"), destroy_user_session_path, method: :delete %></li>
+          <li class="side-link"><%= link_to image_tag(current_user.avatar_url, size:"70"), user_path(current_user) %></li>
+          <li class="side-link"><%= link_to image_tag("edit_user.png", size:"45"), edit_user_path(current_user) %></li>
+          <li class="side-link"><%= link_to image_tag("sign_out.png", size:"45"), destroy_user_session_path, method: :delete %></li>
         </ul>
 
           <%= yield %>
         </div>
       </div>
 
-      <footer>
-        <div id="footer">
-          <% if current_user %>
-            <div class="6-small small-offset-2 columns">
-              <ul>
-                <li id="avatar-footer-left"><%= link_to image_tag(current_user.avatar_url, size:"50"), user_path(current_user) %></li>
-                <li id="avatar-footer-left-edit"><%= link_to image_tag("edit_user.png", size:"37"), edit_user_path(current_user) %></li>
-                <li id="avatar-footer-right"><%= link_to image_tag("sign_out.png", size:"37"), destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </div>
-
-
-          <%end%>
-        </div>
-      </footer>
     <%else %>
       <div class="login-wrapper">
         <div class='container'>

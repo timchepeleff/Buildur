@@ -1,11 +1,13 @@
 <div class='profile-form panel'>
 <h1>Your Profile<h1>
   <%= form_for @user do |f| %>
-    <div>
-      <%= f.label :skill, "Skills (separate by spaces, limit of 3)" %>
-      <%= f.text_area :skill, value: @user.top_languages.keys %>
-    </div>
 
+    <%= f.label :skill, "Skills (separate by spaces, limit of 3)" %>
+    <%= f.select :skill,
+      Skill.all.map { |s| [s.name, s.id] },
+                   { include_blank: false },
+                   { multiple: true, class: 'chosen-select' }
+    %>
     <div>
       <%= f.label :techinterests, "Technical Interest" %>
       <%= f.text_area :techinterests %>

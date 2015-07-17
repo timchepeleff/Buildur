@@ -43,6 +43,8 @@ class ProjectsController < ApplicationController
     end
   end
 
+
+
   private
 
   def project_params

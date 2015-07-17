@@ -15,7 +15,18 @@
 //= require foundation
 //= require highcharts.js
 //= require chartkick
+//= require chosen-jquery
+//= require chosen-prototype
 //= require_tree .
 
 
 $(function(){ $(document).foundation(); });
+
+$(function() {
+  return $('.chosen-select').chosen({
+    max_selected_options: 5,
+    allow_single_deselect: true,
+    no_results_text: 'No results matched',
+    width: '100%'
+  });
+});

@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
+    binding.pry
 
     if @user.save
       redirect_to user_path(current_user)
@@ -52,11 +53,11 @@ class UsersController < ApplicationController
       :example_url2_img,
       :techinterests,
       :location,
-      :skill,
       :email,
       :website,
       :job,
-      :about)
+      :about,
+      :skill => [])
   end
 end
 
