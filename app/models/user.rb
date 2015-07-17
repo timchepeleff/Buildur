@@ -39,18 +39,18 @@ class User < ActiveRecord::Base
       where(["name @@ ?", search.downcase ]).order(name: :asc)
     else
       matched = where("skill_id = ? AND id != ?", current_user.preference.id, current_user.id)
-      actual_matches = []
+      rejects = []
       if current_user.rejects
-        matched.each do |match|
-            if current_user.rejects.include?(match)
-              actual_matches << match
-            end
+        current_user.rejects.each do |reject|
+              reject_id = reject.reject_id
+              u = User.find(reject_id)
+            rejects << u
         end
       else
         return matched
       end
     end
-    actual_matches
+    matched - rejects
   end
 
   def user_preferences
