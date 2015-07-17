@@ -130,6 +130,8 @@ skills =[".NET",
 
 skills.each do |skill|
   Skill.find_or_create_by(name: skill)
+  Preferences.find_or_create_by(name: skill)
 end
+
 
 puts "Skills Seeded"
