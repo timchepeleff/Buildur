@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
   def index
     if current_user.profile_edited?
-      @user_count = User.all.count
-      @random_user = User.find(rand(@user_count)+1)
       @projects = Project.all
-      @user_search = User.search(params[:query])
+      @user_search = User.search(params[:query], current_user)
                            .order(name: :asc)
                            .page(params[:page])
-                           .per(1)
+                           .per(10)
+
     else
       redirect_to edit_user_path(current_user)
     end
