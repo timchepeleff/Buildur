@@ -2,11 +2,11 @@
 <h1>Your Profile<h1>
   <%= form_for @user do |f| %>
 
-    <%= f.label :skill, "Skills (separate by spaces, limit of 3)" %>
+    <%= f.label :skill, "Highlighted Skill" %>
     <%= f.select :skill,
       Skill.all.map { |s| [s.name, s.id] },
                    { include_blank: false },
-                   { multiple: true, class: 'chosen-select' }
+                   { class: 'chosen-select' }
     %>
     <div>
       <%= f.label :techinterests, "Technical Interest" %>

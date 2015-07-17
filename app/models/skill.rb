@@ -1,4 +1,4 @@
 class Skill < ActiveRecord::Base
-  belongs_to :project
-  belongs_to :user
+  has_many :projects
+  has_many :users
 end

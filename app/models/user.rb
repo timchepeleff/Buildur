@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   has_many :projects, through: :project_users
   has_many :project_users
+  belongs_to :skill
   has_one :profile
 
   validates :skill, presence: true

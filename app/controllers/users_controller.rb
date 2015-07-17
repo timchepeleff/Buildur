@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    binding.pry
+    @user.skill = Skill.find(params["user"]["skill"])
 
     if @user.save
       redirect_to user_path(current_user)
@@ -56,8 +56,7 @@ class UsersController < ApplicationController
       :email,
       :website,
       :job,
-      :about,
-      :skill => [])
+      :about)
   end
 end
 
