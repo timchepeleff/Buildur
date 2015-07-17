@@ -133,5 +133,4 @@ skills.each do |skill|
   Preference.find_or_create_by(name: skill)
 end
 
-
 puts "Skills Seeded"
