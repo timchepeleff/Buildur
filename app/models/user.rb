@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   belongs_to :preference
   belongs_to :skill
   has_one :profile
+  has_many :rejects
 
   validates :skill, presence: true
 
@@ -38,12 +39,20 @@ class User < ActiveRecord::Base
       where(["name @@ ?", search.downcase ])
     else
       matched = where("skill_id = ? AND id != ?", current_user.preference.id, current_user.id)
-    #   matched.each do |match|
-    #     if current_user.rejects.includes(match)
-    #       matched.delete(match)
-    #     end
-    #   matched
+      actual_matches = []
+      if current_user.rejects
+        matched.each do |match|
+          current_user.rejects.each do |reject|
+            unless reject.reject_id == match.id
+              actual_matches << match
+            end
+          end
+        end
+      else
+        return matched
+      end
     end
+    actual_matches
   end
 
   def user_preferences

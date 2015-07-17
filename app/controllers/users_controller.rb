@@ -3,10 +3,6 @@ class UsersController < ApplicationController
     if current_user.profile_edited?
       @projects = Project.all
       @user_search = User.search(params[:query], current_user)
-                           .order(name: :asc)
-                           .page(params[:page])
-                           .per(10)
-
     else
       redirect_to edit_user_path(current_user)
     end
