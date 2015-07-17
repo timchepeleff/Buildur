@@ -67,17 +67,25 @@
     <h2>Friends</h2>
     <ul>
       <% @user.friendships.each do |friendship| %>
+        <%  @user.inverse_friends.each do |user| %>
         <ol>
+        <% if user.name == friendship.friend.name %>
           <%= link_to image_tag(friendship.friend.avatar_url, size: "40"), user_path(friendship.friend)  %>
           <%= button_to "remove", user_friendship_path(id: friendship, user_id: current_user ), method: :delete, class:"button tiny radius" %>
+        <% end %>
         </ol>
+        <% end %>
       <% end %>
     </ul>
 
-    <h2>Friended by Users</h2>
+    <h2>Friend Requests</h2>
     <ul>
-      <%  @user.inverse_friends.each do |user| %>
-        <ol><%=h user.name %></ol>
+      <% @user.inverse_friends.each do |user| %>
+        <% @user.friendships.each do |friendship| %>
+          <% unless user.name == friendship.friend.name %>
+            <ol><%= link_to user.name, user_friendships_path(friend_id: user, user_id: params[:id]), method: :post %></ol>
+          <% end %>
+        <% end %>
       <% end %>
     </ul>
 
