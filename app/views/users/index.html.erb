@@ -1,14 +1,15 @@
 <div class="show users">
-  <% @user_search.each do |user| %>
-
-    <% unless user == current_user %>
-      <ol>
-        <h1><%= link_to user.name, user_path(user) %></h1>
-        <%= image_tag(user.avatar_url) %>
-
-      </ol>
+  <% if @user_search %>
+    <% @user_search.each do |user| %>
+      <% unless user == current_user %>
+        <ol>
+          <h1><%= link_to user.name, user_path(user) %></h1>
+          <%= image_tag(user.avatar_url) %>
+          <%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: user, user_id: request.path), method: :post  %>
+          <%= link_to "Block", rejects_path(reject_id: user, user_id: request.path), method: :post  %>
+        </ol>
+      <% end %>
     <% end %>
-
   <% end %>
 </div>
 

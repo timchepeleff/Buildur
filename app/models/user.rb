@@ -36,17 +36,15 @@ class User < ActiveRecord::Base
 
   def self.search(search, current_user)
     if search
-      where(["name @@ ?", search.downcase ])
+      where(["name @@ ?", search.downcase ]).order(name: :asc)
     else
       matched = where("skill_id = ? AND id != ?", current_user.preference.id, current_user.id)
       actual_matches = []
       if current_user.rejects
         matched.each do |match|
-          current_user.rejects.each do |reject|
-            unless reject.reject_id == match.id
+            if current_user.rejects.include?(match)
               actual_matches << match
             end
-          end
         end
       else
         return matched
@@ -69,6 +67,14 @@ class User < ActiveRecord::Base
 
   def admin_or_owner?(object)
     admin? || owner?(object)
+  end
+
+  def mutual_friends
+    friends = []
+    friendships.each do |user|
+      friends << user.friend if inverse_friends.include?(user.friend)
+    end
+    friends
   end
 
   def profile_edited?

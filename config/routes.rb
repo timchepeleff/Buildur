@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
   post "project/:id/add" => "projects#add", as: :project_add
 
+  resources :rejects
+
   root "users#index"
 end
