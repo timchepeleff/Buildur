@@ -1,10 +1,13 @@
 <li id="<%= user.id %>">
-    <div class="img"><%= image_tag user.avatar_url, height: '800', width: '800' %></div>
+    <div class="img"><%= image_tag user.avatar_url, height: '370', width: '370' %></div>
     <div class="u-name pull-left">
       <%= link_to user_path(user) do %><b><%= user.name %></b>, <%= user.email %></a><% end %>
     </div>
     <div class="u-location text-right"><i class="fa fa-map-marker"></i> </div>
-    <div class="like"></div>
-    <div class="dislike"></div>
-    <%= link_to " hey", user_friendships_path(friend_id: user, user_id: request.path), method: :post, :remote => true %>
+    <div class="like">
+      <%= link_to "", user_friendships_path(friend_id: user, user_id: request.path), id: "like#{user.id}", method: :post, :remote => true%>
+    </div>
+    <div class="dislike">
+      <%= link_to "", rejects_path(reject_id: user, user_id: request.path), id: "dislike#{user.id}", method: :post, :remote => true%>
+    </div>
 </li>

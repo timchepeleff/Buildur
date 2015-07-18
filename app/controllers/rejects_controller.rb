@@ -1,6 +1,5 @@
 class RejectsController < ApplicationController
   def create
-    binding.pry
     @reject = Reject.create(reject_id: params[:reject_id],
                             user_id: current_user.id)
     if @reject.save

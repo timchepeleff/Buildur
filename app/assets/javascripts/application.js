@@ -40,4 +40,42 @@ $(function() {
 });
 
 
+$('.like').click(function(e){
+  e.preventDefault();
+  debugger
+  var form = $(this).parent();
+  var countspan = form.parent().parent().prev().prev().children("div").children("span");
+  var count = countspan.html();
+  count++;
+  countspan.text(count);
 
+  $.ajax({
+    type: 'POST',
+    url: form.attr('action'),
+    data: form.serialize(),
+    success: function() {
+      form.next().hide();
+      form.hide();
+    }
+  });
+});
+
+$('.dislike').click(function(e){
+  e.preventDefault();
+  debugger
+  var form = $(this).parent();
+  var countspan = form.parent().parent().prev().prev().children("div").children("span");
+  var count = countspan.html();
+  count--;
+  countspan.text(count);
+
+  $.ajax({
+    type: 'POST',
+    url: form.attr('action'),
+    data: form.serialize(),
+    success: function() {
+      form.prev().hide();
+      form.hide();
+    }
+  });
+});
