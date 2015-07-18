@@ -36,9 +36,11 @@ class User < ActiveRecord::Base
 
   def self.search(search, current_user)
     if search
-      where(["name @@ ?", search.downcase ]).order(name: :asc)
+      where(["name @@ ?", search.downcase]).order(name: :asc)
     else
-      matched = where("skill_id = ? AND id != ?", current_user.preference.id, current_user.id)
+      matched = where("skill_id = ? AND id != ?",
+                      current_user.preference.id,
+                      current_user.id)
       rejects = []
       if current_user.rejects
         current_user.rejects.each do |reject|
@@ -105,19 +107,13 @@ class User < ActiveRecord::Base
 
   def user_model
   end
-
-
-
 end
-
-
-
-
 # task plays_from_cache: :environment do
 #     videos = Video.viewed_recently
 #     update_values = Hash.new
 #     videos.each do |vid|
-#       update_values[vid.video_uuid] = Rails.cache.read("#{vid.video_uuid}") || 0
+#       update_values[vid.video_uuid] = Rails.cache.read("#{vid.video_uuid}")
+#       || 0
 #       Rails.cache.delete("#{vid.video_uuid}")
 #     end
 #     if update_values.length > 0

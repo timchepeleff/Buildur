@@ -1,6 +1,7 @@
 class RejectsController < ApplicationController
   def create
-    @reject = Reject.create(reject_id: params[:reject_id], user_id: current_user.id)
+    @reject = Reject.create(reject_id: params[:reject_id],
+                            user_id: current_user.id)
     if @reject.save
       flash[:notice] = "Rejected User."
       redirect_to params[:user_id]
