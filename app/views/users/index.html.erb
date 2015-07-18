@@ -13,18 +13,19 @@
                     <%= render @user_search %>
                 </ul>
             </div>
+            <div class="actions">
+              <a href="#" class="dislike"><i class="fa fa-times"></i></a>
+              <a href="#" class="like"><i class="fa fa-heart"></i></a>
+            </div>
             <!-- end jtinder container -->
         </div>
         <!-- end padding container -->
        </div>
     </div>
 
-        <!-- jTinder trigger by buttons  -->
-        <div class="actions">
-            <a href="#" class="dislike"><i class="fa fa-times"></i></a>
-            <a href="#" class="like"><i class="fa fa-heart"></i></a>
-        </div>
 
+
+        <!-- jTinder trigger by buttons  -->
     <!-- END JTINDER -->
 
 </div>
@@ -39,7 +40,9 @@
 </div>
 
 
-
+<script type="text/javascript">
+  $("#tinderslide > ul li").tsort({attr: "id"});
+</script>
 
 
 

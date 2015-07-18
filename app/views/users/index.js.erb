@@ -1,4 +1,4 @@
-$( "#tinderslide ul" ).append('<%= escape_javascript(render(:partial => @users, :collection => @users)) %>');
+$( "#tinderslide ul" ).append('<%= escape_javascript(render(:partial => @users_match, :collection => @users_match)) %>');
 $("#tinderslide > ul li").tsort({attr:"id"});
 $("#tinderslide").jTinder();
 

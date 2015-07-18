@@ -1,5 +1,6 @@
 class RejectsController < ApplicationController
   def create
+    binding.pry
     @reject = Reject.create(reject_id: params[:reject_id],
                             user_id: current_user.id)
     if @reject.save
@@ -8,6 +9,10 @@ class RejectsController < ApplicationController
     else
       flash[:notice] = "Unable to reject user."
       redirect_to params[:user_id]
+    end
+
+    respond_to do |format|
+      format.js
     end
   end
 

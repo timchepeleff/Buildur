@@ -6,6 +6,7 @@ class FriendshipsController < ApplicationController
   end
 
   def create
+    binding.pry
     @friendship = Friendship.create(friend_id: params[:friend_id], user_id: current_user.id)
     if @friendship.save!
       flash[:notice] = "Added friend."
@@ -13,6 +14,10 @@ class FriendshipsController < ApplicationController
     else
       flash[:notice] = "Unable to add friend."
       render user_path(current_user)
+    end
+
+    respond_to do |format|
+      format.js
     end
   end
 

@@ -64,14 +64,34 @@
 			panes.eq(current_pane).hide().remove();
 			current_pane = index;
 
-			//My code //
-
 			$(".spinner").show();
+			
 		    var li_count = $( "#tinderslide > ul > li" ).length;
 			//Custom -> Add more elements if reaching the end!
-		    if ( li_count == 5 ) {
+		    if( li_count < 2 ) {
+        	    	
+		    		if( li_count == 0 ) {
 
-						var last_id = $( "#tinderslide > ul > li" ).first().attr("id");
+		    			    // make an ajax call passing along our last user id
+					        $.ajax({
+					            // make a get request to the server
+					            type: "GET",
+					            // get the url from the href attribute of our link
+					            url: "/users",
+					            // the response will be a script
+					            dataType: "script",
+					 
+					            // upon success 
+					            success: function (e) {
+					            	$(".spinner").hide(); // Do something on success!
+					            }
+
+					        });
+		    		
+		    		} else {
+
+        	    	var last_id = $( "#tinderslide > ul > li" ).first().attr("id"); //panes.eq(current_pane).attr("id");
+						
 							// make an ajax call passing along our last user id
 					        $.ajax({
 					 
@@ -88,31 +108,12 @@
 					 
 					            // upon success 
 					            success: function (e) {
-					            	$(".spinner").hide();
+					            	$(".spinner").hide(); // Do somethig on success!
 					            }
 
 					        });
-
-		    		
-		    } else if (li_count == 0) {
-
-
-					        $.ajax({
-					            // make a get request to the server
-					            type: "GET",
-					            // get the url from the href attribute of our link
-					            url: "/users",
-					            // the response will be a script
-					            dataType: "script",
-					 
-					            // upon success 
-					            success: function (e) {
-					            	$(".spinner").hide();
-					            }
-
-					        });
-
-			} // End if li_count
+					}
+      		} 	
 
 		},
 
@@ -240,6 +241,7 @@
 	};
 
 })(jQuery, window, document);
+
 
 
 
