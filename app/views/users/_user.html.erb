@@ -1,0 +1,19 @@
+<div id="tinderslide">
+<% @user_search.each do |u| %>
+<ul>
+<li id="<%= u.id %>">
+    <div class="img"><%= image_tag(u.avatar_url, height: '370', width: '370' )%></div>
+    <div class="u-name pull-left">
+      <%= link_to user_path(u) do %><b><%= u.name %></b>, <%= u.email %></a><% end %>
+    </div>
+    <div class="u-location text-right"><i class="fa fa-map-marker"></i> </div>
+    <div class="like"></div>
+    <div class="dislike"></div>
+    <%= link_to "", user_friendships_path(friend_id: u, user_id: request.path), method: :post, :remote => true %>
+</li>
+</ul>
+<% end %>
+
+</div>
+
+

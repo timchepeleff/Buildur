@@ -6,6 +6,7 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'turbolinks'
 
 gem 'devise'
 gem 'omniauth'
@@ -30,3 +31,25 @@ gem 'rails_12factor', group: :production
 gem "chartkick"
 gem "coveralls"
 gem "chosen-rails"
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+
+
+gem 'font-awesome-sass'
+
+gem 'autoprefixer-rails'
+
+gem 'bootstrap-sass'
+
+gem 'paperclip'
+
+gem 'aws-sdk', '< 2.0'
+
+gem 'simple_form'
+
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+
+gem "cancan"
+
+gem "figaro"
+
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

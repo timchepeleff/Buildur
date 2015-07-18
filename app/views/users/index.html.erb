@@ -1,3 +1,8 @@
+
+<%= render 'user', locals: { user: @user_search} %>
+
+
+
 <div class="show users">
   <% @user_search.each do |user| %>
       <ol>
@@ -10,3 +15,14 @@
 </div>
 
 
+<div id="tinderslide">
+    <ul>
+    <% @user_search.each do |user| %>
+      <li class="pane" style="background: url(<%= image_path user.avatar_url %>) no-repeat scroll center center; background-size: cover;"><div class="img"></div><div>Miami Beach</div><div class="like"></div><div class="dislike"></div></li>
+        <h1><%= link_to user.name, user_path(user) %></h1>
+       <!--  <%= image_tag(user.avatar_url) %>
+        <%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: user, user_id: request.path), method: :post  %>
+        <%= link_to "Block", rejects_path(reject_id: user, user_id: request.path), method: :post  %> -->
+    <% end %>
+    </ul>
+</div>

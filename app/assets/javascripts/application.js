@@ -15,10 +15,17 @@
 //= require foundation
 //= require highcharts.js
 //= require chartkick
-//= require chosen-jquery
-//= require chosen-prototype
+//= require bootstrap-sprockets
+//= require jquery.jTinder
+//= require jquery.transform2d
+//= require tinysort
+//= require jquery.tinysort
+//= require jquery.easing.min
+//= require supersized.3.2.7
+//= require jasny-bootstrap
+//= require sweetalert.min
+//= require data-confirm-modal
 //= require_tree .
-
 
 $(function(){ $(document).foundation(); });
 
@@ -30,3 +37,6 @@ $(function() {
     width: '100%'
   });
 });
+
+
+
