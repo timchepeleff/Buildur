@@ -1,29 +1,12 @@
-<div class="add-project">
-  <% if current_user.projects %>
-    <% @projects.each do |project| %>
-      <div class="large-6 columns panel">
-        <%= link_to project.name, project_path(project) %>
-        <%= project.description %>
-
-        <% if current_user.projects.include?(project) %>
-          <%= link_to "Edit Project", edit_project_path(project) %>
-        <% end %>
-      </div>
-    <% end %>
-  <% else %>
-    <%= link_to "Create Project", new_project_path %>
-  <% end %>
-</div>
 <div class="show users">
   <% @user_search.each do |user| %>
-
-    <% unless user == current_user %>
       <ol>
         <h1><%= link_to user.name, user_path(user) %></h1>
         <%= image_tag(user.avatar_url) %>
-
+        <%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: user, user_id: request.path), method: :post  %>
+        <%= link_to "Block", rejects_path(reject_id: user, user_id: request.path), method: :post  %>
       </ol>
-    <% end %>
-
   <% end %>
 </div>
+
+

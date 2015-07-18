@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   belongs_to :preference
   belongs_to :skill
   has_one :profile
+  has_many :rejects
 
   validates :skill, presence: true
 
@@ -33,12 +34,29 @@ class User < ActiveRecord::Base
       end
   end
 
-  def self.search(search)
+  def self.search(search, current_user)
     if search
-      where(["skill @@ ?", search.downcase ])
+      where(["name @@ ?", search.downcase]).order(name: :asc)
     else
-      all
+      matched = where("skill_id = ? AND id != ?",
+                      current_user.preference.id,
+                      current_user.id)
+      rejects = []
+      if current_user.rejects
+        current_user.rejects.each do |reject|
+              reject_id = reject.reject_id
+              u = User.find(reject_id)
+            rejects << u
+        end
+      else
+        return matched
+      end
     end
+    matched - rejects
+  end
+
+  def user_preferences
+    current_user.preferences
   end
 
   def admin?
@@ -51,6 +69,14 @@ class User < ActiveRecord::Base
 
   def admin_or_owner?(object)
     admin? || owner?(object)
+  end
+
+  def mutual_friends
+    friends = []
+    friendships.each do |user|
+      friends << user.friend if inverse_friends.include?(user.friend)
+    end
+    friends
   end
 
   def profile_edited?
@@ -79,4 +105,26 @@ class User < ActiveRecord::Base
     frequencies
   end
 
+  def user_model
+  end
 end
+# task plays_from_cache: :environment do
+#     videos = Video.viewed_recently
+#     update_values = Hash.new
+#     videos.each do |vid|
+#       update_values[vid.video_uuid] = Rails.cache.read("#{vid.video_uuid}")
+#       || 0
+#       Rails.cache.delete("#{vid.video_uuid}")
+#     end
+#     if update_values.length > 0
+#       sql = "UPDATE videos SET play_count = CASE video_uuid "
+#       update_values.each do |video_uuid, count|
+#           vid = Video.find_by(video_uuid: video_uuid)
+#           if vid
+#             sql += "WHEN '#{video_uuid}' THEN #{vid.play_count.to_i + count} "
+#           end
+#       end
+#       sql += "END"
+#       ActiveRecord::Base.connection.execute(sql)
+#     end
+# end

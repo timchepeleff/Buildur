@@ -1,15 +1,15 @@
-require 'rails_helper'
+require "rails_helper"
 
 # Specs in this file have access to a helper object that includes
-# the IdeasHelper. For example:
+# the RejectsHelper. For example:
 #
-# describe IdeasHelper do
+# describe RejectsHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe IdeasHelper, type: :helper do
+RSpec.describe RejectsHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

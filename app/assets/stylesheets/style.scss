@@ -13,6 +13,8 @@ $blue: #0088CC;
 $font_0: Raleway;
 $font_1: sans-serif;
 
+
+
 body {
   font-family: $font_0, $font_1;
   background: #FAFAFA;
@@ -241,6 +243,7 @@ label:hover {
   margin-top: 20px;
   margin-bottom: 35px;
   border-radius: 5px;
+  border: 1px solid #D8D8D8;
 
   img {
     float: left;
@@ -372,7 +375,6 @@ label:hover {
 
 .site-container {
   margin-bottom: 50px;
-
 }
 
 #avatar-footer-left {

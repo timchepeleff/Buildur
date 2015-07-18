@@ -1,6 +1,6 @@
 <div class="show-container">
   <div class="large-12 columns user-portfolio-name">
-    <h1><%= @user.name %><span class="spacer"></span><%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: params[:id], user_id: params[:id]), method: :post unless current_user == @user %></h1>
+    <h1><%= @user.name %><span class="spacer"></span><%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: params[:id], user_id: request.path), method: :post unless current_user == @user %></h1>
 
   </div>
 
@@ -65,34 +65,29 @@
 
 
     <h2>Friends</h2>
+    <% @user.mutual_friends.each do |friendship| %>
+        <%= link_to image_tag(friendship.avatar_url, size: "40"), user_path(friendship)  %>
+          <!-- <%= button_to "remove", user_friendship_path(id: friendship, user_id: current_user ), method: :delete, class:"button tiny radius" %> -->
+    <% end -%>
+
     <ul>
-      <% @user.friendships.each do |friendship| %>
-        <%  @user.inverse_friends.each do |user| %>
-        <ol>
-        <% if user.name == friendship.friend.name %>
-          <%= link_to image_tag(friendship.friend.avatar_url, size: "40"), user_path(friendship.friend)  %>
-          <%= button_to "remove", user_friendship_path(id: friendship, user_id: current_user ), method: :delete, class:"button tiny radius" %>
-        <% end %>
-        </ol>
-        <% end %>
+    <h2>Friend Requests</h2>
+      <% @user.inverse_friends.each do |user| %>
+          <% unless @user.mutual_friends.include?(user) %>
+            <ol><%= link_to user.name, user_friendships_path(friend_id: user, user_id: params[:id]), method: :post %></ol>
+          <% end %>
       <% end %>
     </ul>
 
-    <h2>Friend Requests</h2>
-    <ul>
-      <% @user.inverse_friends.each do |user| %>
-        <% @user.friendships.each do |friendship| %>
-          <% unless user.name == friendship.friend.name %>
-            <ol><%= link_to user.name, user_friendships_path(friend_id: user, user_id: params[:id]), method: :post %></ol>
-          <% end %>
-        <% end %>
-      <% end %>
-    </ul>
 
   </div>
   <div class="large-6 columns">
-    <h1>Examples</h1>
-
+  <% if current_user %>
+    <h2>Rejected users</h2>
+      <% @user.rejects.each do |reject| %>
+        <%= link_to image_tag(User.find(reject.reject_id).avatar_url, size: "40"), user_path(reject.reject_id)  %>
+      <% end -%>
+  <% end %>
   </div>
 </div>
 <hr>
