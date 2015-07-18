@@ -42,10 +42,10 @@
           <li class="side-link"><%= link_to image_tag("sign_out.png", size:"45"), destroy_user_session_path, method: :delete %></li>
         </ul>
 
-          <%= yield %>
+
         </div>
       </div>
-
+ <%= yield %>
     <%else %>
       <div class="login-wrapper">
         <div class='container'>
@@ -55,6 +55,7 @@
         </div>
       </div>
     <%end%>
+
     <script type="text/javascript">
 
   // Hide Spinner
