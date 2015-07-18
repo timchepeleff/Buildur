@@ -1,11 +1,9 @@
 <div class="container large-10 columns">
     <br>
-
+    <% if @user_search.count > 0 %>
     <div class="row">
        <div class="text-center">
-
         <div class="wrap">
-
             <div id="tinderslide">
                 <ul>
                     <%= render @user_search %>
@@ -13,13 +11,21 @@
             </div>
             <div class="actions">
               <a href="#" class="dislike"><i class="fa fa-times"></i></a>
-              <a href="#" class="like"><i class="fa fa-heart"></i></a>
+              <a href="#" class="like" style="float: right;"><i class="fa fa-heart"></i></a>
             </div>
-
         </div>
-
        </div>
     </div>
+    <script type="text/javascript">
+  $("#tinderslide > ul li").tsort({attr: "id"});
+</script>
+    <% else %>
+    <div class="unfortunate-situation">
+      <h1>No Matches Found.</h1>
+      <h3>Update your preferences or checkback later.</h3>
+    </div>
+    <% end %>
+
 </div>
 
 
@@ -30,12 +36,5 @@
   <div class="rect4"></div>
   <div class="rect5"></div>
 </div>
-
-
-<script type="text/javascript">
-  $("#tinderslide > ul li").tsort({attr: "id"});
-</script>
-
-
 
 

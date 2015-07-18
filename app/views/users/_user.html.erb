@@ -2,10 +2,12 @@
     <div class="large-6 columns left-tinder-box">
       <%= image_tag user.avatar_url%>
       <div class="u-name pull-left">
-        <%= link_to user_path(user) do %><b><%= user.name %></b>, <%= user.email %></a><% end %>
+        <%= link_to user_path(user) do %><h1><%= user.name %></h1><%= user.email %></a><% end %>
       </div>
     </div>
-    <div class="u-location text-right"><i class="fa fa-map-marker"></i> </div>
+    <div class="large-6 columns u-about">
+     <h1>About</h1><p><%= user.about %></p>
+    </div>
     <div class="like">
       <%= link_to "", user_friendships_path(friend_id: user, user_id: request.path), id: "like#{user.id}", method: :post, :remote => true%>
     </div>

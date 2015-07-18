@@ -477,8 +477,6 @@ label:hover {
     to   { opacity: 1; }
 }
 
-//SPINNER Jtinder Plugin
-
 .center_spinner {
    width: 100px;
    height: 60px;
@@ -500,7 +498,7 @@ label:hover {
   height: 100%;
   width: 6px;
   display: inline-block;
-  background-color: #fc735d;
+  background-color: $accent-orange;
   -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
   animation: stretchdelay 1.2s infinite ease-in-out;
 }
@@ -620,7 +618,7 @@ label:hover {
 
 #tinderslide {
   width: 1000px;
-  height: 600px;
+  height: 550px;
   margin: auto;
   background-color: #FAFAFA;
 
@@ -679,7 +677,38 @@ label:hover {
   align: center;
 }
 
-left-tinder-box {
+.left-tinder-box {
   padding-left: 0;
+  img {
+    width: 410px;
+    height: 410px;
+  }
+  h1{
+    overflow: auto;
+    min-width: 410px;
+    max-width: 410px;
+  }
 }
 
+.u-name {
+  background-color: #fafafa;
+  height: 140px;
+}
+
+.u-about{
+  h1 {
+    text-align: center;
+  }
+
+  p{
+    text-align: left;
+  }
+}
+
+.unfortunate-situation {
+  padding-top: 40%;
+  padding-left: 20%;
+  h3 {
+  color: #A7A7A7;
+  }
+}

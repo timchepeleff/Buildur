@@ -150,13 +150,11 @@
 							xStart = ev.originalEvent.touches[0].pageX;
 							yStart = ev.originalEvent.touches[0].pageY;
 						}
-
 						if(touchStart === false) {
 							touchStart = true;
 							xStart = ev.pageX;
 							yStart = ev.pageY;
 						}
-
 					case 'touchmove':
 						if(touchStart === true) {
 							var pageX = typeof ev.pageX == 'undefined' ? ev.originalEvent.touches[0].pageX : ev.pageX;
@@ -183,7 +181,6 @@
 							}
 						}
 						break;
-
 					case 'touchend':
 						touchStart = false;
 						var pageX = (typeof ev.pageX == 'undefined') ? ev.originalEvent.changedTouches[0].pageX : ev.pageX;

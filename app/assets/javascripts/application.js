@@ -18,7 +18,6 @@
 //= require chosen-jquery
 //= require jquery.jTinder
 //= require jquery.easing.min
-
 //= require jquery.transform2d
 //= require tinysort
 //= require jquery.tinysort

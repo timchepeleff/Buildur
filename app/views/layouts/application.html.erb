@@ -2,12 +2,21 @@
 <html>
   <head>
     <title>Tim's Breakable Toy</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans|Raleway' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+  <% flash.each do |name, msg| %>
+    <% binding.pry %>
+    <% if msg.is_a?(String) %>
+      <div data-alert class="alert-box round <%= name.to_s == 'notice' ? 'success' : 'alert' %>">
+        <%= content_tag :div, msg %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
+  <% end %>
 
     <% if current_user %>
 
@@ -54,6 +63,7 @@
         </div>
       </div>
     <%end%>
+
 <script type="text/javascript">
 
   $(".spinner").hide();
