@@ -8,7 +8,7 @@
  * https://github.com/do-web/jTinder/blob/master/LICENSE
  */
 
- 
+
 ;(function ($, window, document, undefined) {
 	var pluginName = "jTinder",
 		defaults = {
@@ -65,11 +65,11 @@
 			current_pane = index;
 
 			$(".spinner").show();
-			
+
 		    var li_count = $( "#tinderslide > ul > li" ).length;
 			//Custom -> Add more elements if reaching the end!
 		    if( li_count < 2 ) {
-        	    	
+
 		    		if( li_count == 0 ) {
 
 		    			    // make an ajax call passing along our last user id
@@ -80,21 +80,21 @@
 					            url: "/users",
 					            // the response will be a script
 					            dataType: "script",
-					 
-					            // upon success 
+
+					            // upon success
 					            success: function (e) {
 					            	$(".spinner").hide(); // Do something on success!
 					            }
 
 					        });
-		    		
+
 		    		} else {
 
         	    	var last_id = $( "#tinderslide > ul > li" ).first().attr("id"); //panes.eq(current_pane).attr("id");
-						
+
 							// make an ajax call passing along our last user id
 					        $.ajax({
-					 
+
 					            // make a get request to the server
 					            type: "GET",
 					            // get the url from the href attribute of our link
@@ -105,15 +105,15 @@
 					            },
 					            // the response will be a script
 					            dataType: "script",
-					 
-					            // upon success 
+
+					            // upon success
 					            success: function (e) {
 					            	$(".spinner").hide(); // Do somethig on success!
 					            }
 
 					        });
 					}
-      		} 	
+      		}
 
 		},
 
@@ -150,13 +150,13 @@
 							xStart = ev.originalEvent.touches[0].pageX;
 							yStart = ev.originalEvent.touches[0].pageY;
 						}
-					case 'mousedown':
+
 						if(touchStart === false) {
 							touchStart = true;
 							xStart = ev.pageX;
 							yStart = ev.pageY;
 						}
-					case 'mousemove':
+
 					case 'touchmove':
 						if(touchStart === true) {
 							var pageX = typeof ev.pageX == 'undefined' ? ev.originalEvent.touches[0].pageX : ev.pageX;
@@ -183,7 +183,7 @@
 							}
 						}
 						break;
-					case 'mouseup':
+
 					case 'touchend':
 						touchStart = false;
 						var pageX = (typeof ev.pageX == 'undefined') ? ev.originalEvent.changedTouches[0].pageX : ev.pageX;
@@ -221,7 +221,7 @@
 						break;
 				}
 			} // SWITCH -- END
-	
+
 	};
 
 	$.fn[ pluginName ] = function (options) {
@@ -234,7 +234,7 @@
 		    }
             else {
                 $.data(this, "plugin_" + pluginName).bindNew(this);
-            } 
+            }
 		});
 
 		return this;

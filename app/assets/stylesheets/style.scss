@@ -577,20 +577,6 @@ label:hover {
    border-radius: 10px;
 }
 
-// HOME PAGE
-
-
-.home-information {
-  height: 300px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  text-align: center;
-}
-
 .bg-dark {
   position: absolute;
   top: 0;
@@ -599,28 +585,6 @@ label:hover {
   left: 0;
   background: rgba(0,0,0,0.3);
 }
-
-.slogan {
-  color: white;
-  font-family: 'Raleway', "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: 500;
-  font-size: 45px;
-  line-height: 1.2em;
-  padding: 10px 0 10px;
-  text-align: center;
-}
-
-// TINDER BACKGROUND LANDING
-
-body {
-  font-family: 'Varela Round', sans-serif;
-}
-
-p, ol, ul, td {
-  font-family: 'Varela Round', sans-serif;
-}
-
-// TINDER PLUGIN
 
 .user-name {
   text-align: left;
@@ -655,9 +619,21 @@ p, ol, ul, td {
 }
 
 #tinderslide {
-  width: 100%;
-  height: 100%;
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+  background-color: #FAFAFA;
+
+  img {
+    float: left;
+  }
 }
+
+.tinder-about {
+
+}
+
+
 
 #tinderslide li {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.04);
@@ -696,5 +672,14 @@ p, ol, ul, td {
 
 .actions .like i {
   color: #5adfa1;
+}
+
+.actions {
+  width: 1000px;
+  align: center;
+}
+
+left-tinder-box {
+  padding-left: 0;
 }
 

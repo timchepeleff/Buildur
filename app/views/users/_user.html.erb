@@ -1,7 +1,9 @@
 <li id="<%= user.id %>">
-    <div class="img"><%= image_tag user.avatar_url, height: '370', width: '370' %></div>
-    <div class="u-name pull-left">
-      <%= link_to user_path(user) do %><b><%= user.name %></b>, <%= user.email %></a><% end %>
+    <div class="large-6 columns left-tinder-box">
+      <%= image_tag user.avatar_url%>
+      <div class="u-name pull-left">
+        <%= link_to user_path(user) do %><b><%= user.name %></b>, <%= user.email %></a><% end %>
+      </div>
     </div>
     <div class="u-location text-right"><i class="fa fa-map-marker"></i> </div>
     <div class="like">

@@ -16,16 +16,13 @@
 //= require highcharts.js
 //= require chartkick
 //= require chosen-jquery
-//= require bootstrap-sprockets
 //= require jquery.jTinder
 //= require jquery.easing.min
-//= require jasny-bootstrap
-//= require supersized.3.2.7
+
 //= require jquery.transform2d
 //= require tinysort
 //= require jquery.tinysort
 //= require sweetalert.min
-//= require data-confirm-modal
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
@@ -39,43 +36,3 @@ $(function() {
   });
 });
 
-
-$('.like').click(function(e){
-  e.preventDefault();
-  debugger
-  var form = $(this).parent();
-  var countspan = form.parent().parent().prev().prev().children("div").children("span");
-  var count = countspan.html();
-  count++;
-  countspan.text(count);
-
-  $.ajax({
-    type: 'POST',
-    url: form.attr('action'),
-    data: form.serialize(),
-    success: function() {
-      form.next().hide();
-      form.hide();
-    }
-  });
-});
-
-$('.dislike').click(function(e){
-  e.preventDefault();
-  debugger
-  var form = $(this).parent();
-  var countspan = form.parent().parent().prev().prev().children("div").children("span");
-  var count = countspan.html();
-  count--;
-  countspan.text(count);
-
-  $.ajax({
-    type: 'POST',
-    url: form.attr('action'),
-    data: form.serialize(),
-    success: function() {
-      form.prev().hide();
-      form.hide();
-    }
-  });
-});
