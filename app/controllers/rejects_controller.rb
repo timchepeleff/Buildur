@@ -9,6 +9,10 @@ class RejectsController < ApplicationController
       flash[:notice] = "Unable to reject user."
       redirect_to params[:user_id]
     end
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy

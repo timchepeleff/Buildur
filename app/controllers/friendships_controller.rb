@@ -12,7 +12,11 @@ class FriendshipsController < ApplicationController
       redirect_to params[:user_id]
     else
       flash[:notice] = "Unable to add friend."
-      render user_path(current_user)
+      redirect_to user_path(current_user)
+    end
+
+    respond_to do |format|
+      format.js
     end
   end
 

@@ -1,12 +1,40 @@
-<div class="show users">
-  <% @user_search.each do |user| %>
-      <ol>
-        <h1><%= link_to user.name, user_path(user) %></h1>
-        <%= image_tag(user.avatar_url) %>
-        <%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: user, user_id: request.path), method: :post  %>
-        <%= link_to "Block", rejects_path(reject_id: user, user_id: request.path), method: :post  %>
-      </ol>
-  <% end %>
+<div class="container large-10 columns">
+    <br>
+    <% if @user_search.count > 0 %>
+    <div class="row">
+       <div class="text-center">
+        <div class="wrap">
+            <div id="tinderslide">
+                <ul>
+                    <%= render @user_search %>
+                </ul>
+            </div>
+            <div class="actions">
+              <a href="#" class="dislike"><i class="fa fa-times"></i></a>
+              <a href="#" class="like" style="float: right;"><i class="fa fa-heart"></i></a>
+            </div>
+        </div>
+       </div>
+    </div>
+    <script type="text/javascript">
+  $("#tinderslide > ul li").tsort({attr: "id"});
+</script>
+    <% else %>
+    <div class="unfortunate-situation">
+      <h1>No Matches Found.</h1>
+      <h3>Update your preferences or checkback later.</h3>
+    </div>
+    <% end %>
+
+</div>
+
+
+<div class="spinner center_spinner">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
 </div>
 
 

@@ -2,21 +2,12 @@
 <html>
   <head>
     <title>Tim's Breakable Toy</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway' rel='stylesheet' type='text/css'>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans|Raleway' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <% flash.each do |name, msg| %>
-    <% binding.pry %>
-    <% if msg.is_a?(String) %>
-      <div data-alert class="alert-box round <%= name.to_s == 'notice' ? 'success' : 'alert' %>">
-        <%= content_tag :div, msg %>
-        <a href="#" class="close">&times;</a>
-      </div>
-    <% end %>
-  <% end %>
 
     <% if current_user %>
 
@@ -33,6 +24,7 @@
               <% if current_user %>
                 <ul class="right">
                   <li>
+
                     <%= form_tag(users_path, method:"get") do %>
                       <%= text_field_tag(:query, nil, placeholder: "Search...")%>
                       <%= submit_tag("Search", :style => "display: none;", :id => "hiddensubmit") %></li>
@@ -50,10 +42,10 @@
           <li class="side-link"><%= link_to image_tag("sign_out.png", size:"45"), destroy_user_session_path, method: :delete %></li>
         </ul>
 
-          <%= yield %>
+
         </div>
       </div>
-
+ <%= yield %>
     <%else %>
       <div class="login-wrapper">
         <div class='container'>
@@ -64,33 +56,68 @@
       </div>
     <%end%>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
+  // Hide Spinner
   $(".spinner").hide();
+  // Tooltip
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // Sort the li elements by id //
+  $("#tinderslide > ul li").tsort({attr:"id"});
+
+  /*
+
+   * jTinder initialization
+
+  */
 
   $("#tinderslide").jTinder({
+    // dislike callback
+      onDislike: function (item) {
+        //
+      },
 
-        onDislike: function (item) {
-            var myId = $("#tinderslide > ul li").last().attr("id");
-            $("#dislike" + myId)[0].click();
-        },
-        onLike: function (item) {
-            var myId = $("#tinderslide > ul li").last().attr("id");
-            $("#like" + myId)[0].click();
-        },
+    // like callback
+      onLike: function (item) {
+        var myId = $("#tinderslide > ul li").last().attr("id");
+        $("#user_" + myId)[0].click();
+      },
 
-        animationRevertSpeed: 200,
-        animationSpeed: 400,
-        threshold: 1,
-        likeSelector: '.like',
-        dislikeSelector: '.dislike'
+    animationRevertSpeed: 200,
+    animationSpeed: 400,
+    threshold: 1,
+    likeSelector: '.like',
+    dislikeSelector: '.dislike'
+
   });
+
+  /**
+    * Set button action to trigger jTinder like & dislike.
+  */
 
   $('.actions .like, .actions .dislike').click(function(e){
     e.preventDefault();
     $("#tinderslide").jTinder($(this).attr('class'));
   });
 
+  //Hover Effect//
+  var ready;
+  ready = function() {
+
+
+    $(".nav-btn").hover(function(){
+        $(this).addClass("active2");
+        },function(){
+        $(this).removeClass("active2");
+    });
+
+
+
+  };
+
+  $(document).ready(ready);
+  $(document).on('page:load', ready);
 
 </script>
   </body>

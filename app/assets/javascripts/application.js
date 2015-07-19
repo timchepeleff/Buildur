@@ -16,9 +16,12 @@
 //= require highcharts.js
 //= require chartkick
 //= require chosen-jquery
-//= require chosen-prototype
+//= require jquery.jTinder
+//= require jquery.easing.min
+//= require jquery.transform2d
+//= require tinysort
+//= require jquery.tinysort
 //= require_tree .
-
 
 $(function(){ $(document).foundation(); });
 
@@ -30,3 +33,4 @@ $(function() {
     width: '100%'
   });
 });
+
