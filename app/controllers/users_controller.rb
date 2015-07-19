@@ -23,9 +23,10 @@ class UsersController < ApplicationController
     @user.skill = Skill.find(params["user"]["skill"])
     @user.preference = Preference.find(params["user"]["preference"])
     if @user.save
+      flash[:notice] = "Thanks for updating!"
       redirect_to user_path(current_user)
     else
-      flash[:notice] = @user.errors
+      flash[:notice] = @user.errors.full_messages
       render :edit
     end
   end
@@ -33,16 +34,6 @@ class UsersController < ApplicationController
   def show
     @users = User.all
     @user = User.find(params[:id])
-  end
-
-  def destroy
-    @workspace = Workspace.find(params[:id])
-    if @workspace.destroy
-      flash[:notice] = "Who wants to do work, anyway? Workspace deleted."
-    else
-      flash[:notice] = "I'm sorry Dave, I can't do that."
-    end
-    redirect_to workspaces_path
   end
 
   private
