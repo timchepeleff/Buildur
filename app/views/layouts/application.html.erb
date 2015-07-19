@@ -57,9 +57,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="row">
-          <div class="12-large columns">
-            <nav class="top-bar" data-topbar>
+        <nav class="top-bar" data-topbar>
               <ul class="title-area">
               </ul>
               <section class="top-bar-section">
@@ -76,10 +74,11 @@
                 <%end%>
               </section>
             </nav>
+        <div class="row">
+          <div class="12-large columns">
             <%= yield %>
           </div>
       </div>
-
     <%else %>
       <div class="login-wrapper">
         <div class='container'>
