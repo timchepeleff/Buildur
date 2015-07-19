@@ -555,7 +555,7 @@ label:hover {
 .main-menu {
   background:#fbfbfb;
   border-right:1px solid #e5e5e5;
-  position:absolute;
+  position:fixed;
   top:0;
   bottom:0;
   height:100%;
@@ -768,4 +768,36 @@ nav ul,nav li {
 
 .about {
   margin-top: 35px;
+}
+
+.index-image {
+  vertical-align: middle;
+}
+
+.index-about {
+  padding-top: 30px;
+  p {
+   white-space: pre;
+   wrap: break-word;
+   color: black;
+   padding-left: 5px;
+  }
+  a{
+    display: inline-block;
+  }
+}
+
+.index-start {
+  padding: 0;
+  i {
+    font-size: 60px;
+    padding-top: 15px;
+    display: inline-block;
+    opacity: 1;
+  }
+  h1{
+    font-size: 60px;
+     overflow: show;
+     opacity: 1;
+  }
 }
