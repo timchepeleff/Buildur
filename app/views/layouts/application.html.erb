@@ -4,7 +4,9 @@
     <title>Tim's Breakable Toy</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans|Raleway' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag 'application' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -17,43 +19,76 @@
       </div>
     <% end %>
   <% end %>
-
     <% if current_user %>
 
-      <div class="row site-container">
-        <div class="12-large columns">
-          <nav class="top-bar" data-topbar>
-            <ul class="title-area">
-              <li class="name">
-                <%= link_to image_tag('buildur-logo.png', size:"300"), root_path %>
-              </li>
+
+    <nav class="main-menu">
+            <ul>
+                <li>
+                  <%= link_to image_tag('buildur-logo.png', size:"300"), root_path, id:"logo" %>
+                </li>
             </ul>
-            <section class="top-bar-section">
-              <!-- Right Nav Section -->
-              <% if current_user %>
-                <ul class="right">
-                  <li>
-                    <%= form_tag(users_path, method:"get") do %>
-                      <%= text_field_tag(:query, nil, placeholder: "Search...")%>
-                      <%= submit_tag("Search", :style => "display: none;", :id => "hiddensubmit") %></li>
-                <% end %>
-                </ul>
-              <%end%>
-            </section>
-          </nav>
 
+            <ul class="logout ">
+                <li class="has-subnav nav-profile-image">
+                  <%= link_to user_path(current_user) do %>
+                    <%= image_tag current_user.avatar_url %>
+                      <span class="nav-text">
+                          <%= current_user.name %>
+                      </span>
+                  <% end %>
+                </li>
+                 <li class="has-subnav">
+                  <%= link_to users_path do %>
+                    <i class="fa fa-code"></i>
+                      <span class="nav-text">
+                          Build Your Team
+                      </span>
+                  <% end %>
+                </li>
 
+                <li class="has-subnav edit-user-nav">
+                  <%= link_to edit_user_path(current_user) do %>
+                    <i class="fa fa-pencil-square-o fa-2x"></i>
+                   <span class="nav-text">
+                            Edit Profile
+                    </span>
+                    <% end %>
+                </li>
 
-        <ul class="side-nav">
-          <li class="side-link"><%= link_to image_tag(current_user.avatar_url, size:"70"), user_path(current_user) %></li>
-          <li class="side-link"><%= link_to image_tag("edit_user.png", size:"45"), edit_user_path(current_user) %></li>
-          <li class="side-link"><%= link_to image_tag("sign_out.png", size:"45"), destroy_user_session_path, method: :delete %></li>
-        </ul>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-power-off fa-2x"></i>
+                      <span class="nav-text">
+                            Logout
+                        </span>
+                  <% end -%>
+                </li>
+            </ul>
+        </nav>
 
-          <%= yield %>
-        </div>
+        <div class="row">
+          <div class="11-large large-offset-1 columns site-container">
+           <nav class="top-bar" data-topbar>
+              <ul class="title-area">
+              </ul>
+              <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <% if current_user %>
+                  <ul class="right search">
+                    <li>
+                      <%= form_tag(users_path, method:"get") do %>
+                      <%= text_field_tag(:query, nil, placeholder: "Search...", id: "search")%>
+                      <%= submit_tag("Search", :id => "search_submit") %>
+                      <% end %>
+                    </li>
+                  </ul>
+                <%end%>
+              </section>
+            </nav>
+            <%= yield %>
+          </div>
       </div>
-
     <%else %>
       <div class="login-wrapper">
         <div class='container'>

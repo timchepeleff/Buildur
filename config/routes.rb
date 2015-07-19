@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  root "static#index"
 
   resources :users do
     resources :friendships
@@ -12,6 +13,4 @@ Rails.application.routes.draw do
   post "project/:id/add" => "projects#add", as: :project_add
 
   resources :rejects
-
-  root "users#index"
 end
