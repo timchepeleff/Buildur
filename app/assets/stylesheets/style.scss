@@ -257,7 +257,8 @@ label:hover {
     padding-top: 10px;
   }
 }
-.name-color{
+
+.name-color {
   background: $red-background;
   height: 12px;
   width: 100%;
@@ -302,13 +303,6 @@ label:hover {
 }
 
 @media only screen and (max-width: 40em) {
-  .title-area {
-
-  }
-  .name {
-
-  }
-
   .name img {
     height:35px;
     margin-top:5px;
@@ -691,7 +685,7 @@ nav ul,nav li {
     outline: none;
     padding: 3px;
     padding-right: 60px;
-    width: 0px;
+    width: 0;
     position: absolute;
     top: 0;
     right: 0;
@@ -776,7 +770,7 @@ nav ul,nav li {
    color: black;
    padding-left: 5px;
   }
-  a{
+  a {
     display: inline-block;
   }
 }
@@ -789,7 +783,7 @@ nav ul,nav li {
     display: inline-block;
     opacity: 1;
   }
-  h1{
+  h1 {
     font-size: 60px;
      overflow: show;
      opacity: 1;
