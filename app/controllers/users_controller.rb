@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to user_path(current_user)
     else
+      flash[:notice] = @user.errors
       render :edit
     end
   end
