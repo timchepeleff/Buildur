@@ -65,7 +65,7 @@ Chartkick.options = { library:
    plotOptions: {
       series: {
          dataLabels: {
-            color: '#0088CC'
+            color: '#000'
          },
          marker: {
             lineColor: '#333'
@@ -150,7 +150,7 @@ Chartkick.options = { library:
          color: 'silver'
       },
       labelStyle: {
-         color: 'silver'
+         color: '#D8D8D8'
       }
    },
 
