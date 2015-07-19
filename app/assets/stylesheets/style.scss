@@ -675,8 +675,6 @@ nav ul,nav li {
 }
 
 .search {
-  box-shadow: none !important;
-  shadow: none !important;
   input[type="search"]{
     border: none;
     shadow: none;
@@ -709,7 +707,7 @@ nav ul,nav li {
   }
 
   input[type="text"]:focus {
-    width: 700px;
+    width: 400px;
     z-index: 1;
     border-bottom: 1px solid #BBB;
     cursor: text;
