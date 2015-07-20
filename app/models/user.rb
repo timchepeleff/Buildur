@@ -85,11 +85,12 @@ class User < ActiveRecord::Base
   def profile_edited?
     if email == "" || email.nil?
       return false
-    elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil? || example_url2_img.nil? || techinterests.nil? ||
-       location.nil?
+    elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil?
+                            || example_url2_img.nil? || techinterests.nil?
+                            || location.nil?
        return false
      end
-     true
+    true
   end
 
   def top_languages
