@@ -37,9 +37,13 @@ class User < ActiveRecord::Base
     if search
       where(["name @@ ?", search.downcase]).order(name: :asc)
     else
-      matched = where("skill_id = ? AND id != ?",
-                      current_user.preference.id,
-                      current_user.id)
+      matched = []
+      current_user.user_preferences.each do |preference|
+        matches = UserSkill.where("skill_id = ?", preference.preference_id)
+        matches.each do |match|
+          matched << match.user
+        end
+      end
       rejects = []
       if current_user.rejects
         current_user.rejects.each do |reject|
@@ -51,9 +55,14 @@ class User < ActiveRecord::Base
         return matched
       end
     end
-    matched - rejects
+    matched.flatten.uniq - rejects
   end
 
+  def return_matched_users(matched)
+    matched_users = []
+
+
+  end
   def admin?
     role == "admin"
   end
@@ -78,7 +87,7 @@ class User < ActiveRecord::Base
     if email == "" || email.nil?
       return false
     elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil? || example_url2_img.nil? || techinterests.nil? ||
-       location.nil? || skill.nil?
+       location.nil?
        return false
      end
      true
