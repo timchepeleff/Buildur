@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
 
   def self.search(search, current_user)
     if search
-      where(["name @@ ?", search.downcase]).order(name: :asc)
+      return where(["name @@ ?", search.downcase]).order(name: :asc)
     else
       matched = []
       current_user.user_preferences.each do |preference|
@@ -54,8 +54,8 @@ class User < ActiveRecord::Base
       else
         return matched
       end
+      matches = matched.flatten.uniq - rejects
     end
-    matches = matched.flatten.uniq - rejects
     if matches.empty?
       all
       flash[:notice] = "No other users found"
