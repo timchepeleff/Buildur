@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717151553) do
+ActiveRecord::Schema.define(version: 20150720031727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,11 @@ ActiveRecord::Schema.define(version: 20150717151553) do
   end
 
   add_index "rejects", ["user_id", "reject_id"], name: "index_rejects_on_user_id_and_reject_id", unique: true, using: :btree
+
+  create_table "skill_users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "skills", force: :cascade do |t|
     t.string   "name",       null: false

@@ -1,7 +1,7 @@
-@import url(//fonts.googleapis.com/css?family=lato:300,400,700);
-@import url(//fonts.googleapis.com/css?family=raleway:500);
-@import url(https://raw.github.com/fortawesome/font-awesome/master/docs/assets/css/font-awesome.min.css);
-@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+// @import url(//fonts.googleapis.com/css?family=lato:300,400,700);
+// @import url(//fonts.googleapis.com/css?family=raleway:500);
+// @import url(https://raw.github.com/fortawesome/font-awesome/master/docs/assets/css/font-awesome.min.css);
+// @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 $primary-purple: #5c3370;
 $secondary-red: #893b64;
@@ -10,7 +10,7 @@ $secondary-purple: #483973;
 $background: #ebe6e0;
 $red-background: #f0e9ec;
 
-@import url(https://fonts.googleapis.com/css?family=varela+round);
+// @import url(https://fonts.googleapis.com/css?family=varela+round);
 
 $font-family-sans-serif: "varela round", sans-serif;
 // color variables
@@ -22,6 +22,18 @@ $blue: #0088cc;
 $font_0: raleway;
 $font_1: sans-serif;
 
+
+@media #{$medium-only} {
+  body{
+    padding-left: 250px;
+  }
+}
+
+@media #{$small-only} {
+  .site-container{
+    padding-bottom: 150px;
+  }
+}
 body {
   font-family: $font_0, $font_1;
   background: $background;
@@ -523,7 +535,7 @@ label:hover {
     color: #A7A7A7;
   }
 }
-@media #{$small-only, $medium-only}  {
+@media #{$small-only}  {
   .fa {
     width: 70px;
     height: 70px;
@@ -534,13 +546,14 @@ label:hover {
   .main-menu {
     background: #fbfbfb;
     border-top: 1px solid #e5e5e5;
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     width: 100%;
     left: 0;
     height: 100px;
     z-index: 1000;
+    margin-top: 200px;
     ul {
       float:left;
     }
@@ -578,7 +591,7 @@ label:hover {
   }
 }
 
-@media #{$large-up} {
+@media #{$medium-up} {
   .fa-2x {
     font-size: 2em;
   }
@@ -734,7 +747,7 @@ label:hover {
     height: 60px;
     font-size: 45px;
     display: inline-block;
-    font-family: "Lato";
+    font-family: $font_0;
     font-weight: 100;
     border: none;
     outline: none;
