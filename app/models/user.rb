@@ -12,8 +12,6 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :rejects
 
-  validates :skill, presence: true
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   # Include default devise modules. Others available are:

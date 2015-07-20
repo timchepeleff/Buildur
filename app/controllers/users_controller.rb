@@ -19,18 +19,16 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    binding.pry
     @user.update(user_params)
-    @user.skills.delete_all
+    @user.user_skills.destroy_all
     if params["user"]["skills"].count > 1
       params["user"]["skills"].each do |skill|
-        unless skill = ""
-          @user.user_skills = Skill.find(skill)
-        binding.pry
+        unless skill == ""
+          @user.user_skills.build(skill_id: skill)
         end
       end
     else
-      @user.skills = Skill.find(params["user"]["skill"])
+      @user.user_skills = Skill.find(params["user"]["skill"])
     end
     @user.preference = Preference.find(params["user"]["preference"])
     if @user.save

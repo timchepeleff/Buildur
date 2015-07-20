@@ -1,8 +1,7 @@
 <div class='profile-form panel'>
 <h1>Your Profile<h1>
   <%= form_for @user do |f| %>
-
-    <%= f.label :skills, "Highlighted Skill" %>
+    <%= f.label :skills, "Highlighted Skills" %>
     <%= f.select :skills,
       Skill.all.map { |s| [s.name, s.id] },
                    { include_blank: false },
