@@ -24,13 +24,13 @@ $font_1: sans-serif;
 
 
 @media #{$medium-only} {
-  body{
+  body {
     padding-left: 250px;
   }
 }
 
 @media #{$small-only} {
-  .site-container{
+  .site-container {
     padding-bottom: 150px;
   }
 }
@@ -39,18 +39,18 @@ body {
   background: $background;
   // background: radial-gradient(ellipse at center, $color_steel_gray_approx 0, $color_hunter_green_approx 100%);
   color:  $secondary-red;
-  a{
+  a {
     color: $secondary-red;
     font-family: $font_0;
   }
 
-  h1, h2, h3, h4, h5, h6{
+  h1, h2, h3, h4, h5, h6 {
     color: $secondary-red;
     opacity: 0.8;
     font-family: $font_0;
   }
 
-  p{
+  p {
     color: $secondary-red;
     opacity: 0.8;
     font-family: $font_0;
@@ -89,14 +89,14 @@ body {
     opacity: 0.9;
     letter-spacing: 1px;
   }
-  a{
+  a {
     font-size: 15px;
     font-weight: 300;
     color:  $secondary-red;
     opacity: 0.8;
     letter-spacing: 1px;
   }
-  em{
+  em {
     font-size: 15px;
     font-weight: 300;
     color:  $secondary-red;
@@ -348,7 +348,7 @@ label:hover {
 }
 
 .reveal-modal {
-  h4{
+  h4 {
     color: black;
   }
 }
@@ -502,11 +502,13 @@ label:hover {
 
 .left-tinder-box {
   padding-left: 0;
+
   img {
     width: 410px;
     height: 410px;
   }
-  h1{
+
+  h1 {
     overflow: auto;
     min-width: 410px;
     max-width: 410px;
@@ -531,6 +533,7 @@ label:hover {
 .unfortunate-situation {
   padding-top: 40%;
   padding-left: 20%;
+
   h3 {
     color: #A7A7A7;
   }
