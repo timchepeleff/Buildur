@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   has_many :projects, through: :project_users
   has_many :project_users
-  belongs_to :preference
   belongs_to :skill
+  belongs_to :preference
+  has_many :preferences
+  has_and_belongs_to_many :skills
   has_one :profile
   has_many :rejects
 

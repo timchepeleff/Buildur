@@ -20,7 +20,8 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    @user.skill = Skill.find(params["user"]["skill"])
+    @user.skills.delete_all
+    @user.skills = Skill.find(params["user"]["skill"])
     @user.preference = Preference.find(params["user"]["preference"])
     if @user.save
       flash[:notice] = "Thanks for updating!"

@@ -6,7 +6,7 @@
     <%= f.select :skill,
       Skill.all.map { |s| [s.name, s.id] },
                    { include_blank: false },
-                   { class: 'chosen-select' }
+                   { multiple: true, class: 'chosen-select' }
     %>
 
     <%= f.label :preference, "What are you looking for?" %>
