@@ -33,23 +33,6 @@ gem "coveralls"
 gem "chosen-rails"
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 
-
 gem 'font-awesome-sass'
 
 gem 'autoprefixer-rails'
-
-gem 'bootstrap-sass'
-
-gem 'paperclip'
-
-gem 'aws-sdk', '< 2.0'
-
-gem 'simple_form'
-
-gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
-
-gem "cancan"
-
-gem "figaro"
-
-gem 'activerecord-session_store', github: 'rails/activerecord-session_store'

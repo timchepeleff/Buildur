@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717151553) do
+ActiveRecord::Schema.define(version: 20150720184241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,9 +78,28 @@ ActiveRecord::Schema.define(version: 20150717151553) do
 
   add_index "rejects", ["user_id", "reject_id"], name: "index_rejects_on_user_id_and_reject_id", unique: true, using: :btree
 
+  create_table "skill_users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_preferences", force: :cascade do |t|
+    t.integer  "user_id",       null: false
+    t.integer  "preference_id", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "user_skills", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "skill_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -115,14 +134,10 @@ ActiveRecord::Schema.define(version: 20150717151553) do
     t.string   "website"
     t.string   "job"
     t.string   "about"
-    t.integer  "skill_id"
-    t.integer  "preference_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["preference_id"], name: "index_users_on_preference_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["skill_id"], name: "index_users_on_skill_id", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

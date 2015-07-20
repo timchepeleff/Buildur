@@ -1,6 +1,6 @@
 class ProjectUser < ActiveRecord::Base
-  validates_presence_of :project_id, null:false
-  validates_presence_of :user_id, null:false
+  validates :project_id, presence: true, null: false
+  validates :user_id, presence: true, null: false
   belongs_to :project
   belongs_to :user
 end

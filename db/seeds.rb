@@ -1,6 +1,6 @@
 skills = [".NET",
           "AJAX",
-          "Agile software developmennt",
+          "Agile software development",
           "Algorithms",
           "Android",
           "AngularJS",

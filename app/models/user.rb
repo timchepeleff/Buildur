@@ -5,12 +5,11 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   has_many :projects, through: :project_users
   has_many :project_users
-  belongs_to :preference
-  belongs_to :skill
-  has_one :profile
+  has_many :skills, through: :user_skills
+  has_many :user_skills
+  has_many :preferences, through: :user_preferences
+  has_many :user_preferences
   has_many :rejects
-
-  validates :skill, presence: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -36,11 +35,15 @@ class User < ActiveRecord::Base
 
   def self.search(search, current_user)
     if search
-      where(["name @@ ?", search.downcase]).order(name: :asc)
+      return where(["name @@ ?", search.downcase]).order(name: :asc)
     else
-      matched = where("skill_id = ? AND id != ?",
-                      current_user.preference.id,
-                      current_user.id)
+      matched = []
+      current_user.user_preferences.each do |preference|
+        matches = UserSkill.where("skill_id = ?", preference.preference_id)
+        matches.each do |match|
+          matched << match.user
+        end
+      end
       rejects = []
       if current_user.rejects
         current_user.rejects.each do |reject|
@@ -51,12 +54,12 @@ class User < ActiveRecord::Base
       else
         return matched
       end
+      matches = matched.flatten.uniq - rejects
     end
-    matched - rejects
-  end
-
-  def user_preferences
-    current_user.preferences
+    if matches.empty?
+      all
+      flash[:notice] = "No other users found"
+    end
   end
 
   def admin?
@@ -82,11 +85,12 @@ class User < ActiveRecord::Base
   def profile_edited?
     if email == "" || email.nil?
       return false
-    elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil? || example_url2_img.nil? || techinterests.nil? ||
-       location.nil? || skill.nil?
+    elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil?
+                            || example_url2_img.nil? || techinterests.nil?
+                            || location.nil?
        return false
      end
-     true
+    true
   end
 
   def top_languages
