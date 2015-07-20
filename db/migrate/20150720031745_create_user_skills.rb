@@ -1,6 +1,6 @@
-class CreateSkillsUsers < ActiveRecord::Migration
+class CreateUserSkills < ActiveRecord::Migration
   def change
-    create_table :skills_users do |t|
+    create_table :user_skills do |t|
       t.integer :user_id, null:false
       t.integer :skill_id, null:false
 

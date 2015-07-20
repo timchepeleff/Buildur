@@ -1,4 +1,4 @@
-class SkillUser < ActiveRecord::Base
+class UserSkill < ActiveRecord::Base
   validates_presence_of :skill_id, null:false
   validates_presence_of :user_id, null:false
   belongs_to :skill
