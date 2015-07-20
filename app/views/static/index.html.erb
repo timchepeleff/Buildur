@@ -1,39 +1,41 @@
-<div class="large-12 columns index-image">
-  <%= image_tag "buildur-index.png", size: "450" %>
-</div>
+<div class="index">
+  <div class="large-6 columns index-about"><h1>Hey,</h1><p>
+  I'm Tim
 
+  I grew up in Vernon, CT and attended CCSU with a
+  concentration in Information Systems.
 
-<div class="large-12 columns index-about"><h1>Hey.</h1><p>
-I'm Tim
+  I've always had a love for technology and educating people
+  about how technology could empower them and their ideas, so
+  I decided to build an app that would allow someone with hardly
+  any technological experience to share their idea and match
+  them up with ready and able developers that could build those
+  ideas out.
 
-I grew up in Vernon, CT and attended CCSU with a
-concentration in Information Systems.
+  Buildur was built leveraging Githubs api to provide developers with
+  a simple and easy access point and provide me with data to populate
+  their developer profile.
 
-I've always had a love for technology and educating people
-about how technology could empower them and their ideas, so
-I decided to build an app that would allow someone with hardly
-any technological experience to share their idea and match
-them up with ready and able developers that could build those
-ideas out.
+  It was created with a strong focus on an intuitive user interface and a
+  rich user experience. I wanted something that was efficient and predictable
+  yet visually appealing using CSS, javascript and highcharts but still
+  responsive using Ajax.
+  </p>
+  <h3>Tim</h3>
+  <a href="https://github.com/timchepeleff">
+  <i class="fa fa-github"></i></a>
+  <a href="https://twitter.com/timchep">
+  <i class="fa fa-twitter"></i></a>
+  <a href="https://linkedin.com/in/timchepeleff">
+  <i class="fa fa-linkedin"></i></a>
+  </div>
 
-Buildur was built leveraging Githubs api to provide developers with
-a simple and easy access point and provide me with data to populate
-their developer profile.
+  <div class="index-image">
+    <%= image_tag "buildur-index.png", size: "600" %>
+  </div>
 
-It was created with a strong focus on an intuitive user interface and a
-rich user experience. I wanted something that was efficient and predictable
-yet visually appealing using CSS, javascript and highcharts but still
-responsive using Ajax.
-</p>
-<h3>Tim</h3>
-<a href="https://github.com/timchepeleff">
-<i class="fa fa-github"></i></a>
-<a href="https://twitter.com/timchep">
-<i class="fa fa-twitter"></i></a>
-<a href="https://linkedin.com/in/timchepeleff">
-<i class="fa fa-linkedin"></i></a>
-</div>
-<div class="large-12 columns index-start"><%= link_to users_path do %>
-<h1><i class="fa fa-play fa-2x"></i>Start Building</h1>
-<% end %>
+  <div class="large-12 columns index-start"><%= link_to users_path do %>
+    <h1><i class="fa fa-play fa-2x"></i>Start Building</h1>
+  <% end %>
+  </div>
 </div>
