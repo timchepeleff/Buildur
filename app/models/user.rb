@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :skills, through: :user_skills
   has_many :user_skills
   has_many :preferences, through: :user_preferences
-  has_many :user_references
+  has_many :user_preferences
   has_many :rejects
 
   devise :database_authenticatable, :registerable,
@@ -52,10 +52,6 @@ class User < ActiveRecord::Base
       end
     end
     matched - rejects
-  end
-
-  def user_preferences
-    current_user.preferences
   end
 
   def admin?

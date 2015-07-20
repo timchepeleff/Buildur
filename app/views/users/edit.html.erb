@@ -8,11 +8,11 @@
                    { multiple: true, class: 'chosen-select' }
     %>
 
-    <%= f.label :preference, "What are you looking for?" %>
-    <%= f.select :preference,
+    <%= f.label :preferences, "What are you looking for?" %>
+    <%= f.select :preferences,
       Preference.all.map { |p| [p.name, p.id] },
                    { include_blank: false },
-                   { class: 'chosen-select' }
+                   { multiple: true, class: 'chosen-select' }
     %>
     <div>
       <%= f.label :techinterests, "Technical Interest" %>

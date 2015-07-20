@@ -20,17 +20,27 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    @user.user_skills.destroy_all
-    if params["user"]["skills"].count > 1
-      params["user"]["skills"].each do |skill|
-        unless skill == ""
-          @user.user_skills.build(skill_id: skill)
+    @user.user_skills.destroy_all if @user.user_skills
+    @user.user_preferences.destroy_all if @user.user_preferences
+      if params["user"]["skills"].count > 1
+        params["user"]["skills"].each do |skill|
+          unless skill == ""
+            @user.user_skills.build(skill_id: skill)
+          end
         end
+      else
+        @user.user_skills.build(skill_id: params["user"]["skills"])
       end
-    else
-      @user.user_skills = Skill.find(params["user"]["skill"])
-    end
-    @user.preference = Preference.find(params["user"]["preference"])
+
+      if params["user"]["preferences"].count > 1
+        params["user"]["preferences"].each do |preference|
+          unless preference == ""
+            @user.user_preferences.build(preference_id: preference)
+          end
+        end
+      else
+        @user.user_preferences.build(preference_id: params["user"]["preferences"])
+      end
     if @user.save
       flash[:notice] = "Thanks for updating!"
       redirect_to user_path(current_user)
