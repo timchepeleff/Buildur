@@ -5,11 +5,10 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   has_many :projects, through: :project_users
   has_many :project_users
-  belongs_to :preference
-  has_many :preferences
   has_many :skills, through: :user_skills
   has_many :user_skills
-  has_one :profile
+  has_many :preferences, through: :user_preferences
+  has_many :user_references
   has_many :rejects
 
   devise :database_authenticatable, :registerable,
