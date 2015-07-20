@@ -55,14 +55,13 @@ class User < ActiveRecord::Base
         return matched
       end
     end
-    matched.flatten.uniq - rejects
+    matches = matched.flatten.uniq - rejects
+    if matches.empty?
+      all
+      flash[:notice] = "No other users found"
+    end
   end
 
-  def return_matched_users(matched)
-    matched_users = []
-
-
-  end
   def admin?
     role == "admin"
   end

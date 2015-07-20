@@ -15,6 +15,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    @current_preferences = current_user.user_preferences
+    @current_skills = current_user.user_skills
   end
 
   def update
