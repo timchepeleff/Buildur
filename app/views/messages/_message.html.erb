@@ -1,6 +1,6 @@
 <li class="<%=  self_or_other(message) %>">
   <div class="avatar">
-    <img src="http://placehold.it/50x50" />
+    <%= image_tag(message_interlocutor(message).avatar_url) %>
   </div>
   <div class="chatboxmessagecontent">
     <p><%= message.body %></p>
