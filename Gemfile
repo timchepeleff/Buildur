@@ -14,6 +14,8 @@ gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'httparty'
 gem "octokit", "~> 3.0"
+gem 'private_pub'
+gem 'thin'
 
 group :development, :test do
   gem 'pry-rails'
