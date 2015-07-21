@@ -83,17 +83,6 @@ Chartkick.options = { library:
          color: "white"
       }
    },
-   legend: {
-      itemStyle: {
-         color: "#E0E0E3"
-      },
-      itemHoverStyle: {
-         color: "#FFF"
-      },
-      itemHiddenStyle: {
-         color: "#606063"
-      }
-   },
    credits: {
       style: {
          color: "#666"

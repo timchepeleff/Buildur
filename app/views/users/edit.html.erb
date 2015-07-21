@@ -1,18 +1,18 @@
-<div class='profile-form panel'>
+<div class="profile-form panel">
 <h1>Your Profile<h1>
   <%= form_for @user do |f| %>
     <%= f.label :skills, "Highlighted Skills" %>
     <%= f.select :skills,
       Skill.all.map { |s| [s.name, s.id] },
                    { include_blank: false, selected: @current_skills.map{ |p| p.skill_id.to_i } },
-                   { multiple: true, class: 'chosen-select' }
+                   { multiple: true, class: "chosen-select" }
     %>
 
     <%= f.label :preferences, "What are you looking for?" %>
     <%= f.select :preferences,
       Preference.all.map { |p| [p.name, p.id] },
                    { include_blank: false, selected: @current_preferences.map{ |p| p.preference_id.to_i } },
-                   { multiple: true, class: 'chosen-select' }
+                   { multiple: true, class: "chosen-select" }
     %>
     <div>
       <%= f.label :techinterests, "Technical Interest" %>
@@ -20,7 +20,7 @@
     </div>
 
     <div>
-      <%= f.label :job, 'Job Title (if you are looking for a job put "Looking for Work)"' %>
+      <%= f.label :job, "Job Title (if you are looking for a job put "Looking for Work)"" %>
       <%= f.text_area :job %>
     </div>
 
@@ -65,6 +65,6 @@
       <%= f.text_area :about %>
     </div>
 
-    <%= f.submit 'Update Profile', class:"button radius" %>
+    <%= f.submit "Update Profile", class:"button radius" %>
   <% end %>
 </div>

@@ -9,6 +9,8 @@ $color_steel_gray_approx: #232333;
 $color_hunter_green_approx: #161616;
 $white: white;
 $blue: #0088CC;
+$secondary-red: #893b64;
+$red-background: #f0e9ec;
 
 //fonts
 $font_0: Raleway;
@@ -458,9 +460,9 @@ $button-font-color: $white;
 // We use these to control button border and hover styles.
 // $button-border-width: 0px;
 // $button-border-style: solid;
-$button-bg-color: $blue;
+$button-bg-color: $secondary-red;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
-$button-border-color: $blue;
+$button-border-color: $secondary-red;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
 // $secondary-button-border-color: $secondary-button-bg-hover;
 // $success-button-bg-hover: scale-color($success-color, $lightness: $button-function-factor);

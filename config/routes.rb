@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   post "project/:id/add" => "projects#add", as: :project_add
 
   resources :rejects
+
+   resources :conversations do
+    resources :messages
+  end
 end

@@ -1,36 +1,37 @@
 class User < ActiveRecord::Base
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   has_many :projects, through: :project_users
   has_many :project_users
   has_many :skills, through: :user_skills
-  has_many :user_skills
+  has_many :user_skills, dependent: :destroy
   has_many :preferences, through: :user_preferences
-  has_many :user_preferences
-  has_many :rejects
+  has_many :user_preferences, dependent: :destroy
+  has_many :rejects, dependent: :destroy
+  has_many :conversations, :foreign_key => :sender_id
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:github]
+    :recoverable, :rememberable, :trackable, :validatable,
+    :omniauthable, :omniauth_providers => [:github]
 
   def self.from_omniauth(auth)
-      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-        user.provider = auth.provider
-        user.uid = auth.uid
-        user.email = auth.info.email
-        user.avatar_url = auth.info.image
-        user.username = auth.info.nickname
-        user.name = auth.info.name
-        user.repos_url = auth.extra.raw_info.repos_url
-        user.password = Devise.friendly_token[0,20]
-        user.token = auth.credentials.token
-      end
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.avatar_url = auth.info.image
+      user.username = auth.info.nickname
+      user.name = auth.info.name
+      user.repos_url = auth.extra.raw_info.repos_url
+      user.password = Devise.friendly_token[0,20]
+      user.token = auth.credentials.token
+    end
   end
 
   def self.search(search, current_user)
@@ -47,9 +48,9 @@ class User < ActiveRecord::Base
       rejects = []
       if current_user.rejects
         current_user.rejects.each do |reject|
-              reject_id = reject.reject_id
-              u = User.find(reject_id)
-            rejects << u
+          reject_id = reject.reject_id
+          u = User.find(reject_id)
+          rejects << u
         end
       else
         return matched
@@ -83,7 +84,7 @@ class User < ActiveRecord::Base
     if email == "" || email.nil?
       return false
     elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil? || example_url2_img.nil? || techinterests.nil? || location.nil?
-       return false
+      return false
     end
     true
   end
@@ -107,23 +108,3 @@ class User < ActiveRecord::Base
   def user_model
   end
 end
-# task plays_from_cache: :environment do
-#     videos = Video.viewed_recently
-#     update_values = Hash.new
-#     videos.each do |vid|
-#       update_values[vid.video_uuid] = Rails.cache.read("#{vid.video_uuid}")
-#       || 0
-#       Rails.cache.delete("#{vid.video_uuid}")
-#     end
-#     if update_values.length > 0
-#       sql = "UPDATE videos SET play_count = CASE video_uuid "
-#       update_values.each do |video_uuid, count|
-#           vid = Video.find_by(video_uuid: video_uuid)
-#           if vid
-#             sql += "WHEN '#{video_uuid}' THEN #{vid.play_count.to_i + count} "
-#           end
-#       end
-#       sql += "END"
-#       ActiveRecord::Base.connection.execute(sql)
-#     end
-# end
