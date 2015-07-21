@@ -1,15 +1,16 @@
 class User < ActiveRecord::Base
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   has_many :projects, through: :project_users
   has_many :project_users
   has_many :skills, through: :user_skills
-  has_many :user_skills
+  has_many :user_skills, dependent: :destroy
   has_many :preferences, through: :user_preferences
-  has_many :user_preferences
-  has_many :rejects
+  has_many :user_preferences, dependent: :destroy
+  has_many :rejects, dependent: :destroy
+  has_many :conversations, :foreign_key => :sender_id
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
