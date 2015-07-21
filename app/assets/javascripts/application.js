@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require chat
+//= require private_pub
 //= require foundation
 //= require highcharts.js
 //= require chartkick
