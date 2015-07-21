@@ -4,14 +4,14 @@
     <%= f.label :skills, "Highlighted Skills" %>
     <%= f.select :skills,
       Skill.all.map { |s| [s.name, s.id] },
-                   { include_blank: false, selected: @current_skills.map{ |p| p.skill_id.to_i } },
+                   { include_blank: false, selected: @current_skills.map{ |p| p.skill_id.to_i } if @current_skills},
                    { multiple: true, class: "chosen-select" }
     %>
 
     <%= f.label :preferences, "What are you looking for?" %>
     <%= f.select :preferences,
       Preference.all.map { |p| [p.name, p.id] },
-                   { include_blank: false, selected: @current_preferences.map{ |p| p.preference_id.to_i } },
+                   { include_blank: false, selected: @current_preferences.map{ |p| p.preference_id.to_i } if @current_preferences},
                    { multiple: true, class: "chosen-select" }
     %>
     <div>
