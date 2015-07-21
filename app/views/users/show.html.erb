@@ -65,6 +65,8 @@
   <% @user.mutual_friends.each do |friendship| %>
   <%= link_to image_tag(friendship.avatar_url, size: "40"), user_path(friendship)  %>
   <!-- <%= button_to "remove", user_friendship_path(id: friendship, user_id: current_user ), method: :delete, class:"button tiny radius" %> -->
+  <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+                    "data-sid" => current_user.id, "data-rip" => friendship.id %>
   <% end -%>
 </div>
 <div class="large-6 columns">
