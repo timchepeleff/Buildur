@@ -12,21 +12,21 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <% flash.each do |name, msg| %>
-    <% if msg[0].is_a?(String) %>
-      <div data-alert class="alert-box round <%= name.to_s == "notice" ? "success" : "alert" %>">
-        <%= content_tag :div, msg %>
-        <a href="#" class="close">&times;</a>
-      </div>
+    <% flash.each do |name, msg| %>
+      <% if msg[0].is_a?(String) %>
+        <div data-alert class="alert-box round <%= name.to_s == "notice" ? "success" : "alert" %>">
+          <%= content_tag :div, msg %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
     <% if current_user %>
-        <%= render 'layouts/nav' %>
-        <div class="row">
-          <div class="12-large columns site-container">
-              <%= render 'layouts/search' %>
-            <%= yield %>
-          </div>
+      <%= render 'layouts/nav' %>
+      <div class="row">
+        <div class="12-large columns site-container">
+          <%= render 'layouts/search' %>
+          <%= yield %>
+        </div>
       </div>
     <%else %>
       <div class="login-wrapper">
@@ -39,50 +39,50 @@
     <%end%>
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-  $(".spinner").hide();
+$(".spinner").hide();
 
-  $("#tinderslide").jTinder({
+$("#tinderslide").jTinder({
 
-        onDislike: function (item) {
-            var myId = $("#tinderslide > ul li").last().attr("id");
-            $("#dislike" + myId)[0].click();
-        },
-        onLike: function (item) {
-            var myId = $("#tinderslide > ul li").last().attr("id");
-            $("#like" + myId)[0].click();
-        },
+  onDislike: function (item) {
+    var myId = $("#tinderslide > ul li").last().attr("id");
+    $("#dislike" + myId)[0].click();
+  },
+  onLike: function (item) {
+    var myId = $("#tinderslide > ul li").last().attr("id");
+    $("#like" + myId)[0].click();
+  },
 
-        animationRevertSpeed: 200,
-        animationSpeed: 400,
-        threshold: 1,
-        likeSelector: ".like",
-        dislikeSelector: ".dislike"
-  });
+  animationRevertSpeed: 200,
+  animationSpeed: 400,
+  threshold: 1,
+  likeSelector: ".like",
+  dislikeSelector: ".dislike"
+});
 
-  $(".actions .like, .actions .dislike").click(function(e){
-    e.preventDefault();
-    $("#tinderslide").jTinder($(this).attr("class"));
-  });
+$(".actions .like, .actions .dislike").click(function(e){
+  e.preventDefault();
+  $("#tinderslide").jTinder($(this).attr("class"));
+});
 
 
-</script>
+    </script>
   </body>
-    <% if current_user %>
-      <script type="text/javascript">
-          channel = <%= raw ('"' + '/notifications' + current_user.id.to_s + '"') %>
+  <% if current_user %>
+    <script type="text/javascript">
+channel = <%= raw ('"' + '/notifications' + current_user.id.to_s + '"') %>
           PrivatePub.subscribe(channel, function(data) {
-          var sender_id = data.sid;
-          var recipient_id = data.rip;
-          var conversation_id = data.cid;
-          $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
+            var sender_id = data.sid;
+            var recipient_id = data.rip;
+            var conversation_id = data.cid;
+            $.post("/conversations", { sender_id: sender_id, recipient_id: recipient_id }, function (data) {
               chatBox.chatWith(conversation_id);
+            });
           });
-          });
-      </script>
-      <%= subscribe_to "/notifications" + current_user.id.to_s %>
-    <% end %>
+    </script>
+    <%= subscribe_to "/notifications" + current_user.id.to_s %>
+  <% end %>
 </html>
 
 

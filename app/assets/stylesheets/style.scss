@@ -370,13 +370,13 @@ label:hover {
 }
 
 .center_spinner {
- width: 100px;
- height: 60px;
- position: absolute;
- left: 50%;
- top: 50%;
- margin-left: -50px;
- margin-top: -30px;
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -30px;
 }
 
 .spinner {
@@ -620,14 +620,14 @@ label:hover {
     z-index: 1000;
 
     .fa {
-    position: relative;
-    display: table-cell;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 50px;
-  }
+      position: relative;
+      display: table-cell;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 50px;
+    }
   }
 
   .main-menu>ul {
@@ -842,14 +842,14 @@ label:hover {
 .index-about {
   padding-top: 30px;
   p {
-   white-space: pre;
-   wrap: break-word;
-   color: black;
-   padding-left: 5px;
- }
- a {
-  display: inline-block;
-}
+    white-space: pre;
+    wrap: break-word;
+    color: black;
+    padding-left: 5px;
+  }
+  a {
+    display: inline-block;
+  }
 }
 
 .index-start {
