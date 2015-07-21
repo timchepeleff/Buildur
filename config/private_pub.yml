@@ -7,4 +7,4 @@ test:
 production:
   server: "https://buildurfaye.com/faye"
   secret_token: "89ab2cab280b12579add482355d4259e315dc4d7e7f3c591746a92b1dccb0235"
-  signature_expiration: 3600 # one hour
+  signature_expiration: 86400 # one day
