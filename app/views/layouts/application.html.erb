@@ -8,6 +8,7 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content='<%= user_signed_in? ? current_user.id : "" %>' name='user-id'/>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -20,70 +21,10 @@
     <% end %>
   <% end %>
     <% if current_user %>
-    <nav class="main-menu">
-            <ul>
-                <li>
-                  <%= link_to image_tag("buildur-logo.png", size:"300"), root_path, id:"logo" %>
-                </li>
-            </ul>
-
-            <ul class="logout ">
-                <li class="has-subnav nav-profile-image">
-                  <%= link_to user_path(current_user) do %>
-                    <%= image_tag current_user.avatar_url %>
-                      <span class="nav-text">
-                          <%= current_user.name %>
-                      </span>
-                  <% end %>
-                </li>
-                 <li class="has-subnav">
-                  <%= link_to users_path do %>
-                    <i class="fa fa-code"></i>
-                      <span class="nav-text">
-                          Build Your Team
-                      </span>
-                  <% end %>
-                </li>
-
-                <li class="has-subnav edit-user-nav">
-                  <%= link_to edit_user_path(current_user) do %>
-                    <i class="fa fa-pencil-square-o fa-2x"></i>
-                   <span class="nav-text">
-                            Edit Profile
-                    </span>
-                    <% end %>
-                </li>
-
-                <li>
-                  <%= link_to destroy_user_session_path, method: :delete do %>
-                    <i class="fa fa-power-off fa-2x"></i>
-                      <span class="nav-text">
-                            Logout
-                        </span>
-                  <% end -%>
-                </li>
-            </ul>
-        </nav>
-
+        <%= render 'layouts/nav' %>
         <div class="row">
           <div class="12-large columns site-container">
-           <nav class="top-bar" data-topbar>
-              <ul class="title-area">
-              </ul>
-              <section class="top-bar-section">
-                <!-- Right Nav Section -->
-                <% if current_user %>
-                  <ul class="right search">
-                    <li>
-                      <%= form_tag(users_path, method:"get") do %>
-                      <%= text_field_tag(:query, nil, placeholder: "Search...", id: "search")%>
-                      <%= submit_tag("Search", :id => "search_submit") %>
-                      <% end %>
-                    </li>
-                  </ul>
-                <%end%>
-              </section>
-            </nav>
+              <%= render 'layouts/search' %>
             <%= yield %>
           </div>
       </div>
