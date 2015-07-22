@@ -23,15 +23,20 @@ group :development, :test do
   gem "capybara"
   gem "launchy"
   gem "factory_girl"
+  gem "factory_girl_rails"
   gem "valid_attribute"
+  gem "database_cleaner"
   gem "shoulda-matchers", require: false
+end
+
+group :test do
+  gem 'coveralls', require: false
 end
 
 gem "kaminari", "~> 0.16.1"
 gem "foundation-rails"
 gem "rails_12factor", group: :production
 gem "chartkick"
-gem "coveralls"
 gem "chosen-rails"
 gem "data-confirm-modal", github: "ifad/data-confirm-modal"
 
