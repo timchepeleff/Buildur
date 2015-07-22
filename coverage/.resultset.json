@@ -643,12 +643,12 @@
         null,
         1,
         1,
-        16,
+        18,
         1,
-        16,
-        16,
+        18,
+        18,
         1,
-        16,
+        18,
         1,
         1,
         null,
@@ -885,34 +885,6 @@
         1,
         null
       ],
-      "/Users/timothychepeleff/challenges/apps/breakable_toy/spec/models/preference_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/timothychepeleff/challenges/apps/breakable_toy/app/models/preference.rb": [
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
       "/Users/timothychepeleff/challenges/apps/breakable_toy/spec/models/reject_spec.rb": [
         1,
         null,
@@ -943,25 +915,25 @@
         1,
         null
       ],
-      "/Users/timothychepeleff/challenges/apps/breakable_toy/spec/models/skill_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Users/timothychepeleff/challenges/apps/breakable_toy/app/models/skill.rb": [
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
       "/Users/timothychepeleff/challenges/apps/breakable_toy/spec/models/user_preference_spec.rb": [
         1,
         null,
         1,
+        4,
+        4,
+        4,
+        null,
         1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/timothychepeleff/challenges/apps/breakable_toy/app/models/user_preference.rb": [
@@ -972,8 +944,36 @@
         1,
         null
       ],
+      "/Users/timothychepeleff/challenges/apps/breakable_toy/spec/models/user_skill_spec.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/timothychepeleff/challenges/apps/breakable_toy/spec/models/user_spec.rb": [
 
+      ],
+      "/Users/timothychepeleff/challenges/apps/breakable_toy/app/models/preference.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
       ],
       "/Users/timothychepeleff/challenges/apps/breakable_toy/app/models/skill_seeder.rb": [
         1,
@@ -1106,6 +1106,13 @@
         null,
         null
       ],
+      "/Users/timothychepeleff/challenges/apps/breakable_toy/app/models/skill.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/timothychepeleff/challenges/apps/breakable_toy/app/controllers/callbacks_controller.rb": [
         1,
         1,
@@ -1233,6 +1240,6 @@
         null
       ]
     },
-    "timestamp": 1437599957
+    "timestamp": 1437601010
   }
 }
