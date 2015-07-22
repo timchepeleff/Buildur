@@ -121,7 +121,6 @@ class SkillSeeder
               "iPhone App Development",
               "jQuery",
               "Adminstration"]
-              puts "hi"
     skills.each do |skill|
       Skill.find_or_create_by(name: skill)
       Preference.find_or_create_by(name: skill)

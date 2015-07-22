@@ -9,9 +9,6 @@ FactoryGirl.define do
     avatar_url "http://i.imgur.com/vnEJUtm.gif"
     token { SecureRandom.hex }
     password Devise.friendly_token[0,20]
-  end
-
-  factory :skill do
-    sequence(:name) { |n| "tim#{n}"}
+    repos_url "https://api.github.com/users/timchepeleff/repos"
   end
 end
