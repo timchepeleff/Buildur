@@ -2,7 +2,7 @@
 <h1>Your Profile<h1>
   <%= form_for @user do |f| %>
     <%= f.label :skills, "Highlighted Skills" %>
-    <% if @current_skills %>
+    <% if !@current_skills.nil? %>
       <%= f.select :skills,
         Skill.all.map { |s| [s.name, s.id] },
                      { include_blank: false, selected: @current_skills.map{ |p| p.skill_id.to_i }},

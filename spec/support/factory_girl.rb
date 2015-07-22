@@ -10,4 +10,8 @@ FactoryGirl.define do
     token { SecureRandom.hex }
     password Devise.friendly_token[0,20]
   end
+
+  factory :skill do
+    sequence(:name) { |n| "tim#{n}"}
+  end
 end

@@ -10,9 +10,13 @@ feature 'user creates profile', %Q{
     user = FactoryGirl.create(:user)
 
     login_as user
-    select_from_chosen("Ruby", from: "skills")
 
-    expect(page).to have_content(user.name)
+    select_from_chosen("Ruby", from: "user_skills")
+    select_from_chosen("Ruby on Rails", from: "user_skills")
+
+    select_from_chosen("Ruby", from: "user_preferences")
+    select_from_chosen("Ruby on Rails", from: "user_preferences")
+
     expect(page).to have_content('Log Out')
   end
 end

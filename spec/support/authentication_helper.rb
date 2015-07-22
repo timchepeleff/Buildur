@@ -1,6 +1,7 @@
 module AuthenticationHelper
   def login_as(user)
     mock_omni_auth_for(user)
+    SkillSeeder.seed
     visit "/users/auth/#{user.provider}/callback"
     expect(page).to have_content("#{user.name}")
   end

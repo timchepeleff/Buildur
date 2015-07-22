@@ -16,7 +16,7 @@ require 'factory_girl_rails'
 require "selenium-webdriver"
 
 Capybara.default_selector = :css
-Capybara.javascript_driver = :selenium
+Capybara.javascript_driver = :poltergeist
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -28,14 +28,17 @@ FactoryGirl.definition_file_paths = ['./spec/factories']
 FactoryGirl.find_definitions
 
 RSpec.configure do |config|
-
-
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
+  end
+
+
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:each) do
@@ -48,7 +51,7 @@ RSpec.configure do |config|
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   config.infer_spec_type_from_file_location!
 end

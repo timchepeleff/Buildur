@@ -1,15 +1,10 @@
 module ChosenSelect
-  def select_from_chosen(item_text, options)
-  field_id = find_field(options[:from])[:id]
-  within "##{field_id}_chzn" do
-    input = find("ul.chzn-choices input")
-    item_text.each_char do |char|
-      input.base.invoke('keypress', false, false, false, false, char.ord, nil);
-    end
-    input.base.invoke('keypress', false, false, false, false, 13, nil); # return
-    within 'ul.chzn-choices' do
-      page.should have_content item_text
-    end
+ def select_from_chosen(item_text, options)
+    field = find_field(options[:from], visible: false)
+    option_value = page.evaluate_script("$(\"##{field[:id]} option:contains('#{item_text}')\").val()")
+    page.execute_script("value = ['#{option_value}']\; if ($('##{field[:id]}').val()) {$.merge(value, $('##{field[:id]}').val())}")
+    option_value = page.evaluate_script("value")
+    page.execute_script("$('##{field[:id]}').val(#{option_value})")
+    page.execute_script("$('##{field[:id]}').trigger('chosen:updated')")
   end
-end
 end
