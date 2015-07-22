@@ -15,7 +15,7 @@ feature 'user signs out', %Q{
 
     login_as user
 
-    expect(page).to have_content('Signed in successfully')
+    expect(page).to have_content(user.name)
 
     click_link 'Log Out'
     expect(page).to have_content('You need to sign in or sign up before continuing.')

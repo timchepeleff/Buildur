@@ -4,12 +4,31 @@
  *
  */
 
-.chatbox {
-    position: fixed;
-    position: expression("absolute");
-    width: 280px;
-    display: none;
+
+@media #{$medium-up} {
+    .chatbox {
+        position: fixed;
+        position: expression("absolute");
+        width: 280px;
+        display: none;
+    }
 }
+
+
+@media #{$small-only} {
+    .chatbox {
+        position: fixed;
+        position: expression("absolute");
+        width: 280px;
+        display: none;
+        padding-bottom: 100px;
+        .fa {
+            font-size: 20px;
+        }
+    }
+}
+
+
 
 .chatboxhead {
     background: #666;

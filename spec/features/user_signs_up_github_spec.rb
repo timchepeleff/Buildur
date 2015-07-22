@@ -11,7 +11,7 @@ feature 'user registers with github', %Q{
   scenario 'provide valid registration information' do
     login_as user
 
-    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content(user.name)
     expect(page).to have_content('Log Out')
   end
 end
