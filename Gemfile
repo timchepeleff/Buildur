@@ -22,7 +22,10 @@ group :development, :test do
   gem "rspec-rails"
   gem "capybara"
   gem "launchy"
+  gem "poltergeist"
+  gem "selenium-webdriver"
   gem "factory_girl"
+  gem "capybara-webkit"
   gem "factory_girl_rails"
   gem "valid_attribute"
   gem "database_cleaner"
@@ -31,6 +34,11 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem "poltergeist"
+  gem "selenium-webdriver"
+  gem "factory_girl"
+  gem "capybara-webkit"
+  gem "factory_girl_rails"
 end
 
 gem "kaminari", "~> 0.16.1"

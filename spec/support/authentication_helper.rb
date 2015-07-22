@@ -1,7 +1,7 @@
 module AuthenticationHelper
   def login_as(user)
     mock_omni_auth_for(user)
-    visit "users/auth/#{user.provider}/callback"
+    visit "/users/auth/#{user.provider}/callback"
     expect(page).to have_content("#{user.name}")
   end
 
@@ -11,9 +11,13 @@ module AuthenticationHelper
       provider: user.provider,
       info: {
         name: user.name,
-        email: user.email,
-        avatar_url: user.avatar_url
+        email: user.email
       },
+      extra: {
+      raw_info: {
+        avatar_url: user.avatar_url
+        }
+        },
       credentials: {
         token: user.token
       }
