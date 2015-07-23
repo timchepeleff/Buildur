@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   has_many :preferences, through: :user_preferences
   has_many :user_preferences, dependent: :destroy
   has_many :rejects, dependent: :destroy
-  has_many :conversations, :foreign_key => :sender_id
+  has_many :conversations, :foreign_key => :sender_id , dependent: :destroy
+  has_many :conversations, :foreign_key => :recipient_id , dependent: :destroy
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
