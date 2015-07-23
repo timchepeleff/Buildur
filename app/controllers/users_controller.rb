@@ -4,6 +4,7 @@ class UsersController < ApplicationController
       @projects = Project.all
       @user_search = User.search(params[:query], current_user)
     else
+      flash[:notice] = "In order to find matches both Skills and Preferences must be filled out!"
       redirect_to edit_user_path(current_user)
     end
 
@@ -53,8 +54,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.all
-    @user = User.find(params[:id])
+    if current_user.profile_edited?
+      @users = User.all
+      @user = User.find(params[:id])
+    else
+      flash[:notice] = "In order to find matches both Skills and Preferences must be filled out!"
+      redirect_to edit_user_path(current_user)
+    end
   end
 
   private

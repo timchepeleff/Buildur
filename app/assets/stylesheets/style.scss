@@ -873,4 +873,21 @@ label:hover {
   }
 }
 
+.notice_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  background: rgba(135, 216, 211, 0.85);
+  .notice, .alert {
+    padding: 2rem 0;
+    text-align: center;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+}
 

@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resources :friendships
   end
 
-  resources :projects do
-    resources :project_users
-  end
+  # resources :projects do
+  #   resources :project_users
+  # end
 
   post "project/:id/add" => "projects#add", as: :project_add
 

@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   has_many :friends, through: :friendships
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :inverse_friends, through: :inverse_friendships, source: :user
-  has_many :projects, through: :project_users
-  has_many :project_users
   has_many :skills, through: :user_skills
   has_many :user_skills, dependent: :destroy
   has_many :preferences, through: :user_preferences
@@ -81,7 +79,7 @@ class User < ActiveRecord::Base
   def profile_edited?
     if email == "" || email.nil?
       return false
-    elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil? || example_url2_img.nil? || techinterests.nil? || location.nil?
+    elsif skills == [] || preferences == []
       return false
     end
     true
@@ -103,4 +101,8 @@ class User < ActiveRecord::Base
     frequencies
   end
 
+  validates :email, presence: true
+  validates :techinterests, presence: true
+  validates :location, presence: true
+  validates :job, presence: true
 end
