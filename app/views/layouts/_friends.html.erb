@@ -1,0 +1,13 @@
+<% current_user.mutual_friends.each do |friend| %>
+<li>
+  <div class="avatar">
+    <%= image_tag(friend.avatar_url) %>
+  </div>
+  <div class="friendboxcontent">
+
+    <p><%= friend.name %></p>
+        <%= link_to "Send Message", "#", class: "button start-conversation",
+          "data-sid" => current_user.id, "data-rip" => friend.id %>
+  </div>
+</li>
+<% end %>

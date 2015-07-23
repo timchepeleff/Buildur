@@ -74,7 +74,7 @@
         <h2>Friend Requests</h2>
         <% @user.inverse_friends.each do |user| %>
           <% unless @user.mutual_friends.include?(user) %>
-            <ol><%= link_to user.name, user_friendships_path(friend_id: user, user_id: params[:id]), method: :post %></ol>
+            <ol><%= link_to user.name, user_path(friend_id: user, user_id: params[:id]), method: :post %></ol>
           <% end %>
         <% end %>
       </ul>

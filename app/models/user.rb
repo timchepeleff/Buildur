@@ -103,7 +103,4 @@ class User < ActiveRecord::Base
   end
 
   validates :email, presence: true
-  validates :techinterests, presence: true
-  validates :location, presence: true
-  validates :job, presence: true
 end
