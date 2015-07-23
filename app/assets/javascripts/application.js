@@ -15,8 +15,6 @@
 //= require private_pub
 //= require chat
 //= require user
-//= require messages
-//= require conversations
 //= require foundation
 //= require highcharts.js
 //= require chartkick
@@ -38,4 +36,18 @@ $(function() {
     width: '100%'
   });
 });
+
+$(document).ready(function() {
+  setTimeout(function(){
+    $('.notice_wrapper').fadeOut("slow", function() {
+      $(this).remove();
+    })
+  }, 4500);
+});
+
+jQuery(document).ready(function(){
+        jQuery('.friendboxhead').on('click', function(event) {
+             jQuery('.friendboxcontent').toggle('show');
+        });
+    });
 

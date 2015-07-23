@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   has_many :friends, through: :friendships
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :inverse_friends, through: :inverse_friendships, source: :user
-  has_many :projects, through: :project_users
-  has_many :project_users
   has_many :skills, through: :user_skills
   has_many :user_skills, dependent: :destroy
   has_many :preferences, through: :user_preferences
@@ -14,8 +12,6 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable,
     :omniauthable, :omniauth_providers => [:github]
@@ -83,7 +79,7 @@ class User < ActiveRecord::Base
   def profile_edited?
     if email == "" || email.nil?
       return false
-    elsif example_url1.nil? || example_url1_img.nil? || example_url2.nil? || example_url2_img.nil? || techinterests.nil? || location.nil?
+    elsif skills == [] || preferences == []
       return false
     end
     true
@@ -105,6 +101,5 @@ class User < ActiveRecord::Base
     frequencies
   end
 
-  def user_model
-  end
+  validates :email, presence: true
 end

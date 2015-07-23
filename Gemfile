@@ -22,16 +22,29 @@ group :development, :test do
   gem "rspec-rails"
   gem "capybara"
   gem "launchy"
+  gem "poltergeist"
+  gem "selenium-webdriver"
   gem "factory_girl"
+  gem "capybara-webkit"
+  gem "factory_girl_rails"
   gem "valid_attribute"
+  gem "database_cleaner"
   gem "shoulda-matchers", require: false
+end
+
+group :test do
+  gem 'coveralls', require: false
+  gem "poltergeist"
+  gem "selenium-webdriver"
+  gem "factory_girl"
+  gem "capybara-webkit"
+  gem "factory_girl_rails"
 end
 
 gem "kaminari", "~> 0.16.1"
 gem "foundation-rails"
 gem "rails_12factor", group: :production
 gem "chartkick"
-gem "coveralls"
 gem "chosen-rails"
 gem "data-confirm-modal", github: "ifad/data-confirm-modal"
 

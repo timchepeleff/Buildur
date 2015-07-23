@@ -1,0 +1,17 @@
+<div class="friendbox">
+<div class="friendboxcontent">
+  <% if current_user.mutual_friends.any? %>
+      <%= render 'layouts/friends' %>
+  <% end %>
+</div>
+<div class="friendboxhead">
+  <div class="friendboxtitle">
+    <i class="fa fa-user"></i>
+    <h1>Friends (<%= current_user.mutual_friends.count if current_user.mutual_friends %>)</h1>
+  </div>
+  <div class="friendboxoptions">
+    <%= link_to "<i class='fa  fa-minus'></i> ".html_safe, "#", class: "toggleFriendBox" %>
+  </div>
+  <br clear="all"/>
+</div>
+</div>

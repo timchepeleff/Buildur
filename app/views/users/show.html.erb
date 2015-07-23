@@ -42,7 +42,7 @@
         <a href="#" data-reveal-id="firstModal" class="radius button">Website Example</a><br>
         <div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
           <h4>Click image to visit website</h4>
-          <%= link_to image_tag(@user.example_url2_img+".png"), @user.example_url2 %>
+          <%= link_to image_tag(@user.example_url2_img), @user.example_url2 %>
           <a class="close-reveal-modal" aria-label="Close">&#215;</a>
         </div>
       <% end %>
@@ -51,7 +51,7 @@
         <a href="#" data-reveal-id="secondModal" class="radius button">Website Example</a>
         <div id="secondModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
           <h4>Click image to visit website</h4>
-          <%= link_to image_tag(@user.example_url1_img+".png"), @user.example_url1 %>
+          <%= link_to image_tag(@user.example_url1_img), @user.example_url1 %>
           <a class="close-reveal-modal" aria-label="Close">&#215;</a>
         </div>
       <% end %>
@@ -74,7 +74,7 @@
         <h2>Friend Requests</h2>
         <% @user.inverse_friends.each do |user| %>
           <% unless @user.mutual_friends.include?(user) %>
-            <ol><%= link_to user.name, user_friendships_path(friend_id: user, user_id: params[:id]), method: :post %></ol>
+            <ol><%= link_to user.name, user_path(friend_id: user, user_id: params[:id]), method: :post %></ol>
           <% end %>
         <% end %>
       </ul>

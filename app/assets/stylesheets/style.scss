@@ -23,7 +23,7 @@ $font_0: raleway;
 $font_1: sans-serif;
 
 
-@media #{$medium-only} {
+@media #{$medium-up} {
   body {
     padding-left: 250px;
   }
@@ -538,6 +538,9 @@ label:hover {
     color: #A7A7A7;
   }
 }
+
+// side nav
+
 @media #{$small-only}  {
   .fa {
     width: 70px;
@@ -612,7 +615,7 @@ label:hover {
     bottom: 0;
     height: 100%;
     left: 0;
-    width: 85px;
+    width: 250px;
     overflow: hidden;
     -webkit-transition: width .05s linear;
     transition: width .05s linear;
@@ -732,6 +735,9 @@ label:hover {
     }
   }
 }
+
+// search bar
+
 .search {
   input[type="search"]{
     border: none;
@@ -867,4 +873,21 @@ label:hover {
   }
 }
 
+.notice_wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  background: rgba(137, 59, 100, 0.7);
+  .notice, .alert {
+    padding: 2rem 0;
+    text-align: center;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+}
 

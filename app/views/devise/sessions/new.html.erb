@@ -3,33 +3,10 @@
         <%= image_tag 'buildur-logo.png', size:"800" %>
       </div>
       <div class='logo_holder__text'>
-        <h2>Login To Get Started</h2>
+        <h2>Sign in with GitHub to get started.</h2>
       </div>
 
       <nav>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <h3><%= f.label :email %></h3><br />
-          <%= f.email_field :email, autofocus: true, width: "20px" %>
-        </div>
-
-        <div class="field">
-          <h3><%= f.label :password %></h3><br />
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <% if devise_mapping.rememberable? -%>
-        <div class="remember-me-field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-        <% end -%>
-
-        <div class="actions">
-          <%= f.submit "Log in", class:"button" %>
-        </div>
-        <% end %>
-
         <%= render "devise/shared/links" %>
       </nav>
 

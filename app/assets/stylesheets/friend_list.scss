@@ -1,22 +1,23 @@
 /**
- * GMAIL Like chat css
- * CREDITS: http://css-tricks.com/replicating-google-hangouts-chat/
+ * GMAIL Like friend css
+ * CREDITS: http://css-tricks.com/replicating-google-hangouts-friend/
  *
  */
 
 
 @media #{$medium-up} {
-    .chatbox {
+    .friendbox {
         position: fixed;
         position: expression("absolute");
         width: 280px;
-        display: none;
+        right: 20px;
+        top: 0px;
     }
 }
 
 
 @media #{$small-only} {
-    .chatbox {
+    .friendbox {
         position: fixed;
         position: expression("absolute");
         width: 280px;
@@ -28,9 +29,7 @@
     }
 }
 
-
-
-.chatboxhead {
+.friendboxhead {
     background: #666;
     color: white;
     padding: 0.5rem;
@@ -40,22 +39,22 @@
     border-left: 1px solid rgba(85, 85, 85, 0.87);
 }
 
-.chatboxhead h1 {
+.friendboxhead h1 {
     display: inline;
     font-size: 17px;
     font-weight: 700;
     color: #fff;
 }
 
-.chatboxblink {
+.friendboxblink {
     background-color: #176689;
     border-right: 1px solid #176689;
     border-left: 1px solid #176689;
 }
 
-.chatboxcontent {
+.friendboxcontent {
     font-family: arial, sans-serif;
-    height: 280px;
+    height: 150px;
     width: 280px;
     overflow-y: auto;
     padding: 7px;
@@ -65,20 +64,25 @@
     background: #e5e5e5;
     line-height: 1.3em;
     list-style: none;
+    display: none;
+    a {
+        margin-left: 30px;
+    }
 }
 
-.chatboxcontent li {
+.friendboxcontent li {
     padding: 0.5rem;
     overflow: hidden;
     display: flex;
 }
 
-.chatboxcontent .avatar {
+.friendboxcontent .avatar {
     width: 40px;
+    height: 40px;
     position: relative;
 }
 
-.chatboxcontent .avatar img {
+.friendboxcontent .avatar img {
     display: block;
     width: 100%;
 }
@@ -100,7 +104,7 @@
     align-items: flex-end;
 }
 
-.self .chatboxmessagecontent {
+.self .friendboxmessagecontent {
     order: 1;
     border-bottom-right-radius: 0;
 }
@@ -122,14 +126,14 @@
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.chatboxmessagecontent {
+.friendboxmessagecontent {
     background: white;
     padding: 10px;
     border-radius: 2px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.chatboxmessagecontent p {
+.friendboxmessagecontent p {
     font-size: 12px;
     margin: 0 0 0.2rem 0;
     -ms-word-break: break-all;
@@ -142,12 +146,12 @@
     hyphens: auto;
 }
 
-.chatboxmessagecontent time {
+.friendboxmessagecontent time {
     font-size: 9px;
     color: #ccc;
 }
 
-.chatboxinput {
+.friendboxinput {
     padding: 5px;
     background-color: #ffffff;
     border-left: 1px solid #cccccc;
@@ -155,7 +159,7 @@
     border-bottom: 1px solid #cccccc;
 }
 
-.chatboxtextarea {
+.friendboxtextarea {
     width: 262px;
     height: 44px;
     padding: 3px 0pt 3px 3px;
@@ -165,31 +169,31 @@
     resize: none !important;
 }
 
-.chatboxtextareaselected {
+.friendboxtextareaselected {
     border: 2px solid #878787;
     margin: 0;
 }
 
-.chatboxmessage {
+.friendboxmessage {
     margin-left: 1em;
 }
 
-.chatboxinfo {
+.friendboxinfo {
     margin-left: -1em;
     color: #666666;
 
 }
 
-.chatboxoptions {
+.friendboxoptions {
     float: right;
 }
 
-.chatboxoptions a {
+.friendboxoptions a {
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
-.chatboxtitle {
+.friendboxtitle {
     float: left;
 }
