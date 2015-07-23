@@ -1,19 +1,19 @@
-# require "rails_helper"
+require "rails_helper"
 
-# RSpec.describe UserSkill, type: :model do
-#   let(:user) { FactoryGirl.create(:user) }
-#   let(:user1) { FactoryGirl.create(:user) }
-#   let(:reject) { Reject.create(user_id: user.id, reject_id: user1.id)}
+RSpec.describe UserSkill, type: :model do
+  let(:user) { FactoryGirl.create(:user) }
+  let(:skill) { Skill.create(name: "bob") }
+  let(:user_skill) { UserSkill.create(skill_id: skill.id, user_id: user.id) }
 
-#   it "was sucessfully created" do
-#     expect(reject).to be_a(Reject)
-#   end
+  it "was sucessfully created" do
+    expect(user_skill).to be_a(UserSkill)
+  end
 
-#   it "has a user" do
-#     expect(reject.user).to be_a(User)
-#   end
+  it "has a preference" do
+    expect(user_skill.skill).to be_a(Skill)
+  end
 
-#   it "a user has rejects" do
-#     expect(user.rejects).to_not be(nil)
-#   end
-# end
+  it "has a user" do
+    expect(user_skill.user).to be_a(User)
+  end
+end
