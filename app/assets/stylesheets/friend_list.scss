@@ -65,6 +65,9 @@
     line-height: 1.3em;
     list-style: none;
     display: none;
+    a {
+        margin-left: 30px;
+    }
 }
 
 .friendboxcontent li {
@@ -75,6 +78,7 @@
 
 .friendboxcontent .avatar {
     width: 40px;
+    height: 40px;
     position: relative;
 }
 
