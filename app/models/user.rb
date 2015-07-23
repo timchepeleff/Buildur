@@ -103,6 +103,4 @@ class User < ActiveRecord::Base
     frequencies
   end
 
-  def user_model
-  end
 end

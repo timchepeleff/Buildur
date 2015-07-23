@@ -59,6 +59,14 @@ RSpec.describe User, type: :model do
   end
 
   it "displays correct search results based off of preferences and skills" do
+    user
+    skill
+    preference
+    user.user_skills.build(skill_id: skill.id)
+    UserPreference.create(user_id: user.id, preference_id: preference.id)
+    user1.user_skills.build(skill_id: skill.id)
 
+    a = User.search(nil, user)
+    binding.pry
   end
 end
