@@ -45,5 +45,9 @@ $(document).ready(function() {
   }, 4500);
 });
 
-
+jQuery(document).ready(function(){
+        jQuery('.friendboxhead').on('click', function(event) {
+             jQuery('.friendboxcontent').toggle('show');
+        });
+    });
 

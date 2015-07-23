@@ -1,0 +1,195 @@
+/**
+ * GMAIL Like friend css
+ * CREDITS: http://css-tricks.com/replicating-google-hangouts-friend/
+ *
+ */
+
+
+@media #{$medium-up} {
+    .friendbox {
+        position: fixed;
+        position: expression("absolute");
+        width: 280px;
+        right: 20px;
+        top: 0px;
+    }
+}
+
+
+@media #{$small-only} {
+    .friendbox {
+        position: fixed;
+        position: expression("absolute");
+        width: 280px;
+        display: none;
+        padding-bottom: 100px;
+        .fa {
+            font-size: 20px;
+        }
+    }
+}
+
+.friendboxhead {
+    background: #666;
+    color: white;
+    padding: 0.5rem;
+    overflow: hidden;
+
+    border-right: 1px solid rgba(85, 85, 85, 0.87);
+    border-left: 1px solid rgba(85, 85, 85, 0.87);
+}
+
+.friendboxhead h1 {
+    display: inline;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.friendboxblink {
+    background-color: #176689;
+    border-right: 1px solid #176689;
+    border-left: 1px solid #176689;
+}
+
+.friendboxcontent {
+    font-family: arial, sans-serif;
+    height: 150px;
+    width: 280px;
+    overflow-y: auto;
+    padding: 7px;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #eeeeee;
+    background: #e5e5e5;
+    line-height: 1.3em;
+    list-style: none;
+    display: none;
+}
+
+.friendboxcontent li {
+    padding: 0.5rem;
+    overflow: hidden;
+    display: flex;
+}
+
+.friendboxcontent .avatar {
+    width: 40px;
+    position: relative;
+}
+
+.friendboxcontent .avatar img {
+    display: block;
+    width: 100%;
+}
+
+.other .avatar:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border: 5px solid white;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.self {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.self .friendboxmessagecontent {
+    order: 1;
+    border-bottom-right-radius: 0;
+}
+
+.self .avatar {
+    order: 2;
+}
+
+.self .avatar:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 5px solid white;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.friendboxmessagecontent {
+    background: white;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.friendboxmessagecontent p {
+    font-size: 12px;
+    margin: 0 0 0.2rem 0;
+    -ms-word-break: break-all;
+
+    /* Non standard for webkit */
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+.friendboxmessagecontent time {
+    font-size: 9px;
+    color: #ccc;
+}
+
+.friendboxinput {
+    padding: 5px;
+    background-color: #ffffff;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+.friendboxtextarea {
+    width: 262px;
+    height: 44px;
+    padding: 3px 0pt 3px 3px;
+    border: 1px solid #eeeeee;
+    margin: 1px;
+    overflow: hidden;
+    resize: none !important;
+}
+
+.friendboxtextareaselected {
+    border: 2px solid #878787;
+    margin: 0;
+}
+
+.friendboxmessage {
+    margin-left: 1em;
+}
+
+.friendboxinfo {
+    margin-left: -1em;
+    color: #666666;
+
+}
+
+.friendboxoptions {
+    float: right;
+}
+
+.friendboxoptions a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.friendboxtitle {
+    float: left;
+}
