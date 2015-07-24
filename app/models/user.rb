@@ -34,26 +34,46 @@ class User < ActiveRecord::Base
     if search
       return where(["name @@ ?", search.downcase]).order(name: :asc)
     else
-      matched = []
+      matched = all_matches(current_user)
+
+      if current_user.rejects
+        rejects = all_rejects(current_user)
+      else
+        return matched
+      end
+
+      matches = matched.flatten.uniq - rejects - friend?(current_user)
+      return matches
+    end
+  end
+
+  def self.all_matches(current_user)
+    matched = []
       current_user.user_preferences.each do |preference|
         matches = UserSkill.where("skill_id = ? and user_id != ?", preference.preference_id, current_user.id)
         matches.each do |match|
           matched << match.user unless match.user.nil?
         end
       end
-      rejects = []
-      if current_user.rejects
-        current_user.rejects.each do |reject|
-          reject_id = reject.reject_id
-          u = User.find(reject_id)
-          rejects << u
-        end
-      else
-        return matched
-      end
-      matches = matched.flatten.uniq - rejects
-      return matches
+    matched
+  end
+
+  def self.friend?(current_user)
+    friends = []
+    current_user.friends.each do |friend|
+      friends << friend
     end
+    friends
+  end
+
+  def self.all_rejects(current_user)
+    rejects = []
+      current_user.rejects.each do |reject|
+        reject_id = reject.reject_id
+        u = User.find(reject_id)
+        rejects << u
+      end
+    rejects
   end
 
   def admin?
