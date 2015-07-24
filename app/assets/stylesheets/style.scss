@@ -58,7 +58,7 @@ body {
 }
 
 .login-wrapper {
-  top: 250px;
+  padding-top: 1000px;
   span {
     opacity: 0;
   }
@@ -444,6 +444,11 @@ label:hover {
   height: 400px;
   padding: 15px;
   width: 100%;
+}
+
+.splash-tinder {
+  position: absolute;
+  left: 20%;
 }
 
 #tinderslide {
@@ -873,7 +878,7 @@ label:hover {
 }
 
 .index-start {
-  padding: 20px 0 0 0;
+  padding: 20px 0  0;
   i {
     font-size: 60px;
     padding-top: 15px;
@@ -896,6 +901,8 @@ label:hover {
     padding-left: -100px;
   }
 }
+
+
 
 .notice_wrapper {
   position: absolute;
