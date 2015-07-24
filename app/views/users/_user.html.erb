@@ -6,9 +6,9 @@
       </div>
     </div>
     <div class="large-6 columns u-about">
-     <h1>About</h1><p><%= user.about.truncate(150, separator: /\s/) %></p>
+     <h4><u>About</u></h4><p><%= user.about.truncate(150, separator: /\s/) %></p>
      <div class="clear"></div>
-     <h4>Experience</h4>
+     <h4><u>Experience</u></h4>
      <%= pie_chart user.top_languages  %>
      <%= link_to user_path(user) do %><h5 class="u-full-prof">View Full Profile.</h5><% end %>
     </div>

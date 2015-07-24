@@ -107,9 +107,8 @@ body {
   nav {
     text-align: center;
     margin-top: 20px;
-    animation: nav_fade .8s 2.4s forwards;
     position: relative;
-    opacity: 0;
+    opacity: 0.8;
     margin-top: 60px;
     a {
       color:  $secondary-red;
@@ -132,112 +131,19 @@ body {
     width: 1000px;
     text-align: center;
     top: 50%;
-    animation: move_up .5s 1.9s forwards;
+    img {
+      transition: all 0.5s ease-in;
+    }
   }
   .logo_holder__rotate {
-    animation: logo_rotate .35s .4s forwards,logo_move .35s .75s forwards;
     //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(0deg) scale(0.5);
     position: absolute;
     padding-left: 250px;
     padding-bottom: 800px;
     opacity: 0.8;
   }
   .logo_holder__text {
-    animation: logo_text 0.4s 1.1s forwards;
-    opacity: 0;
-  }
-}
-@-webkit-keyframes logo_rotate {
-  0% {
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(0deg) scale(0.5);
-  }
-  100% {
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(0deg) scale(0.5);
-  }
-}
-@keyframes logo_rotate {
-  0% {
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(0deg) scale(0.5);
-  }
-  100% {
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(deg) scale(0.5);
-  }
-}
-@-webkit-keyframes logo_move {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: -90px;
-  }
-}
-@keyframes logo_move {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: -90px;
-  }
-}
-@-webkit-keyframes logo_text {
-  0% {
-    top: -30px;
-    opacity: 0;
-  }
-  100% {
-    top: -64px;
-    opacity: 1;
-  }
-}
-@keyframes logo_text {
-  0% {
-    top: -30px;
-    opacity: 0;
-  }
-  100% {
-    top: -64px;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes nav_fade {
-  0% {
-    top: 10px;
-    opacity: 0;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-  }
-}
-@keyframes nav_fade {
-  0% {
-    top: 10px;
-    opacity: 0;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes move_up {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 35%;
-  }
-}
-@keyframes move_up {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 35%;
+    opacity: 0.8;
   }
 }
 
@@ -895,6 +801,7 @@ label:hover {
 }
 
 .site-container {
+  padding-top: 20px;
   .index{
     padding-top: -100px;
     margin-top: -100px;
