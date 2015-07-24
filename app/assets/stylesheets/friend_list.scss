@@ -30,7 +30,7 @@
 }
 
 .friendboxhead {
-    background: #666;
+    background: $secondary-red;
     color: white;
     padding: 0.5rem;
     overflow: hidden;
@@ -68,12 +68,16 @@
     a {
         margin-left: 30px;
     }
+    p {
+        margin-top: 7px;
+        margin-left: 3px;
+    }
 }
 
 .friendboxcontent li {
-    padding: 0.5rem;
     overflow: hidden;
     display: flex;
+    border-bottom: 1px solid #CCCCCC;
 }
 
 .friendboxcontent .avatar {
@@ -135,7 +139,7 @@
 
 .friendboxmessagecontent p {
     font-size: 12px;
-    margin: 0 0 0.2rem 0;
+    margin: 10px 0 0 0;
     -ms-word-break: break-all;
 
     /* Non standard for webkit */

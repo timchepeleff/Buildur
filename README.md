@@ -8,21 +8,21 @@ Buildur was created for developers, exclusively. Build a profile, match up with 
 
 #### How it works.
 After signing in with GitHub, you’ll start by filling out your profile. Finished and ready to find some kick-ass developers to collaborate with? Good.
-[Imgur](http://i.imgur.com/tzp50DH.gifv)
-![chat](http://i.imgur.com/EOZ3ky6.gifv)
 
-When you click on “Discover”,  my algorithm calculates (based off of your preferences) the most likely matches and displays them on your screen; it’s simple, quick and fun. If you like what you see, send a pull request to add them as a friend. 
+![sign_in](/app/assets/images/sign_in.gif)
 
-![swipe](http://i.imgur.com/u1QFNPS.gifv)
+When you click on “Discover”,  my algorithm calculates (based off of your preferences) the most likely matches and displays them on your screen; it’s simple, quick and fun. If you like what you see, send a pull request to add them as a friend.
+
+![swipe](/app/assets/images/swipe.gif)
 
 If they decide to merge you in you’ll both be able to start a conversation using the built in chat feature. The whole point is to introduce you to other developers and build relationships based off of similar interests.
 
-![sign_in](http://i.imgur.com/tzp50DH.gifv)
+![chat](/app/assets/images/chat.gif)
 
 #### So, Why did I build it?
-I wanted something that would immediatly give back to the community. Networking and building relationships is huge in this industry. I wanted to take some of the intimidation out of it and introduce the right people to each other based on what they were interested in. 
+I wanted something that would immediatly give back to the community. Networking and building relationships is huge in this industry. I wanted to take some of the intimidation out of it and introduce the right people to each other based on what they were interested in.
 
-## Trying to test it out locally? 
+## Trying to test it out locally?
 ### Here's what you need to do.
 
 

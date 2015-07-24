@@ -58,6 +58,7 @@ body {
 }
 
 .login-wrapper {
+  top: 250px;
   span {
     opacity: 0;
   }
@@ -874,8 +875,9 @@ label:hover {
 
 .notice_wrapper {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
+  margin: 0 !important;
   z-index: 2000;
   width: 100%;
   background: rgba(137, 59, 100, 0.7);
