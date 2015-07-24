@@ -67,6 +67,5 @@ RSpec.describe User, type: :model do
     user1.user_skills.build(skill_id: skill.id)
 
     a = User.search(nil, user)
-    binding.pry
   end
 end
