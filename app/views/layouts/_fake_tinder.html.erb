@@ -1,3 +1,23 @@
+    <div class="splash-tinder">
+       <div class="text-center">
+        <div class="wrap">
+            <div id="tinderslide">
+                <ul>
+                    <%= render 'layouts/fake_user' %>
+                </ul>
+            </div>
+            <div class="actions">
+              <a href="#" class="dislike"><i class="fa fa-times"></i></a>
+              <a href="#" class="like" style="float: right;"><i><%= image_tag("git-pull-request-white.png", size: "50", style: "padding-bottom: 20px;") %></i> </a>
+            </div>
+        </div>
+       </div>
+    </div>
+    <script type="text/javascript">
+  $("#tinderslide > ul li").tsort({attr: "id"});
+
+</script>
+
 <script type="text/javascript">
 
 $(".spinner").hide();
@@ -6,11 +26,9 @@ $("#tinderslide").jTinder({
 
   onDislike: function (item) {
     var myId = $("#tinderslide > ul li").last().attr("id");
-    $("#dislike" + myId)[0].click();
   },
   onLike: function (item) {
     var myId = $("#tinderslide > ul li").last().attr("id");
-    $("#like" + myId)[0].click();
   },
 
   animationRevertSpeed: 200,

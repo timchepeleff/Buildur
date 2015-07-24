@@ -15,7 +15,7 @@
     <div class="like">
       <%= link_to "", user_friendships_path(friend_id: user, user_id: request.path), id: "like#{user.id}", method: :post, :remote => true%>
     </div>
-    <div class="dislike">
+  <div class="dislike">
       <%= link_to "", rejects_path(reject_id: user, user_id: request.path), id: "dislike#{user.id}", method: :post, :remote => true%>
     </div>
 </li>

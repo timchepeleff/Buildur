@@ -456,10 +456,11 @@ label:hover {
   img {
     float: left;
     margin: 20px 20px 0 20px;
-    border-radius: 5px 5px 0 5px;
-    -webkit-box-shadow: 3px 3px 24px 4px rgba(162,162,162,1);
-    -moz-box-shadow: 3px 3px 24px 4px rgba(162,162,162,1);
-    box-shadow: 3px 3px 24px 4px rgba(162,162,162,1);
+    border-radius: 10px;
+
+    -webkit-box-shadow: 2px 2px 15px 2px #a2a2a2;
+    -moz-box-shadow: 2px 2px 15px 2px #a2a2a2;
+    box-shadow: 2px 2px 15px 2px #a2a2a2;
   }
 
   li {
@@ -872,10 +873,11 @@ label:hover {
 }
 
 .index-start {
-  padding: 0;
+  padding: 20px 0 0 0;
   i {
     font-size: 60px;
     padding-top: 15px;
+    padding-right: 20px;
     display: inline-block;
     opacity: 1;
   }
@@ -883,6 +885,7 @@ label:hover {
     font-size: 60px;
     overflow: show;
     opacity: 1;
+    padding-left: 20px;
   }
 }
 
