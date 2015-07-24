@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     @user.update(user_params)
     update_preferences
     update_skills
-    #add something to rerender the page if no location, job, about ect are not present.
     if @user.save
       flash[:notice] = "Thanks for updating!"
       redirect_to user_path(current_user)
