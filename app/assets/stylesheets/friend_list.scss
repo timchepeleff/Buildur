@@ -4,29 +4,12 @@
  *
  */
 
-
-@media #{$medium-up} {
-    .friendbox {
-        position: fixed;
-        position: expression("absolute");
-        width: 280px;
-        right: 20px;
-        top: 0px;
-    }
-}
-
-
-@media #{$small-only} {
-    .friendbox {
-        position: fixed;
-        position: expression("absolute");
-        width: 280px;
-        display: none;
-        padding-bottom: 100px;
-        .fa {
-            font-size: 20px;
-        }
-    }
+.friendbox {
+    position: fixed;
+    position: expression("absolute");
+    width: 280px;
+    right: 20px;
+    top: 0px;
 }
 
 .friendboxhead {

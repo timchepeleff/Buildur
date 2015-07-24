@@ -61,12 +61,8 @@ class UsersController < ApplicationController
 
   def update_preferences
     @user.user_preferences.destroy_all if @user.user_preferences
-    if params["user"]["preferences"].count > 1
-      params["user"]["preferences"].each do |preference|
-        unless preference == ""
-          @user.user_preferences.build(preference_id: preference)
-        end
-      end
+    if multi_inputs?("preferences")
+      multi_insert!(params["user"]["preferences"], @user.user_preferences, :preference_id )
     else
       @user.user_preferences.build(preference_id: params["user"]["preferences"])
     end
@@ -74,15 +70,24 @@ class UsersController < ApplicationController
 
   def update_skills
     @user.user_skills.destroy_all if @user.user_skills
-    if params["user"]["skills"].count > 1
-      params["user"]["skills"].each do |skill|
-        unless skill == ""
-          @user.user_skills.build(skill_id: skill)
-        end
-      end
+    if multi_inputs?("skills")
+        multi_insert!(params["user"]["skills"], @user.user_skills, :skill_id )
     else
       @user.user_skills.build(skill_id: params["user"]["skills"])
     end
   end
+
+  def multi_inputs?(field)
+    params["user"][field].count > 1
+  end
+
+  def multi_insert!(param, field, id)
+    param.each do |f|
+        unless f == ""
+          field.build(id => f)
+        end
+      end
+  end
+
 end
 

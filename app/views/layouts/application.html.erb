@@ -31,7 +31,7 @@
         </div>
       </div>
       <%= render 'layouts/friend_list' %>
-    <%else %>
+    <% else %>
       <div class="login-wrapper">
         <div class="container">
           <div class="logo_holder">
@@ -39,8 +39,9 @@
           </div>
         </div>
       </div>
-    <%end%>
-    <%= render 'layouts/tinder' %>
+      <%= render 'layouts/fake_tinder' %>
+    <% end %>
+  <%= render 'layouts/tinder' %>
 </body>
   <% if current_user %>
     <script type="text/javascript">

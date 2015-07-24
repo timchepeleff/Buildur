@@ -1,0 +1,27 @@
+<script type="text/javascript">
+
+$(".spinner").hide();
+
+$("#tinderslide").jTinder({
+
+  onDislike: function (item) {
+    var myId = $("#tinderslide > ul li").last().attr("id");
+    $("#dislike" + myId)[0].click();
+  },
+  onLike: function (item) {
+    var myId = $("#tinderslide > ul li").last().attr("id");
+    $("#like" + myId)[0].click();
+  },
+
+  animationRevertSpeed: 200,
+  animationSpeed: 400,
+  threshold: 1,
+  likeSelector: ".like",
+  dislikeSelector: ".dislike"
+});
+
+$(".actions .like, .actions .dislike").click(function(e){
+  e.preventDefault();
+  $("#tinderslide").jTinder($(this).attr("class"));
+});
+</script>

@@ -451,9 +451,15 @@ label:hover {
   height: 550px;
   margin: auto;
   background-color: $background;
+  margin-top: 100px;
 
   img {
     float: left;
+    margin: 20px 20px 0 20px;
+    border-radius: 5px 5px 0 5px;
+    -webkit-box-shadow: 3px 3px 24px 4px rgba(162,162,162,1);
+    -moz-box-shadow: 3px 3px 24px 4px rgba(162,162,162,1);
+    box-shadow: 3px 3px 24px 4px rgba(162,162,162,1);
   }
 
   li {
@@ -461,6 +467,7 @@ label:hover {
     padding: 0 0 30px 0;
     background: #FFF;
     border-radius: 5px;
+    z-index: 0;
   }
 }
 
@@ -479,6 +486,11 @@ label:hover {
   box-shadow: none;
 }
 
+.u-full-prof {
+  float: right;
+  padding-top: 40px;
+}
+
 .actions .dislike i {
   font-size: 50px;
   color: #fc6d5c;
@@ -490,6 +502,11 @@ label:hover {
 
 .actions .like {
   line-height: 120px;
+  background-color: #83D566;
+}
+
+.actions .like:hover {
+  background-color: #60C13D;
 }
 
 .actions .like i {
@@ -517,8 +534,9 @@ label:hover {
 }
 
 .u-name {
-  background-color: #fafafa;
   height: 140px;
+  margin-left: 21px !important;
+  margin-top: 20px;
 }
 
 .u-about{
@@ -848,6 +866,9 @@ label:hover {
   a {
     display: inline-block;
   }
+  .fa {
+    font-size: 30px;
+  }
 }
 
 .index-start {
@@ -892,3 +913,14 @@ label:hover {
   }
 }
 
+#show-pull-request {
+  background-color: rgba(131, 213, 102, 0.8);
+  img {
+    margin-left: 30px;
+    margin-top: 20px;
+  }
+
+  :hover {
+    background-color: rgba(131, 213, 102, 0.92);
+  }
+}

@@ -1,6 +1,6 @@
 <div class="large-12 columns show-container">
   <div class="user-portfolio-name">
-    <h1><%= @user.name %><span class="spacer"></span><%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: params[:id], user_id: request.path), method: :post unless current_user == @user %></h1>
+    <h1><%= @user.name %></h1>
     <p><%= @user.job if @user.job %><span class="spacer"></span><%= @user.location if @user.location %></p>
     <div class="name-color"></div>
   </div>
