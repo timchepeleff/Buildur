@@ -8,7 +8,7 @@ Buildur was created for developers, exclusively. Build a profile, match up with 
 
 #### How it works.
 After signing in with GitHub, you’ll start by filling out your profile. Finished and ready to find some kick-ass developers to collaborate with? Good.
-
+[Imgur](http://i.imgur.com/tzp50DH.gifv)
 ![chat](http://i.imgur.com/EOZ3ky6.gifv)
 
 When you click on “Discover”,  my algorithm calculates (based off of your preferences) the most likely matches and displays them on your screen; it’s simple, quick and fun. If you like what you see, send a pull request to add them as a friend. 
