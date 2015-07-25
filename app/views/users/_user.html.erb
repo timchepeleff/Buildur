@@ -2,16 +2,20 @@
     <div class="large-6 columns left-tinder-box">
       <%= image_tag user.avatar_url%>
       <div class="u-name pull-left">
-        <%= link_to user_path(user) do %><h1><%= user.name %></h1><%= user.email %></a><% end %>
+        <%= link_to user_path(user) do %><h1><%= user.name %></h1><% end %>
       </div>
     </div>
     <div class="large-6 columns u-about">
-     <h1>About</h1><p><%= user.about %></p>
+     <h4><u>About</u></h4><p><%= user.about.truncate(150, separator: /\s/) %></p>
+     <div class="clear"></div>
+     <h4><u>Experience</u></h4>
+     <%= pie_chart user.top_languages  %>
+     <%= link_to user_path(user) do %><h5 class="u-full-prof">View Full Profile.</h5><% end %>
     </div>
     <div class="like">
       <%= link_to "", user_friendships_path(friend_id: user, user_id: request.path), id: "like#{user.id}", method: :post, :remote => true%>
     </div>
-    <div class="dislike">
+  <div class="dislike">
       <%= link_to "", rejects_path(reject_id: user, user_id: request.path), id: "dislike#{user.id}", method: :post, :remote => true%>
     </div>
 </li>

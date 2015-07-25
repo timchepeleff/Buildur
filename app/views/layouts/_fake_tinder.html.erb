@@ -1,0 +1,47 @@
+    <div class="splash-tinder">
+       <div class="text-center">
+        <div class="wrap">
+            <div id="tinderslide">
+                <ul>
+                    <%= render 'layouts/fake_user' %>
+                </ul>
+                <p id="know-it-alls">Know what to do? Ready to get started?</p>
+                <p id="know-it-alls"><i class="fa fa-arrow-down"></i><span class="spacer"></span>Scroll down to sign in<span class="spacer"></span><i class="fa fa-arrow-down"></i></p>
+            </div>
+            <div class="actions">
+              <a href="#" class="dislike"><i class="fa fa-times"></i></a>
+              <a href="#" class="like" style="float: right;"><i><%= image_tag("git-pull-request-white.png", size: "50", style: "padding-bottom: 20px;") %></i> </a>
+            </div>
+        </div>
+       </div>
+    </div>
+    <script type="text/javascript">
+  $("#tinderslide > ul li").tsort({attr: "id"});
+
+</script>
+
+<script type="text/javascript">
+
+$(".spinner").hide();
+
+$("#tinderslide").jTinder({
+
+  onDislike: function (item) {
+    var myId = $("#tinderslide > ul li").last().attr("id");
+  },
+  onLike: function (item) {
+    var myId = $("#tinderslide > ul li").last().attr("id");
+  },
+
+  animationRevertSpeed: 200,
+  animationSpeed: 400,
+  threshold: 1,
+  likeSelector: ".like",
+  dislikeSelector: ".dislike"
+});
+
+$(".actions .like, .actions .dislike").click(function(e){
+  e.preventDefault();
+  $("#tinderslide").jTinder($(this).attr("class"));
+});
+</script>

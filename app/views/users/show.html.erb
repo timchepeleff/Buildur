@@ -1,6 +1,6 @@
 <div class="large-12 columns show-container">
   <div class="user-portfolio-name">
-    <h1><%= @user.name %><span class="spacer"></span><%= link_to image_tag("add-friend.png", size:"35"), user_friendships_path(friend_id: params[:id], user_id: request.path), method: :post unless current_user == @user %></h1>
+    <h1><%= @user.name %></h1>
     <p><%= @user.job if @user.job %><span class="spacer"></span><%= @user.location if @user.location %></p>
     <div class="name-color"></div>
   </div>
@@ -74,7 +74,7 @@
         <h2>Friend Requests</h2>
         <% @user.inverse_friends.each do |user| %>
           <% unless @user.mutual_friends.include?(user) %>
-            <ol><%= link_to user.name, user_path(friend_id: user, user_id: params[:id]), method: :post %></ol>
+            <ol><%= link_to user.name, user_path(user) %></ol>
           <% end %>
         <% end %>
       </ul>
@@ -84,10 +84,12 @@
   </div>
   <div class="large-12 columns">
     <% if current_user == @user %>
+    <div class="large-6 columns">
       <h2>Rejected users</h2>
       <% @user.rejects.each do |reject| %>
         <%= link_to image_tag(User.find(reject.reject_id).avatar_url, size: "40"), user_path(reject.reject_id)  %>
       <% end -%>
+    </div>
     <% end %>
   </div>
 </div>

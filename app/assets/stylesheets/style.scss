@@ -57,190 +57,6 @@ body {
   }
 }
 
-.login-wrapper {
-  top: 250px;
-  span {
-    opacity: 0;
-  }
-  input {
-    border-radius: 2px;
-  }
-  h2 {
-    font-size: 35px;
-    font-weight: 300;
-    color:  $secondary-red;
-    margin-bottom: 30px;
-    opacity: 0.7;
-    letter-spacing: 1px;
-    margin-top: -30px;
-  }
-  h3 {
-    font-size: 30px;
-    font-weight: 300;
-    color:  $secondary-red;
-    opacity: 0.7;
-    letter-spacing: 1px;
-    padding: 0;
-    margin: 0;
-  }
-  label {
-    font-size: 30px;
-    font-weight: 300;
-    color:  $secondary-red;
-    opacity: 0.9;
-    letter-spacing: 1px;
-  }
-  a {
-    font-size: 15px;
-    font-weight: 300;
-    color:  $secondary-red;
-    opacity: 0.8;
-    letter-spacing: 1px;
-  }
-  em {
-    font-size: 15px;
-    font-weight: 300;
-    color:  $secondary-red;
-    opacity: 0.8;
-    letter-spacing: 1px;
-  }
-  nav {
-    text-align: center;
-    margin-top: 20px;
-    animation: nav_fade .8s 2.4s forwards;
-    position: relative;
-    opacity: 0;
-    margin-top: 60px;
-    a {
-      color:  $secondary-red;
-      text-decoration: none;
-      font-weight: 300;
-      margin: 5px;
-      font-size: 12px;
-      padding: 10px 20px;
-      opacity: 0.5;
-      text-align: center;
-      position: relative;
-      top: 50%;
-    }
-  }
-  .logo_holder {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 1000px;
-    text-align: center;
-    top: 50%;
-    animation: move_up .5s 1.9s forwards;
-  }
-  .logo_holder__rotate {
-    animation: logo_rotate .35s .4s forwards,logo_move .35s .75s forwards;
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(0deg) scale(0.5);
-    position: absolute;
-    padding-left: 250px;
-    padding-bottom: 800px;
-    opacity: 0.8;
-  }
-  .logo_holder__text {
-    animation: logo_text 0.4s 1.1s forwards;
-    opacity: 0;
-  }
-}
-@-webkit-keyframes logo_rotate {
-  0% {
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(0deg) scale(0.5);
-  }
-  100% {
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(0deg) scale(0.5);
-  }
-}
-@keyframes logo_rotate {
-  0% {
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(0deg) scale(0.5);
-  }
-  100% {
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: translatey(-50%) rotate(deg) scale(0.5);
-  }
-}
-@-webkit-keyframes logo_move {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: -90px;
-  }
-}
-@keyframes logo_move {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: -90px;
-  }
-}
-@-webkit-keyframes logo_text {
-  0% {
-    top: -30px;
-    opacity: 0;
-  }
-  100% {
-    top: -64px;
-    opacity: 1;
-  }
-}
-@keyframes logo_text {
-  0% {
-    top: -30px;
-    opacity: 0;
-  }
-  100% {
-    top: -64px;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes nav_fade {
-  0% {
-    top: 10px;
-    opacity: 0;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-  }
-}
-@keyframes nav_fade {
-  0% {
-    top: 10px;
-    opacity: 0;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes move_up {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 35%;
-  }
-}
-@keyframes move_up {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: 35%;
-  }
-}
-
 h2:hover {
   //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
   transition: all 0.5s ease-in;
@@ -444,100 +260,6 @@ label:hover {
   height: 400px;
   padding: 15px;
   width: 100%;
-}
-
-#tinderslide {
-  width: 1000px;
-  height: 550px;
-  margin: auto;
-  background-color: $background;
-
-  img {
-    float: left;
-  }
-
-  li {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.04);
-    padding: 0 0 30px 0;
-    background: #FFF;
-    border-radius: 5px;
-  }
-}
-
-.actions a i {
-  font-size: 40px;
-}
-
-.actions a {
-  background-color: white;
-  background-image: none;
-  margin: 15px;
-  width: 120px;
-  height: 120px;
-  border-radius: 100%;
-  border: 10px solid #e8e8e8;
-  box-shadow: none;
-}
-
-.actions .dislike i {
-  font-size: 50px;
-  color: #fc6d5c;
-}
-
-.actions .dislike {
-  line-height: 120px;
-}
-
-.actions .like {
-  line-height: 120px;
-}
-
-.actions .like i {
-  color: #5adfa1;
-}
-
-.actions {
-  width: 1000px;
-  align: center;
-}
-
-.left-tinder-box {
-  padding-left: 0;
-
-  img {
-    width: 410px;
-    height: 410px;
-  }
-
-  h1 {
-    overflow: auto;
-    min-width: 410px;
-    max-width: 410px;
-  }
-}
-
-.u-name {
-  background-color: #fafafa;
-  height: 140px;
-}
-
-.u-about{
-  h1 {
-    text-align: center;
-  }
-
-  p{
-    text-align: left;
-  }
-}
-
-.unfortunate-situation {
-  padding-top: 40%;
-  padding-left: 20%;
-
-  h3 {
-    color: #A7A7A7;
-  }
 }
 
 // side nav
@@ -848,13 +570,17 @@ label:hover {
   a {
     display: inline-block;
   }
+  .fa {
+    font-size: 30px;
+  }
 }
 
 .index-start {
-  padding: 0;
+  padding: 20px 0  0;
   i {
     font-size: 60px;
     padding-top: 15px;
+    padding-right: 20px;
     display: inline-block;
     opacity: 1;
   }
@@ -862,16 +588,20 @@ label:hover {
     font-size: 60px;
     overflow: show;
     opacity: 1;
+    padding-left: 20px;
   }
 }
 
 .site-container {
+  padding-top: 20px;
   .index{
     padding-top: -100px;
     margin-top: -100px;
     padding-left: -100px;
   }
 }
+
+
 
 .notice_wrapper {
   position: absolute;
@@ -892,3 +622,21 @@ label:hover {
   }
 }
 
+#show-pull-request {
+  background-color: rgba(131, 213, 102, 0.8);
+  img {
+    margin-left: 30px;
+    margin-top: 20px;
+  }
+
+  :hover {
+    background-color: rgba(131, 213, 102, 0.92);
+  }
+}
+
+.discover {
+  span {
+    padding-left: 5px;
+    font-size: 18px;
+  }
+}

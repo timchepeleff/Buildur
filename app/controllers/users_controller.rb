@@ -23,8 +23,8 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    update_preferences
-    update_skills
+    update_field(params["user"]["preferences"], @user.user_preferences, :preference_id)
+    update_field(params["user"]["skills"], @user.user_skills, :skill_id)
     if @user.save
       flash[:notice] = "Thanks for updating!"
       redirect_to user_path(current_user)
@@ -59,30 +59,26 @@ class UsersController < ApplicationController
       :about)
   end
 
-  def update_preferences
-    @user.user_preferences.destroy_all if @user.user_preferences
-    if params["user"]["preferences"].count > 1
-      params["user"]["preferences"].each do |preference|
-        unless preference == ""
-          @user.user_preferences.build(preference_id: preference)
-        end
-      end
+  def update_field(param, field, id)
+    field.destroy_all if field
+    if multi_inputs?(param)
+      multi_insert!(param, field, id)
     else
-      @user.user_preferences.build(preference_id: params["user"]["preferences"])
+      field.build(id => param)
     end
   end
 
-  def update_skills
-    @user.user_skills.destroy_all if @user.user_skills
-    if params["user"]["skills"].count > 1
-      params["user"]["skills"].each do |skill|
-        unless skill == ""
-          @user.user_skills.build(skill_id: skill)
+  def multi_inputs?(param)
+    param.count > 1
+  end
+
+  def multi_insert!(param, field, id)
+    param.each do |f|
+        unless f == ""
+          field.build(id => f)
         end
       end
-    else
-      @user.user_skills.build(skill_id: params["user"]["skills"])
-    end
   end
+
 end
 

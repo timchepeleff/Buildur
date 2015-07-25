@@ -1,0 +1,175 @@
+.splash-tinder {
+  z-index: 2000;
+  padding-bottom: 500px;
+  margin-bottom: 200px;
+
+  ol {
+    height:100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.04);
+    padding: 0 0 30px 0;
+    background: #FFF;
+    border-radius: 5px;
+    z-index: 0;
+  }
+
+  .get-in-touch i {
+    padding: 40px;
+    font-size: 80px;
+  }
+
+  h2{
+    padding-bottom: 0;
+  }
+
+ #tinderslide {
+  padding-top: 0px !important;
+ }
+
+  .splash {
+    padding-top: 0;
+  }
+  h1 {
+    margin-top: 0px;
+    font-weight: 500;
+    opacity: 1;
+    padding: 0;
+    text-align: center;
+    background-color: #F3F3F3;
+    margin-bottom: 35px;
+    border-radius: 0 0 10px 10px;
+    border-bottom: 5px solid $red-background;
+  }
+  p {
+    padding-top: 50px;
+    padding-left: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 1;
+    width: 400px;
+    letter-spacing: 1px;
+  }
+
+  h6 {
+    opacity: 1 !important;
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: 600px
+  }
+
+  h3 {
+    opacity: 1 !important;
+    font-weight: 900 !important;
+    font-size: 25px !important;
+  }
+
+  h4 {
+    font-size: 30px;
+    opacity: 1;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  img {
+    box-shadow: none !important;
+  }
+}
+
+#index-image {
+  position: absolute;
+  box-shadow: none !important;
+  float: none !important;
+  left: 250px;
+  top: 100px;
+  opacity: 0.1;
+}
+.login-wrapper {
+  padding-bottom: 200px;
+  span {
+    opacity: 0;
+  }
+  input {
+    border-radius: 2px;
+  }
+  h2 {
+    font-size: 35px;
+    font-weight: 300;
+    color:  $secondary-red;
+    margin-bottom: 30px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    margin-top: -30px;
+  }
+  h3 {
+    font-size: 30px;
+    font-weight: 300;
+    color:  $secondary-red;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    padding: 0;
+    margin: 0;
+  }
+  label {
+    font-size: 30px;
+    font-weight: 300;
+    color:  $secondary-red;
+    opacity: 0.9;
+    letter-spacing: 1px;
+  }
+  a {
+    font-size: 15px;
+    font-weight: 300;
+    color:  $secondary-red;
+    opacity: 0.8;
+    letter-spacing: 1px;
+  }
+  em {
+    font-size: 15px;
+    font-weight: 300;
+    color:  $secondary-red;
+    opacity: 0.8;
+    letter-spacing: 1px;
+  }
+  nav {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    opacity: 0.8;
+    margin-top: 60px;
+    a {
+      color:  $secondary-red;
+      text-decoration: none;
+      font-weight: 300;
+      margin: 5px;
+      font-size: 12px;
+      padding: 10px 20px;
+      opacity: 0.5;
+      text-align: center;
+      position: relative;
+      top: 50%;
+    }
+  }
+  .logo_holder {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 1000px;
+    text-align: center;
+    top: 20px;
+    padding-bottom: 200px;
+  }
+
+  .logo_holder_text {
+    opacity: 0.8;
+  }
+
+  .logo_holder_rotate {
+    padding-bottom: 100px;
+  }
+
+  #know-it-alls {
+    padding-right: 10px;
+    width: 100%;
+    opacity: 0.5;
+  }
+}

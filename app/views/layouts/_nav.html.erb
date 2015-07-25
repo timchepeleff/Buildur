@@ -6,26 +6,25 @@
   </ul>
 
   <ul class="logout ">
+    <li class="has-subnav discover">
+      <%= link_to users_path do %>
+        <i class="fa fa-code"></i>
+        <span class="nav-text">
+          Discover
+        </span>
+      <% end %>
+    </li>
     <li class="has-subnav nav-profile-image">
       <%= link_to user_path(current_user) do %>
         <%= image_tag current_user.avatar_url %>
         <span class="nav-text">
-          <%= current_user.name %>
+          Your Profile
         </span>
       <% end %>
     </li>
-    <li class="has-subnav">
-      <%= link_to users_path do %>
-        <i class="fa fa-code"></i>
-        <span class="nav-text">
-          Build Your Team
-        </span>
-      <% end %>
-    </li>
-
     <li class="has-subnav edit-user-nav">
       <%= link_to edit_user_path(current_user) do %>
-        <i class="fa fa-pencil-square-o fa-2x"></i>
+        <i class="fa fa-cog fa-2x"></i>
         <span class="nav-text">
           Edit Profile
         </span>

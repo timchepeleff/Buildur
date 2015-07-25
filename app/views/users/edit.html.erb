@@ -1,7 +1,7 @@
 <div class="profile-form panel">
 <h1>Your Profile<h1>
   <%= form_for @user do |f| %>
-    <%= f.label :skills, "Highlighted Skills" %>
+    <%= f.label :skills, "Skills (list up to 5)" %>
     <% if !@current_skills.nil? %>
       <%= f.select :skills,
         Skill.all.map { |s| [s.name, s.id] },
@@ -16,7 +16,7 @@
       %>
     <% end %>
 
-    <%= f.label :preferences, "What are you looking for?" %>
+    <%= f.label :preferences, "Preferences (list up to 5)" %>
     <% if @current_preferences %>
       <%= f.select :preferences,
       Preference.all.map { |p| [p.name, p.id] },

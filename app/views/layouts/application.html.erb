@@ -31,16 +31,17 @@
         </div>
       </div>
       <%= render 'layouts/friend_list' %>
-    <%else %>
+    <% else %>
       <div class="login-wrapper">
         <div class="container">
           <div class="logo_holder">
+            <%= render 'layouts/fake_tinder' %>
             <%= yield %>
           </div>
         </div>
       </div>
-    <%end%>
-    <%= render 'layouts/tinder' %>
+    <% end %>
+  <%= render 'layouts/tinder' %>
 </body>
   <% if current_user %>
     <script type="text/javascript">
