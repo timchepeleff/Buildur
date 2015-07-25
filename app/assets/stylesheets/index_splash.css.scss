@@ -2,6 +2,14 @@
   z-index: 2000;
   padding-bottom: 800px;
   margin-bottom: 200px;
+
+ #tinderslide {
+  padding-top: 0px !important;
+ }
+
+  .splash {
+    padding-top: 0;
+  }
   h1 {
     font-weight: 500;
     opacity: 1;
@@ -15,15 +23,31 @@
   p {
     padding-top: 50px;
     padding-left: 50px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     opacity: 1;
     width: 400px;
+    letter-spacing: 1px;
+  }
+
+  h6 {
+    opacity: 1 !important;
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: 600px
+  }
+
+  h3 {
+    opacity: 1 !important;
+    font-weight: 900 !important;
+    font-size: 25px !important;
   }
 
   h4 {
+    font-size: 30px;
     opacity: 1;
     font-weight: 700;
+    letter-spacing: 2px;
   }
 
   img {
@@ -111,7 +135,7 @@
     margin: auto;
     width: 1000px;
     text-align: center;
-    top: 100px;
+    top: 0px;
     img {
       transition: all 0.5s ease-in;
     }
