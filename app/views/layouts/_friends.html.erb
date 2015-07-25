@@ -1,3 +1,15 @@
+
+<% current_user.friend_requests.each do |friend| %>
+  <li>
+  <div class="avatar">
+    <%= image_tag(friend.avatar_url) %>
+  </div>
+
+    <p><%= friend.name %></p>
+    <%= link_to image_tag("git-pull-request.png", size: "20"), user_friendships_path(friend_id: friend, user_id: request.path), method: :post%>
+  </li>
+<% end %>
+
 <% current_user.mutual_friends.each do |friend| %>
 <li>
   <div class="avatar">
@@ -9,3 +21,4 @@
         "data-sid" => current_user.id, "data-rip" => friend.id %>
 </li>
 <% end %>
+

@@ -10,13 +10,16 @@ class FriendshipsController < ApplicationController
     if @friendship.save!
       flash[:notice] = "Added friend."
       redirect_to params[:user_id]
+      return
     else
       flash[:notice] = "Unable to add friend."
-      redirect_to user_path(current_user)
+      redirect_to params[:user_id]
+      return
     end
 
     respond_to do |format|
       format.js
+      format.html
     end
   end
 

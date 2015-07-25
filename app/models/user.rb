@@ -76,6 +76,16 @@ class User < ActiveRecord::Base
     rejects
   end
 
+  def friend_requests
+    requests = []
+    inverse_friends.each do |user|
+      unless mutual_friends.include?(user)
+        requests << user
+      end
+    end
+    requests
+  end
+
   def admin?
     role == "admin"
   end
