@@ -57,96 +57,6 @@ body {
   }
 }
 
-.login-wrapper {
-  padding-top: 1000px;
-  span {
-    opacity: 0;
-  }
-  input {
-    border-radius: 2px;
-  }
-  h2 {
-    font-size: 35px;
-    font-weight: 300;
-    color:  $secondary-red;
-    margin-bottom: 30px;
-    opacity: 0.7;
-    letter-spacing: 1px;
-    margin-top: -30px;
-  }
-  h3 {
-    font-size: 30px;
-    font-weight: 300;
-    color:  $secondary-red;
-    opacity: 0.7;
-    letter-spacing: 1px;
-    padding: 0;
-    margin: 0;
-  }
-  label {
-    font-size: 30px;
-    font-weight: 300;
-    color:  $secondary-red;
-    opacity: 0.9;
-    letter-spacing: 1px;
-  }
-  a {
-    font-size: 15px;
-    font-weight: 300;
-    color:  $secondary-red;
-    opacity: 0.8;
-    letter-spacing: 1px;
-  }
-  em {
-    font-size: 15px;
-    font-weight: 300;
-    color:  $secondary-red;
-    opacity: 0.8;
-    letter-spacing: 1px;
-  }
-  nav {
-    text-align: center;
-    margin-top: 20px;
-    position: relative;
-    opacity: 0.8;
-    margin-top: 60px;
-    a {
-      color:  $secondary-red;
-      text-decoration: none;
-      font-weight: 300;
-      margin: 5px;
-      font-size: 12px;
-      padding: 10px 20px;
-      opacity: 0.5;
-      text-align: center;
-      position: relative;
-      top: 50%;
-    }
-  }
-  .logo_holder {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 1000px;
-    text-align: center;
-    top: 50%;
-    img {
-      transition: all 0.5s ease-in;
-    }
-  }
-  .logo_holder__rotate {
-    //instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    position: absolute;
-    padding-left: 250px;
-    padding-bottom: 800px;
-    opacity: 0.8;
-  }
-  .logo_holder__text {
-    opacity: 0.8;
-  }
-}
-
 h2:hover {
   //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
   transition: all 0.5s ease-in;
@@ -350,124 +260,6 @@ label:hover {
   height: 400px;
   padding: 15px;
   width: 100%;
-}
-
-.splash-tinder {
-  position: absolute;
-  left: 20%;
-}
-
-#tinderslide {
-  width: 1000px;
-  height: 550px;
-  margin: auto;
-  background-color: $background;
-  margin-top: 100px;
-
-  img {
-    float: left;
-    margin: 20px 20px 0 20px;
-    border-radius: 10px;
-
-    -webkit-box-shadow: 2px 2px 15px 2px #a2a2a2;
-    -moz-box-shadow: 2px 2px 15px 2px #a2a2a2;
-    box-shadow: 2px 2px 15px 2px #a2a2a2;
-  }
-
-  li {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.04);
-    padding: 0 0 30px 0;
-    background: #FFF;
-    border-radius: 5px;
-    z-index: 0;
-  }
-}
-
-.actions a i {
-  font-size: 40px;
-}
-
-.actions a {
-  background-color: white;
-  background-image: none;
-  margin: 15px;
-  width: 120px;
-  height: 120px;
-  border-radius: 100%;
-  border: 10px solid #e8e8e8;
-  box-shadow: none;
-}
-
-.u-full-prof {
-  float: right;
-  padding-top: 40px;
-}
-
-.actions .dislike i {
-  font-size: 50px;
-  color: #fc6d5c;
-}
-
-.actions .dislike {
-  line-height: 120px;
-}
-
-.actions .like {
-  line-height: 120px;
-  background-color: #83D566;
-}
-
-.actions .like:hover {
-  background-color: #60C13D;
-}
-
-.actions .like i {
-  color: #5adfa1;
-}
-
-.actions {
-  width: 1000px;
-  align: center;
-}
-
-.left-tinder-box {
-  padding-left: 0;
-
-  img {
-    width: 410px;
-    height: 410px;
-  }
-
-  h1 {
-    overflow: auto;
-    min-width: 410px;
-    max-width: 410px;
-  }
-}
-
-.u-name {
-  height: 140px;
-  margin-left: 21px !important;
-  margin-top: 20px;
-}
-
-.u-about{
-  h1 {
-    text-align: center;
-  }
-
-  p{
-    text-align: left;
-  }
-}
-
-.unfortunate-situation {
-  padding-top: 40%;
-  padding-left: 20%;
-
-  h3 {
-    color: #A7A7A7;
-  }
 }
 
 // side nav
@@ -839,5 +631,12 @@ label:hover {
 
   :hover {
     background-color: rgba(131, 213, 102, 0.92);
+  }
+}
+
+.discover {
+  span {
+    padding-left: 5px;
+    font-size: 18px;
   }
 }

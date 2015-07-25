@@ -1,0 +1,123 @@
+.splash-tinder {
+  z-index: 2000;
+  padding-bottom: 800px;
+  margin-bottom: 200px;
+  h1 {
+    font-weight: 500;
+    opacity: 1;
+    padding: 0;
+    text-align: center;
+    background-color: #F3F3F3;
+    margin-bottom: 35px;
+    border: 1px solid #D8D8D8;
+    border-bottom: 5px solid $red-background;
+  }
+  p {
+    padding-top: 50px;
+    padding-left: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 1;
+    width: 400px;
+  }
+
+  h4 {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  img {
+    box-shadow: none !important;
+  }
+}
+
+#index-image {
+  position: absolute;
+  box-shadow: none !important;
+  float: none !important;
+  left: 250px;
+  top: 100px;
+  opacity: 0.1;
+}
+.login-wrapper {
+  span {
+    opacity: 0;
+  }
+  input {
+    border-radius: 2px;
+  }
+  h2 {
+    font-size: 35px;
+    font-weight: 300;
+    color:  $secondary-red;
+    margin-bottom: 30px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    margin-top: -30px;
+  }
+  h3 {
+    font-size: 30px;
+    font-weight: 300;
+    color:  $secondary-red;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    padding: 0;
+    margin: 0;
+  }
+  label {
+    font-size: 30px;
+    font-weight: 300;
+    color:  $secondary-red;
+    opacity: 0.9;
+    letter-spacing: 1px;
+  }
+  a {
+    font-size: 15px;
+    font-weight: 300;
+    color:  $secondary-red;
+    opacity: 0.8;
+    letter-spacing: 1px;
+  }
+  em {
+    font-size: 15px;
+    font-weight: 300;
+    color:  $secondary-red;
+    opacity: 0.8;
+    letter-spacing: 1px;
+  }
+  nav {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    opacity: 0.8;
+    margin-top: 60px;
+    a {
+      color:  $secondary-red;
+      text-decoration: none;
+      font-weight: 300;
+      margin: 5px;
+      font-size: 12px;
+      padding: 10px 20px;
+      opacity: 0.5;
+      text-align: center;
+      position: relative;
+      top: 50%;
+    }
+  }
+  .logo_holder {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 1000px;
+    text-align: center;
+    top: 100px;
+    img {
+      transition: all 0.5s ease-in;
+    }
+  }
+
+  .logo_holder_text {
+    opacity: 0.8;
+  }
+}

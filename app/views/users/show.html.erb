@@ -84,10 +84,12 @@
   </div>
   <div class="large-12 columns">
     <% if current_user == @user %>
+    <div class="large-6 columns">
       <h2>Rejected users</h2>
       <% @user.rejects.each do |reject| %>
         <%= link_to image_tag(User.find(reject.reject_id).avatar_url, size: "40"), user_path(reject.reject_id)  %>
       <% end -%>
+    </div>
     <% end %>
   </div>
 </div>
